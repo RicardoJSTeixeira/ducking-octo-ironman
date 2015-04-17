@@ -1,0 +1,8 @@
+/_sandbox
+/.idea
+/htaccess
+/htaccess_dev
+/htaccess_prod
+/inc/log.inc.txt
+/inc/vars.inc.php
+/logs/
