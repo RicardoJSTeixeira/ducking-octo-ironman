@@ -1,0 +1,66 @@
+<div id="pag1">
+    <br>
+
+    <div class="progress">
+        <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+             style="min-width: 2em;">
+            0%
+        </div>
+    </div>
+
+    <div class="well">
+        <p>
+            Muito bom dia, o meu nome é <strong> {{top}} </strong> e sou gestor comercial da NOS.
+            <br>
+            Tenho o gosto de estar a falar com o Sr.(a) {{nome}}? Como está passou bem?
+            <br><em>(Se não for, reagendar.)</em>
+        </p>
+
+
+        <form class="form-inline" onsubmit="return false;">
+
+            <div class="form-group">
+                <label for="nome_cliente">Nome</label>
+                <input disabled type="text" class="form-control" id="nome_cliente" value="{{nome}}">
+            </div>
+
+            <label class="radio-inline">
+                <input type="radio" name="contacto_cliente" id="contacto_cliente_sim" value="sim"> Sim
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="contacto_cliente" id="contacto_cliente_nao" value="nao"> Não
+            </label>
+
+        </form>
+    </div>
+
+    <div class="well" id="autoriza_gravacao" style="display:none">
+        <p>
+            A sua chamada será gravada para efeitos de prova de transacções comerciais, outras comunicações respeitantes à relação contratual e monitorização de qualidade de serviço.
+            <br>Autoriza a gravação da chamada?
+        </p>
+
+
+        <form class="form-inline" onsubmit="return false;">
+
+            <label class="radio-inline">
+                <input type="radio" name="autoriza_gravacao" id="autoriza_gravacao_sim" value="sim"> Sim
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="autoriza_gravacao" id="autoriza_gravacao_nao" value="nao"> Não
+            </label>
+
+        </form>
+
+        <button class="btn btn-primary right" type="button" style="display:none" id="pag1_continuar">Continuar</button>
+
+    </div>
+
+    <div class="well" id="ir_para_agendamento" style="display:none">
+
+        <p>
+            <em>(No painel de outcomes FSCONTACT, seleccionar agendamento.)</em>
+        </p>
+
+    </div>
+</div>

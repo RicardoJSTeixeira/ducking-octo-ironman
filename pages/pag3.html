@@ -1,0 +1,94 @@
+<div id="pag3">
+    <br>
+
+    <button class="btn btn-primary btn-xs" type="button" id="pag3_back">Voltar</button>
+    <hr>
+
+    <div class="progress">
+        <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="40"
+             aria-valuemin="0" aria-valuemax="100"
+             style="width: 40%; min-width: 2em;">
+            40%
+        </div>
+    </div>
+
+    <div class="well">
+
+        <div class="col-md-6">
+
+
+            <h3>Dados Operador Actual</h3>
+
+            <p>Pacote actual: {{pacote.operadora}}_{{pacote.tipo_pacote}}</p>
+
+            <p>Tecnologia: {{tecnologia}}</p>
+
+            <p>Tem PC: {{net_fixa.tem_computador_portatil}}</p>
+
+            <p>Tem Tablet: {{net_movel.utiliza_tablet_smartphone}} </p>
+
+            <p>Mensalidade: {{mensalidade_total}} € </p>
+
+        </div>
+
+        <div class="col-md-6">
+
+            <h3>Argumentário</h3>
+
+            <p><span id="descritivo_argumentario"></span></p>
+
+        </div>
+
+
+        <div class="col-md-12">
+
+            <div class="radio-inline" id="container_propostas">
+
+            </div>
+
+
+        </div>
+
+
+        <div class="col-md-12 col-sm-12">
+            <table id="table_proposta" class="table table-bordered">
+                <thead>
+                <tr>
+                    <th colspan="7">
+                        <h5 style="margin:0">
+                            <span id="proposta_pacote"></span>
+                            <small id="proposta_pacote_comercial"></small>
+                        </h5>
+                    </th>
+                </tr>
+                <tr>
+                    <th>Televisão</th>
+                    <th>Net Fixa</th>
+                    <th>Telefone</th>
+                    <th>Telemóvel</th>
+                    <th>Net Móvel</th>
+                    <th>Cinema</th>
+                    <th>Mensalidade</th>
+                </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                <tr>
+                    <td>
+                        <button class="btn btn-xs" id="ver_proposta_um" type="button">P1</button>
+                        <button class="btn btn-xs" id="ver_proposta_dois" type="button">P2</button>
+                        <button class="btn btn-xs" id="ver_proposta_tres" type="button">P3</button>
+                    </td>
+                    <td colspan="5"></td>
+                    <td>
+                        <button class="btn btn-xs btn-success" id="cliente_aceita_proposta" type="button">Aderir
+                        </button>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+
+
+    </div>
+</div>
