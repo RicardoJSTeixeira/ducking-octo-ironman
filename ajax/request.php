@@ -255,9 +255,49 @@ function fnGetInfoProposta(PDO $db)
 
 function fnSave(PDO $db, $dados)
 {
-    var_dump($dados);
-
     // se gravou com sucesso, return true; se não return false
 
+
+    $oVars = fnMakeInsert($dados);
+
+    var_dump($oVars);
+
     return true;
+}
+
+
+function fnMakeInsert($aData)
+{
+    $sKeys = "";
+    $sVals = "";
+    $aVars = [];
+
+    fnMakeInsertRecursive($aData, $sKeys, $aVars, $sVals);
+
+    return [
+        "keys" => rtrim($sKeys, ","),
+        "vals" => rtrim($sVals, ","),
+        "vars" => $aVars,
+    ];
+}
+
+function fnMakeInsertRecursive($aData, &$sKeys, &$aVars, &$sVals, $thisRoot = "")
+{
+
+    if (!empty($thisRoot))
+        $thisRoot = $thisRoot . "_";
+
+    foreach ($aData as $thatKey => $val) {
+
+        if (is_array($val)) {
+            fnMakeInsertRecursive($val, $sKeys, $aVars, $sVals, $thisRoot . $thatKey);
+            continue;
+        }
+        $thisKey = "$thisRoot$thatKey";
+
+        $sKeys .= " $thisKey,";
+        $sVals .= " :$thisKey,";
+        $aVars[":$thisKey"] = $val;
+
+    }
 }

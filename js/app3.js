@@ -131,7 +131,7 @@ var app3 = (function () {
 
 
     function fnPopulateTableProposta(oProposta) {
-
+//todo inverter
         var sTableTR = "\
         <tr>\
             <td>\
