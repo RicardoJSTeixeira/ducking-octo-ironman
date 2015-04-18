@@ -77,7 +77,7 @@ var app3 = (function () {
 
         fnDisableAnimation();
 
-        jqC.find("[name=ver_proposta]").click(function () {
+        jqC.find("[name=ver_proposta]").change(function () {
             fnGetDados(this.value);
         });
 
