@@ -56,7 +56,7 @@ var app5 = (function () {
         });
 
         //next page
-        jqC.find$("#pag5_continuar").click(function () {
+        jqC.find("#pag5_continuar").click(function () {
 
             /* if (!fnPaginaValidada())
              return false;*/
