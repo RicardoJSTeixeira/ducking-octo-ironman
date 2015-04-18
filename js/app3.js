@@ -181,6 +181,9 @@ var app3 = (function () {
 
     function fnTableResetPropostaEArgumentarios() {
 
+        if (!jqC)
+            return false;
+
         jqC.find("#table_proposta > tbody").empty();
         jqC.find("#proposta_pacote").empty();
         jqC.find("#proposta_pacote_comercial").empty();
