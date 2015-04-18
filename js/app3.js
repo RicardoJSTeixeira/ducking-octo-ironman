@@ -55,12 +55,16 @@ var app3 = (function () {
         jqC.find("#container_propostas").on("change", "[name=propostas]", function () { // quando mudar o elemento named propostas, dentro do container
 
             var n = $(document).height();
-            $('html, body').animate({ scrollTop: 90 }, 4000).animate({ scrollTop: n }, 3000);
+            $('html, body').clearQueue().stop().animate({ scrollTop: 90 }, 4000).animate({ scrollTop: n }, 3000);
 
             var oProposta = aPropostas[this.value];
             fnPopulateTableProposta(oProposta);
             fnArgumentario(oProposta.mens_1a12, oPerfil.mensalidade_total);
 
+        });
+
+        $("html").scroll(function(){
+            $('html, body').clearQueue().stop().animate({ scrollTop: n }, 1000);
         });
 
         jqC.find("#ver_proposta_um").click(function () {
