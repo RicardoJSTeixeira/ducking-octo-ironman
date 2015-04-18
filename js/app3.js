@@ -335,7 +335,7 @@ var app3 = (function () {
     return {
         init: fnInit,
         restartPropostas: function () {
-            jqC.find("[name=ver_proposta]").filter('[value=0]').parent().button('toggle');
+            $("[name=ver_proposta]").filter('[value=0]').parent().button('toggle');
         },
         getValues: fnGetValues,
         setNextPage: fnSetNextPage,
