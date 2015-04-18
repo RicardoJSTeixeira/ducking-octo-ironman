@@ -217,8 +217,7 @@ var app3 = (function () {
 
                 fnMakePropostas(aPropostasRecebidas);
             },
-            fnMakePropostas, "json"
-        )
+            "json")
 
     }
 
