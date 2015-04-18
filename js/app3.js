@@ -55,7 +55,7 @@ var app3 = (function () {
         jqC.find("#container_propostas").on("change", "[name=propostas]", function () { // quando mudar o elemento named propostas, dentro do container
 
             var n = $(document).height();
-            $('html, body').clearQueue().stop().animate({ scrollTop: 90 }, 4000).animate({ scrollTop: n }, 3000);
+            $('html, body').clearQueue().stop().animate({scrollTop: 90}, 4000).animate({scrollTop: n}, 3000);
 
             var oProposta = aPropostas[this.value];
             fnPopulateTableProposta(oProposta);
@@ -63,9 +63,10 @@ var app3 = (function () {
 
         });
 
-        $(window).on("scroll mousedown DOMMouseScroll mousewheel keyup", function(e){
-            if ( e.which > 0 || e.type === "mousedown" || e.type === "mousewheel"){
-                $(window).clearQueue().stop().off('scroll mousedown DOMMouseScroll mousewheel keyup'); // This identifies the scroll as a user action, stops the animation, then unbinds the event straight after (optional)
+        $(window).on("scroll mousedown DOMMouseScroll mousewheel keyup", function (e) {
+            if (e.which > 0 || e.type === "mousedown" || e.type === "mousewheel") {
+                $('html, body').clearQueue().stop();
+                $(window).off('scroll mousedown DOMMouseScroll mousewheel keyup'); // This identifies the scroll as a user action, stops the animation, then unbinds the event straight after (optional)
             }
         });
 
