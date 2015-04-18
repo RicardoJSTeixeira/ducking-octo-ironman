@@ -15,7 +15,8 @@ var app3 = (function () {
 
     function fnInit(oDadosPagina2) {
 
-        oPerfil = oDadosPagina2;
+        if (oDadosPagina2)
+            oPerfil = oDadosPagina2;
 
         jqC = $("#container").find("#pag3");
 
