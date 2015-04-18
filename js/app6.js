@@ -81,7 +81,7 @@ var app6 = (function () {
 
         var sRendered = Mustache.render(sTemplate, oDados.pag3.proposta);
 
-        jqC.find("#header").append(sRendered);
+        $("#header").append(sRendered);
 
     }
 
