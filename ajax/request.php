@@ -5,7 +5,7 @@ ini_set('display_errors', 1);
 
 /*
  * TODO Criar logs de txt com as várias interacções do script e gravar o oVars final
- * */
+ */
 
 include '../inc/vars.inc.php';
 include '../inc/func.inc.php';
@@ -266,7 +266,6 @@ function fnSave(PDO $db, $dados)
 
     try {
         $sqlInsercao = 'INSERT INTO [dbo].[FIN] (' . $oVars["keys"] . ') VALUES (' . $oVars["vals"] . ')';
-        //$sqlInsercaoPSQL = 'INSERT INTO fsdatabases.nos_residencial_fin (' . $oVars["keys"] . ') VALUES (' . $oVars["vals"] . ')';
         $stmt = $db->prepare($sqlInsercao);
         return $stmt->execute($oVars["vars"]);
 

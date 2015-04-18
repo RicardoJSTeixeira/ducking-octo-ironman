@@ -1,10 +1,9 @@
 <?php
 
-
 /*
 
 @author Vitor Correia
-@lastupdate 201504151644
+@lastupdate 201504190033
 
 */
 
@@ -91,15 +90,12 @@ function bdPDOMSSQLICNOSResidencial()
             )
         );
 
-        //PDOStatement::setAttribute(PDO::SQLSRV_ATTR_ENCODING, PDO::SQLSRV_ENCODING_UTF8);
-
-
     } catch (PDOException $exPDOMSSQL) {
 
         if ($emDebug) {
             throw $exPDOMSSQL;
         } else {
-            exit('Erro na ligação à BD!');
+            echo('Erro na ligação à BD!');
         }
 
     }
@@ -119,7 +115,7 @@ function bdPDOPSQLNOSResidencial()
         $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
         $db->exec("SET CLIENT_ENCODING TO 'UTF8'");
     } catch (PDOException $e) {
-        die('Connection failed: ' . $e->getMessage());
+        echo('Connection failed: ' . $e->getMessage());
     }
 
     return $db;
