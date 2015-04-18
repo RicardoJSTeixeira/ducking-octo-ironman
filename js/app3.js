@@ -21,7 +21,6 @@ var app3 = (function () {
 
         if (jqC.length) {
             jqC.show();
-            fnGetDados(0);
             return true
         }
 
@@ -315,6 +314,7 @@ var app3 = (function () {
 
     return {
         init: fnInit,
+        restartPropostas: fnGetDados,
         getValues: fnGetValues,
         setNextPage: fnSetNextPage,
         setPreviousPage: fnSetPreviousPage,

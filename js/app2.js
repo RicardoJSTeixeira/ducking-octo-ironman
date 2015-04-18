@@ -59,7 +59,10 @@ var app2 = (function () {
 
 
         var sOptions = "<option value='nothing'>[Seleccione uma opção]</option>\
-                        <option data-pacote='" + JSON.stringify({tipo_pacote: "-", operadora: ""}) + "' >SEM PERFIL</option>";
+                        <option data-pacote='" + JSON.stringify({
+                tipo_pacote: "-",
+                operadora: ""
+            }) + "' >SEM PERFIL</option>";
 
 
         oDados.aOperadoras.forEach(function (sOperadora) {
@@ -71,13 +74,15 @@ var app2 = (function () {
 
             })
         });
-        
+
         jqC.find("#perfil_entrada").append(sOptions);
 
     }
 
     function fnSetEvents() {
         jqC.find("#perfil_entrada").change(function () {
+
+            app3.restartPropostas();
 
             // limpar formatações derivadas de filtros
             jqC.find(".tag_servicos")
@@ -127,10 +132,10 @@ var app2 = (function () {
         // permitir apenas floats nas mensalidades
         jqC.find('#mensalidade_total,#tem_tv_mensalidade,#tem_net_fixa_mensalidade,#tem_telefone_mensalidade,#tem_net_movel_mensalidade')
             .keypress(function (event) {
-            if ((event.which != 46 || $(this).val().indexOf('.') != -1) && (event.which < 48 || event.which > 57)) {
-                event.preventDefault();
-            }
-        });
+                if ((event.which != 46 || $(this).val().indexOf('.') != -1) && (event.which < 48 || event.which > 57)) {
+                    event.preventDefault();
+                }
+            });
 
         //next page
         jqC.find("#pag2_continuar").click(function () {
