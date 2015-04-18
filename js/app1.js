@@ -4,10 +4,14 @@
 
 var app1 = (function () {
     var fnNextPag;
+    var jsC;
 
     function fnInit() {
-        if ($("#container").find("#pag1").length) {
-            $("#container").find("#pag1").show();
+
+        jsC = $("#container").find("#pag1");
+
+        if (jsC.length) {
+            jsC.show();
             return true
         }
 
@@ -15,7 +19,7 @@ var app1 = (function () {
             function (sHtml) {
                 var sRendered = Mustache.render(sHtml, oVars);
 
-                $("#container").append(sRendered);
+                jsC = $("#container").append(sRendered).find("#pag1");
 
                 fnSetEvents();
 
@@ -29,23 +33,23 @@ var app1 = (function () {
     }
 
     function fnSetEvents() {
-        $("[name=contacto_cliente]").click(function () {
+        jsC.find("[name=contacto_cliente]").click(function () {
 
             var bOk = this.value == 'sim'; // bOk é true quando o this.value for sim
-            $("#ir_para_agendamento").toggle(!bOk);
-            $("#autoriza_gravacao").toggle(bOk);
+            jsC.find("#ir_para_agendamento").toggle(!bOk);
+            jsC.find("#autoriza_gravacao").toggle(bOk);
 
         });
 
-        $("[name=autoriza_gravacao]").click(function () {
+        jsC.find("[name=autoriza_gravacao]").click(function () {
 
 
-            $("#pag1_continuar").show();
+            jsC.find("#pag1_continuar").show();
 
         });
 
 //next pag
-        $("#pag1_continuar").click(function () {
+        jsC.find("#pag1_continuar").click(function () {
             fnNextPag();
         });
 
@@ -53,9 +57,9 @@ var app1 = (function () {
 
     function fnGetValues() {
         return {
-            nome: $("#nome_cliente").val(),
-            contacto_cliente: $("[name=contacto_cliente]:checked").val(),
-            autoriza_gravacao: $("[name=autoriza_gravacao]:checked").val()
+            nome: jsC.find("#nome_cliente").val(),
+            contacto_cliente: jsC.find("[name=contacto_cliente]:checked").val(),
+            autoriza_gravacao: jsC.find("[name=autoriza_gravacao]:checked").val()
         }
     }
 
@@ -64,7 +68,7 @@ var app1 = (function () {
         getValues: fnGetValues,
         setNextPage: fnSetNextPage,
         hide: function () {
-            $("#container").find("#pag1").hide();
+            jsC.hide();
         }
     }
 })();

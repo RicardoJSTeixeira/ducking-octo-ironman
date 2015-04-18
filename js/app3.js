@@ -8,6 +8,7 @@ var app3 = (function () {
     var aPropostas = [];
     var fnNextPag;
     var fnPreviousPag;
+    var jsC;
 
     var cliente_aceita_observacoes;
     var quantas_boxes;
@@ -16,16 +17,20 @@ var app3 = (function () {
 
         oPerfil = oDadosPagina2;
 
-        if ($("#container").find("#pag3").length) {
-            $("#container").find("#pag3").show();
+        jsC = $("#container").find("#pag3");
+
+        if (jsC.length) {
+            jsC.show();
             fnGetDados(0);
             return true
         }
 
         $.get("pages/pag3.html",
             function (sHTML) {
+
                 var sRendered = Mustache.render(sHTML, oPerfil);
-                $("#container").append(sRendered);
+
+                jsC = $("#container").append(sRendered).find("#pag3");
 
                 fnGetDados(0);
 
@@ -47,7 +52,7 @@ var app3 = (function () {
     function fnSetEvents() {
 
 
-        $("#container_propostas").on("change", "[name=propostas]", function () { // quando mudar o elemento named propostas, dentro do container
+        jsC.find("#container_propostas").on("change", "[name=propostas]", function () { // quando mudar o elemento named propostas, dentro do container
 
             var oProposta = aPropostas[this.value];
             fnPopulateTableProposta(oProposta);
@@ -55,24 +60,24 @@ var app3 = (function () {
 
         });
 
-        $("#ver_proposta_um").click(function () {
+        jsC.find("#ver_proposta_um").click(function () {
             fnGetDados(0);
         });
 
-        $("#ver_proposta_dois").click(function () {
+        jsC.find("#ver_proposta_dois").click(function () {
             fnGetDados(1);
         });
 
-        $("#ver_proposta_tres").click(function () {
+        jsC.find("#ver_proposta_tres").click(function () {
             fnGetDados(2);
         });
 
-        $("#cliente_aceita_proposta").click(function () {
+        jsC.find("#cliente_aceita_proposta").click(function () {
             fnModalClienteAceita();
         });
 
         //previous
-        $("#pag3_back").click(function () {
+        jsC.find("#pag3_back").click(function () {
 
             fnPreviousPag();
 
@@ -81,7 +86,7 @@ var app3 = (function () {
     }
 
     function fnGetSelectedProposta() {
-        var jqP = $("[name=propostas]:checked");
+        var jqP = jsC.find("[name=propostas]:checked");
 
         if (!jqP.length)
             return false;
@@ -91,11 +96,12 @@ var app3 = (function () {
 
     function fnArgumentario(nova, antiga) {
 
-        $("#descritivo_argumentario").html(fnCalcArgumentario(nova, antiga));
+        jsC.find("#descritivo_argumentario").html(fnCalcArgumentario(nova, antiga));
 
     }
 
     function fnCalcArgumentario(nova, antiga) {
+
         nova = mUtil.parseNr(nova);
         antiga = mUtil.parseNr(antiga);
 
@@ -151,17 +157,19 @@ var app3 = (function () {
                 <p><small>Preço 1ª mensalidade: {{mens_1}}{{^mens_1}}{{/mens_1}}</small></p>\
         </tr>";
 
-        $("#table_proposta > tbody").html(Mustache.render(sTableTR, oProposta));
-        $("#proposta_pacote").text(oProposta.pacote);
-        $("#proposta_pacote_comercial").text(oProposta.pacote_comercial);
+        jsC.find("#table_proposta > tbody").html(Mustache.render(sTableTR, oProposta));
+        jsC.find("#proposta_pacote").text(oProposta.pacote);
+        jsC.find("#proposta_pacote_comercial").text(oProposta.pacote_comercial);
 
     }
 
     function fnTableResetPropostaEArgumentarios() {
-        $("#table_proposta > tbody").empty();
-        $("#proposta_pacote").empty();
-        $("#proposta_pacote_comercial").empty();
-        $("#descritivo_argumentario").empty();
+
+        jsC.find("#table_proposta > tbody").empty();
+        jsC.find("#proposta_pacote").empty();
+        jsC.find("#proposta_pacote_comercial").empty();
+        jsC.find("#descritivo_argumentario").empty();
+
     }
 
     function fnGetDados(nr) {
@@ -193,13 +201,13 @@ var app3 = (function () {
         aPropostas.forEach(function (aProposta, index) {
 
             sRadiosPropostas += ' <label class="radio-inline">\
-            <input type="radio" name="propostas" value="' + index + '"> ' + aProposta.pacote + '\
-            </label>';
+                                      <input type="radio" name="propostas" value="' + index + '"> ' + aProposta.pacote + '\
+                                  </label>';
 
 
         });
 
-        $("#container_propostas").html(sRadiosPropostas);
+        jsC.find("#container_propostas").html(sRadiosPropostas);
 
     }
 
@@ -256,12 +264,12 @@ var app3 = (function () {
                         className: "btn-success",
                         callback: function () {
 
-                           if (!($("#quantas_boxes").valid() && $("#cliente_aceita_observacoes").valid()))
+                            if (!(jsC.find("#quantas_boxes").valid() && jsC.find("#cliente_aceita_observacoes").valid()))
                                 return false;
 
                             //globais ao app3
-                            cliente_aceita_observacoes = $('#cliente_aceita_observacoes').val();
-                            quantas_boxes = $("#quantas_boxes").val();
+                            cliente_aceita_observacoes = jsC.find('#cliente_aceita_observacoes').val();
+                            quantas_boxes = jsC.find("#quantas_boxes").val();
 
                             fnNextPag();
                         }
@@ -293,7 +301,7 @@ var app3 = (function () {
         setNextPage: fnSetNextPage,
         setPreviousPage: fnSetPreviousPage,
         hide: function () {
-            $("#container").find("#pag3").hide();
+            jsC.hide();
         }
     }
 
