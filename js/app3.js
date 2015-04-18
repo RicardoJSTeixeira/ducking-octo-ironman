@@ -200,8 +200,8 @@ var app3 = (function () {
         if (!jqC)
             return false;
 
-        jqC.find("[name=ver_proposta]").removeClass("active").filter('[value=2]').prop('checked', true).addClass("active");
-        jqC.find("[name=ver_proposta]").parent().removeClass("active").find("[value=2]").parent().addClass("active");
+        jqC.find("[name=ver_proposta]").removeClass("active").filter('[value='+nr+']').prop('checked', true).addClass("active");
+        jqC.find("[name=ver_proposta]").parent().removeClass("active").find('[value='+nr+']').parent().addClass("active");
 
         fnTableResetPropostaEArgumentarios();
 
