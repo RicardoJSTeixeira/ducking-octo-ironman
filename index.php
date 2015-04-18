@@ -140,7 +140,7 @@ $telefone = "963258741";
 
         <div> <!-- Start header -->
 
-            <div class="col-md-6 panel panel-default">
+            <div class="col-md-6 panel panel-default" id="header">
                 <img src="img/cliente/cliente_logo.png">
             </div>
 

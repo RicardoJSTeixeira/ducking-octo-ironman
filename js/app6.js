@@ -63,14 +63,27 @@ var app6 = (function () {
         jqC.find("#pag6_continuar").click(function () {
             fnSubmit();
             bootbox.confirm("Quer vender outro serviço?", function (bYes) {
-                if (bYes)
+                if (bYes) {
+                    fnMakeBanner();
                     fnAnotherOne();
+                }
             })
 
 
         });
     }
 
+    function fnMakeBanner() {
+
+        var sTemplate = "<h5 style='display: inline;margin-left: 25px;'>\
+                            <span class='label label-success'>Fechado: {{pacote}}</span>\
+                       </h5>";
+
+        var sRendered = Mustache.render(sTemplate, oDados.pag3.proposta);
+
+        jqC.find("#header").append(sRendered);
+
+    }
 
     function fnGetValues() {
         return {}
