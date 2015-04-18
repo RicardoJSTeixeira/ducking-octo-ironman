@@ -264,12 +264,12 @@ var app3 = (function () {
                         className: "btn-success",
                         callback: function () {
 
-                            if (!(jsC.find("#quantas_boxes").valid() && jsC.find("#cliente_aceita_observacoes").valid()))
+                            if (!($("#quantas_boxes").valid() && $("#cliente_aceita_observacoes").valid()))
                                 return false;
 
                             //globais ao app3
-                            cliente_aceita_observacoes = jsC.find('#cliente_aceita_observacoes').val();
-                            quantas_boxes = jsC.find("#quantas_boxes").val();
+                            cliente_aceita_observacoes = $('#cliente_aceita_observacoes').val();
+                            quantas_boxes = $("#quantas_boxes").val();
 
                             fnNextPag();
                         }

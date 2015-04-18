@@ -133,10 +133,10 @@ $telefone = "963258741";
 
 <body>
 
-<div class="container"  style="padding: 15px">
+<div class="container"  style="padding-top: 0px">
 
 
-    <div class="row">
+    <div class="row" style="margin-bottom: -23px;">
 
         <div> <!-- Start header -->
 
