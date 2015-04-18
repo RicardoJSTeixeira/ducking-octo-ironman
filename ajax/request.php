@@ -3,6 +3,10 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+/*
+ * TODO Criar logs de txt com as várias interacções do script e gravar o oVars final
+ * */
+
 include '../inc/vars.inc.php';
 include '../inc/func.inc.php';
 
@@ -12,6 +16,7 @@ $REQVARS = ${"_" . $_SERVER['REQUEST_METHOD']};
 $action = filter_var($REQVARS["action"]);
 
 $db = bdPDOPSQLNOSResidencial();
+$dbGravar = bdPDOMSSQLICNOSResidencial();
 
 switch ($action) {
     case "GetPerfil":
@@ -24,7 +29,7 @@ switch ($action) {
         break;
     case "Save":
         $dados = filter_var_array($REQVARS["dados_chamada"]);
-        echo json_encode(fnSave($db, $dados));
+        echo json_encode(fnSave($dbGravar, $dados));
         break;
     default:
         die("WTF!?");
@@ -257,12 +262,21 @@ function fnSave(PDO $db, $dados)
 {
     // se gravou com sucesso, return true; se não return false
 
-
     $oVars = fnMakeInsert($dados);
 
-    var_dump($oVars);
+    try {
+        $sqlInsercao = 'INSERT INTO [dbo].[FIN] (' . $oVars["keys"] . ') VALUES (' . $oVars["vals"] . ')';
+        $stmt = $dbGravar->prepare($sqlInsercao);
+        return $stmt->execute($oVars["vars"]);
 
-    return true;
+    } catch (PDOException $exGravarVenda) {
+        echo $exGravarVenda->getMessage();
+        return false;
+    }
+
+    // DEBUG purposes
+    //var_dump($oVars);
+    //return true;
 }
 
 

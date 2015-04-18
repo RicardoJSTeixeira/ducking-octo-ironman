@@ -45,7 +45,7 @@ var app6 = (function () {
             function (bOk) { // recebendo ok / true do request::fnSave, fechar interaccao
                 console.log(bOk);
                 //global
-                banana2000xpto = bOk;
+                banana2000xpto = bOk; // dá indicação à FSCONTACT que a venda terminou
                 //todo append em qualquer lado que fez um submit (por pelo menos o nome do pacote) para ir mostrando que pacotes já foram vendidos
 
             }, "json")
@@ -69,7 +69,7 @@ var app6 = (function () {
                 if (bYes) {
                     fnAnotherOne();
                 }else{
-                    //bloquea-mos o script
+                    //bloqueamos o script
                     $.msg({
                         bgPath : '/img/',
                         autoUnblock : false,
