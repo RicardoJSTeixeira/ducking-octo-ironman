@@ -9,7 +9,7 @@ var app3 = (function () {
     var fnNextPag;
     var fnPreviousPag;
     var jqC;
-
+    var iNrProp;
     var cliente_aceita_observacoes;
     var quantas_boxes;
 
@@ -200,8 +200,13 @@ var app3 = (function () {
         if (!jqC)
             return false;
 
-        jqC.find("[name=ver_proposta]").removeClass("active").filter('[value='+nr+']').prop('checked', true).addClass("active");
-        jqC.find("[name=ver_proposta]").parent().removeClass("active").find('[value='+nr+']').parent().addClass("active");
+        if (iNrProp == nr)
+            return false;
+
+        iNrProp = nr;
+
+        jqC.find("[name=ver_proposta]").filter('[value=' + nr + ']').prop('checked', true);
+        jqC.find("[name=ver_proposta]").filter('[value=' + nr + ']').prop('checked', true).parent().parent().find("label").removeClass("active").end().end().addClass("active");
 
         fnTableResetPropostaEArgumentarios();
 
