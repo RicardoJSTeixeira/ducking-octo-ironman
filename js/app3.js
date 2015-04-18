@@ -65,7 +65,7 @@ var app3 = (function () {
 
         $(window).on("scroll mousedown DOMMouseScroll mousewheel keyup", function(e){
             if ( e.which > 0 || e.type === "mousedown" || e.type === "mousewheel"){
-                $viewport.clearQueue().stop().off('scroll mousedown DOMMouseScroll mousewheel keyup'); // This identifies the scroll as a user action, stops the animation, then unbinds the event straight after (optional)
+                $(window).clearQueue().stop().off('scroll mousedown DOMMouseScroll mousewheel keyup'); // This identifies the scroll as a user action, stops the animation, then unbinds the event straight after (optional)
             }
         });
 
