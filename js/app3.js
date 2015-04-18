@@ -200,6 +200,9 @@ var app3 = (function () {
         if (nr > 3)
             return false;
 
+        jqC.find("[name=ver_proposta]").removeClass("active").filter('[value=2]').prop('checked', true).addClass("active");
+        jqC.find("[name=ver_proposta]").parent().removeClass("active").find("[value=2]").parent().addClass("active");
+
         fnTableResetPropostaEArgumentarios();
 
         $.get("ajax/request.php",
