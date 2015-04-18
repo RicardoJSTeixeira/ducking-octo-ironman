@@ -183,9 +183,6 @@ var app3 = (function () {
 
     function fnTableResetPropostaEArgumentarios() {
 
-        if (!jqC)
-            return false;
-
         jqC.find("#table_proposta > tbody").empty();
         jqC.find("#proposta_pacote").empty();
         jqC.find("#proposta_pacote_comercial").empty();
@@ -198,6 +195,9 @@ var app3 = (function () {
         nr = (_.isFinite(+nr)) ? +nr : 0;
 
         if (nr > 3)
+            return false;
+
+        if (!jqC)
             return false;
 
         jqC.find("[name=ver_proposta]").removeClass("active").filter('[value=2]').prop('checked', true).addClass("active");
