@@ -145,12 +145,10 @@ var app3 = (function () {
                 <p class='lead'><u>{{tv_canais}}{{^tv_canais}}Sem TV{{/tv_canais}}</u></p>\
                 <p><small>{{equip_tv}}{{^equip_tv}}{{/equip_tv}}</small></p>\
                 <p><small>{{tv_horas_gravacao}}{{^tv_horas_gravacao}}{{/tv_horas_gravacao}}</small></p>\
-                <p><small>{{notas_televisao}}{{^notas_televisao}}{{/notas_televisao}}</small></p>\
             </td>\
             <td>\
                 <p class='lead'><u>{{net}}{{^net}}Sem Net{{/net}}</u></p>\
                 <p><small>{{equip_net}}{{^equip_net}}{{/equip_net}}</small></p>\
-                <p><small>{{notas_net}}{{^notas_net}}{{/notas_net}}</small></p>\
             </td>\
             <td>\
                 <p class='lead'><u>{{telefone}}{{^telefone}}Sem Telefone{{/telefone}}</u></p>\
@@ -171,6 +169,17 @@ var app3 = (function () {
                 <p><small>Preço 13-24 meses: {{mens_13a24}}{{^mens_13a24}}{{/mens_13a24}}</small></p>\
                 <p><small>Preço > 24 meses: {{mens_24}}{{^mens_24}}{{/mens_24}}</small></p>\
                 <p><small>Preço 1ª mensalidade: {{mens_1}}{{^mens_1}}{{/mens_1}}</small></p>\
+        </tr>\
+        <tr>\
+        <td>\
+            <p><small>{{notas_net}}{{^notas_net}}{{/notas_net}}</small></p>\
+        </td>\
+        <td colspan='6'></td>\
+        </tr>\
+        <tr>\
+        <td colspan='7'>\
+            <p><small>{{notas_televisao}}{{^notas_televisao}}{{/notas_televisao}}</small></p>\
+        </td>\
         </tr>";
 
         jqC.find("#table_proposta > tbody").html(Mustache.render(sTableTR, oProposta));
