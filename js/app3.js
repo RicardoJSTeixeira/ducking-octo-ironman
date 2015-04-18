@@ -191,22 +191,22 @@ var app3 = (function () {
     }
 
     function fnGetDados(nr) {
+        var iNr;
+        iNr = (_.isFinite(+iNr)) ? +iNr : 0;
 
-        nr = (_.isFinite(+nr)) ? +nr : 0;
-
-        if (nr > 3)
+        if (iNr > 3)
             return false;
 
         if (!jqC)
             return false;
 
-        if (iNrProp == nr)
+        if (iNrProp == iNr && !_.isUndefined(nr))
             return false;
 
-        iNrProp = nr;
+        iNrProp = iNr;
 
-        if (!jqC.find("[name=ver_proposta]").filter('[value=' + nr + ']').is(":checked"))
-            jqC.find("[name=ver_proposta]").filter('[value=' + nr + ']').parent().button('toggle');
+        if (!jqC.find("[name=ver_proposta]").filter('[value=' + iNr + ']').is(":checked"))
+            jqC.find("[name=ver_proposta]").filter('[value=' + iNr + ']').parent().button('toggle');
 
         fnTableResetPropostaEArgumentarios();
 
@@ -214,14 +214,14 @@ var app3 = (function () {
             {
                 action: "GetProposta",
                 dados_perfil: oPerfil,
-                nr_proposta: nr
+                nr_proposta: iNr
             },
             function (aPropostasRecebidas) {
 
                 if (!aPropostasRecebidas.length) {
-                    console.warn("Consulta às propostas[" + (nr + 1 ) + "] não retornou dados!");
-                    if (nr < 3)
-                        fnGetDados(++nr);
+                    console.warn("Consulta às propostas[" + (iNr + 1 ) + "] não retornou dados!");
+                    if (iNr < 3)
+                        fnGetDados(++iNr);
                 }
 
                 fnMakePropostas(aPropostasRecebidas);
