@@ -77,16 +77,8 @@ var app3 = (function () {
 
         fnDisableAnimation();
 
-        jqC.find("#ver_proposta_um").click(function () {
-            fnGetDados(0);
-        });
-
-        jqC.find("#ver_proposta_dois").click(function () {
-            fnGetDados(1);
-        });
-
-        jqC.find("#ver_proposta_tres").click(function () {
-            fnGetDados(2);
+        jqC.find("[name=ver_proposta]").click(function () {
+            fnGetDados(this.value);
         });
 
         jqC.find("#cliente_aceita_proposta").click(function () {
@@ -203,7 +195,7 @@ var app3 = (function () {
 
     function fnGetDados(nr) {
 
-        nr = (_.isFininte(+nr)) ? +nr : 0;
+        nr = (_.isFinite(+nr)) ? +nr : 0;
 
         if (nr > 3)
             return false;
