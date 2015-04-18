@@ -203,7 +203,10 @@ var app3 = (function () {
 
     function fnGetDados(nr) {
 
-        nr = (nr) ? nr : 0;
+        nr = (_.isFininte(+nr)) ? +nr : 0;
+
+        if (nr > 3)
+            return false;
 
         fnTableResetPropostaEArgumentarios();
 
@@ -213,19 +216,23 @@ var app3 = (function () {
                 dados_perfil: oPerfil,
                 nr_proposta: nr
             },
-            fnMakePropostas, "json")
+            function (aPropostasRecebidas) {
+
+                if (!aPropostasRecebidas.length) {
+                    console.warn("Consulta às propostas[" + (nr + 1 ) + "] não retornou dados!");
+                    fnGetDados(++nr);
+                }
+
+                fnMakePropostas(aPropostasRecebidas);
+            },
+            fnMakePropostas, "json"
+        )
 
     }
 
     function fnMakePropostas(aPropostasRecebidas) {
 
         aPropostas = aPropostasRecebidas;
-
-        if (!aPropostas.length) {
-            bootbox.alert("Consulta às propostas não retornou dados!");
-            console.warn("Consulta às propostas não retornou dados!");
-        }
-
 
         var sRadiosPropostas = "";
 
@@ -338,4 +345,5 @@ var app3 = (function () {
         }
     }
 
-})();
+})
+();
