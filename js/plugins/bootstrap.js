@@ -240,7 +240,7 @@ if (typeof jQuery === 'undefined') {
     if (changed) this.$element.toggleClass('active')
   }
 
-  Button.prototype.toggleNoEvent = function () {
+  Button.prototype.toggle_we = function () {
     var changed = true;
     var $parent = this.$element.closest('[data-toggle="buttons"]');
 
