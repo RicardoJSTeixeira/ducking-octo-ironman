@@ -14,7 +14,7 @@ $morada = filter_var($_GET["morada"]);
 $telefone = filter_var($_GET["phone_number"]);
 
 // PARA DEV
-$top = "jc0155";
+$top = "banana";
 $nome = "Maria Rosário";
 $morada = "Rua das campainhas";
 $telefone = "963258741";
