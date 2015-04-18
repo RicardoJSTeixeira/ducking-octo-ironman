@@ -63,8 +63,10 @@ var app3 = (function () {
 
         });
 
-        $("html").scroll(function(){
-            $('html, body').clearQueue().stop().animate({ scrollTop: n }, 1000);
+        $(window).on("scroll mousedown DOMMouseScroll mousewheel keyup", function(e){
+            if ( e.which > 0 || e.type === "mousedown" || e.type === "mousewheel"){
+                $viewport.clearQueue().stop().off('scroll mousedown DOMMouseScroll mousewheel keyup'); // This identifies the scroll as a user action, stops the animation, then unbinds the event straight after (optional)
+            }
         });
 
         jqC.find("#ver_proposta_um").click(function () {
