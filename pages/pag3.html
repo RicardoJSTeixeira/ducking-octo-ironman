@@ -17,17 +17,37 @@
         <div class="col-md-6">
 
 
-            <h3>Dados Operador Actual</h3>
+            <table>
+                <thead>
+                <tr>
+                    <th colspan="2"><h3>Dados Operador Actual</h3></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th>Pacote actual:</th>
+                    <td>{{pacote.operadora}}_{{pacote.tipo_pacote}}</td>
+                </tr>
+                <tr>
+                    <th>Tecnologia:</th>
+                    <td>{{tecnologia}}</td>
+                </tr>
+                <tr>
+                    <th>Tem PC:</th>
+                    <td>{{net_fixa.tem_computador_portatil}}</td>
+                </tr>
+                <tr>
+                    <th>Tem Tablet:</th>
+                    <td>{{net_movel.utiliza_tablet_smartphone}}</td>
+                </tr>
+                <tr>
+                    <th>Mensalidade:</th>
+                    <td>{{mensalidade_total}} €</td>
+                </tr>
+                </tbody>
 
-            <p>Pacote actual: {{pacote.operadora}}_{{pacote.tipo_pacote}}</p>
+            </table>
 
-            <p>Tecnologia: {{tecnologia}}</p>
-
-            <p>Tem PC: {{net_fixa.tem_computador_portatil}}</p>
-
-            <p>Tem Tablet: {{net_movel.utiliza_tablet_smartphone}} </p>
-
-            <p>Mensalidade: {{mensalidade_total}} € </p>
 
         </div>
 
@@ -35,14 +55,14 @@
 
             <h3>Argumentário</h3>
 
-            <p><span id="descritivo_argumentario"></span></p>
+            <h2><p><span id="descritivo_argumentario"></span></p></h2>
 
         </div>
 
 
         <div class="col-md-12">
 
-            <div class="radio-inline" id="container_propostas">
+            <div class="btn-group" data-toggle="buttons" id="container_propostas">
 
             </div>
 

@@ -200,7 +200,7 @@ var app3 = (function () {
 
         aPropostas.forEach(function (aProposta, index) {
 
-            sRadiosPropostas += ' <label class="radio-inline">\
+            sRadiosPropostas += ' <label class="btn btn-primary">\
                                       <input type="radio" name="propostas" value="' + index + '"> ' + aProposta.pacote + '\
                                   </label>';
 
