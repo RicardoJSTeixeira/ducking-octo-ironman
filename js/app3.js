@@ -52,6 +52,16 @@ var app3 = (function () {
     function fnSetEvents() {
 
 
+        var fnDisableAnimation = function () {
+            $(window).on("scroll mousedown DOMMouseScroll mousewheel keyup", function (e) {
+                if (e.which > 0 || e.type === "mousedown" || e.type === "mousewheel") {
+                    $('html, body').clearQueue().stop();
+                    $(window).off('scroll mousedown DOMMouseScroll mousewheel keyup'); // This identifies the scroll as a user action, stops the animation, then unbinds the event straight after (optional)
+                }
+            });
+
+        };
+
         jqC.find("#container_propostas").on("change", "[name=propostas]", function () { // quando mudar o elemento named propostas, dentro do container
 
             var n = $(document).height();
@@ -61,14 +71,11 @@ var app3 = (function () {
             fnPopulateTableProposta(oProposta);
             fnArgumentario(oProposta.mens_1a12, oPerfil.mensalidade_total);
 
+            fnDisableAnimation()
+
         });
 
-        $(window).on("scroll mousedown DOMMouseScroll mousewheel keyup", function (e) {
-            if (e.which > 0 || e.type === "mousedown" || e.type === "mousewheel") {
-                $('html, body').clearQueue().stop();
-                $(window).off('scroll mousedown DOMMouseScroll mousewheel keyup'); // This identifies the scroll as a user action, stops the animation, then unbinds the event straight after (optional)
-            }
-        });
+        fnDisableAnimation();
 
         jqC.find("#ver_proposta_um").click(function () {
             fnGetDados(0);
