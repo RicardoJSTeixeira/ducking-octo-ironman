@@ -191,8 +191,8 @@ var app3 = (function () {
     }
 
     function fnGetDados(nr) {
-        var iNr;
-        iNr = (_.isFinite(+iNr)) ? +iNr : 0;
+
+        var iNr = nr;
 
         if (iNr > 3)
             return false;
@@ -205,8 +205,6 @@ var app3 = (function () {
 
         iNrProp = iNr;
 
-        if (!jqC.find("[name=ver_proposta]").filter('[value=' + iNr + ']').is(":checked"))
-            jqC.find("[name=ver_proposta]").filter('[value=' + iNr + ']').parent().button('toggleNoEvent');
 
         fnTableResetPropostaEArgumentarios();
 
@@ -221,7 +219,7 @@ var app3 = (function () {
                 if (!aPropostasRecebidas.length) {
                     console.warn("Consulta às propostas[" + (iNr + 1 ) + "] não retornou dados!");
                     if (iNr < 3)
-                        fnGetDados(++iNr);
+                        jqC.find("[name=ver_proposta]").filter('[value=' + ++iNr + ']').parent().button('toggle');
                 }
 
                 fnMakePropostas(aPropostasRecebidas);
@@ -336,7 +334,9 @@ var app3 = (function () {
 
     return {
         init: fnInit,
-        restartPropostas: fnGetDados,
+        restartPropostas: function () {
+            jqC.find("[name=ver_proposta]").filter('[value=0]').parent().button('toggle');
+        },
         getValues: fnGetValues,
         setNextPage: fnSetNextPage,
         setPreviousPage: fnSetPreviousPage,
