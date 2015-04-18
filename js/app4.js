@@ -65,11 +65,11 @@ var app4 = (function () {
         });
 
 
-        $("#validar_nib").click(function () {
+        jsC.find("#validar_nib").click(function () {
 
             var bRes, iNib;
 
-            iNib = $("#dados_modalidade_pagamento_nib").val().replace(/-/g, "");
+            iNib = jsC.find("#dados_modalidade_pagamento_nib").val().replace(/-/g, "");
             bRes = mUtil.checkNIB(iNib);
 
             if (bRes) {
@@ -82,18 +82,18 @@ var app4 = (function () {
 
 
         //Mostrar recolha de NIB somente se a modalidade for débito directo
-        $("[name='dados_modalidade_pagamento']").change(function () {
+        jsC.find("[name='dados_modalidade_pagamento']").change(function () {
 
             console.log(this.value)
 
             //caso sim show, caso não hide
-            $("#container_nib").toggle(this.value == "debito_directo");
+            jsC.find("#container_nib").toggle(this.value == "debito_directo");
 
         });
 
         function fnPaginaValidada() {
 //todo so isto???
-            var bEmailClienteExpedicao = $("#dados_email_expedicao").valid();
+            var bEmailClienteExpedicao = jsC.find("#dados_email_expedicao").valid();
             return bEmailClienteExpedicao;
         }
 
