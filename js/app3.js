@@ -57,13 +57,13 @@ var app3 = (function () {
 
         jqC.find("#container_propostas").on("change", "[name=propostas]", function () { // quando mudar o elemento named propostas, dentro do container
 
-            var n = $(document).height();
-            jqHB.clearQueue().stop()
-                .animate({scrollTop: jqC.find("#descritivo_argumentario").offset().top}, 1000);
 
             var oProposta = aPropostas[this.value];
             fnPopulateTableProposta(oProposta);
             fnArgumentario(oProposta.mens_1a12, oPerfil.mensalidade_total);
+
+            jqHB.clearQueue().stop()
+                .animate({scrollTop: jqC.find("#descritivo_argumentario").offset().top}, 1000);
 
             mUtil.disableAnimationOneScroll(jqHB)
 
@@ -295,42 +295,43 @@ var app3 = (function () {
                    <textarea class='form-control required' required id='cliente_aceita_observacoes'></textarea>\
      </div>\
      </form>\
-     <script>$('html,body').animate({scrollTop: 0}, 100)</script>\
             ";
 
         sMessage = Mustache.render(sMessage, oProposta);
 
-        bootbox.dialog({
-                title: "CLIENTE ACEITA",
-                message: sMessage,
-                buttons: {
-                    success: {
-                        label: "Continuar",
-                        className: "btn-success",
-                        callback: function () {
-                            var jqQB = $("#quantas_boxes");
-                            var jqCAO = $("#cliente_aceita_observacoes");
-                            if (!(jqQB.valid() && jqCAO.valid()))
-                                return false;
+        var jqB = bootbox.dialog({
+            title: "CLIENTE ACEITA",
+            message: sMessage,
+            buttons: {
+                success: {
+                    label: "Continuar",
+                    className: "btn-success",
+                    callback: function () {
+                        var jqQB = $("#quantas_boxes");
+                        var jqCAO = $("#cliente_aceita_observacoes");
+                        if (!(jqQB.valid() && jqCAO.valid()))
+                            return false;
 
-                            //globais ao app3
-                            cliente_aceita_observacoes = jqCAO.val();
-                            quantas_boxes = jqQB.val();
+                        //globais ao app3
+                        cliente_aceita_observacoes = jqCAO.val();
+                        quantas_boxes = jqQB.val();
 
-                            fnNextPag();
-                        }
-                    },
-                    main: {
-                        label: "Cancelar",
-                        className: "btn-primary",
-                        callback: function () {
-                            return true;
-                        }
+                        fnNextPag();
+                    }
+                },
+                main: {
+                    label: "Cancelar",
+                    className: "btn-primary",
+                    callback: function () {
+                        return true;
                     }
                 }
             }
-        );
+        });
 
+        jqB.on("shown.bs.modal", function () {
+            $('html,body').animate({scrollTop: 0}, 100)
+        })
     }
 
     function fnGetValues() {

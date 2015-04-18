@@ -21,7 +21,9 @@
         </p>
 
         <p>Sr.(a) <b>{{nome}}</b>, se me permite a pergunta, atualmente que serviço de TV tem na sua residência?</p>
+    </div>
 
+    <div class="well col-xs-12">
         <form class="form-inline" onsubmit="return false;">
 
 
@@ -30,37 +32,46 @@
                 <select id="perfil_entrada" required class="form-control input-sm required"></select>
             </div>
 
-            <div class="radio-inline">
+            <div class="form-group">
                 <strong>Tecnologia</strong>
-                <label class="radio-inline">
-                    <input type="radio" checked name="tecnologia" id="tecnologia_cabo" value="CABO"> Cabo
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" name="tecnologia" id="tecnologia_dth" value="DTH"> DTH
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" name="tecnologia" id="tecnologia_ftth" value="FTTH"> FTTH
-                </label>
+
+                <div class="form-control">
+                    <label class="radio-inline">
+                        <input type="radio" checked name="tecnologia" id="tecnologia_cabo" value="CABO"> Cabo
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="tecnologia" id="tecnologia_dth" value="DTH"> DTH
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="tecnologia" id="tecnologia_ftth" value="FTTH"> FTTH
+                    </label>
+                </div>
             </div>
 
-            <div class="radio-inline">
+            <div class="form-group">
                 <strong>Zona Concorrência</strong>
-                <label class="radio-inline">
-                    <input type="radio" checked name="zona_concorrencia" id="zona_concorrencia_sim" value="Sim"> Sim
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" name="zona_concorrencia" id="zona_concorrencia_nao" value="Não"> Não
-                </label>
+
+                <div class="form-control">
+                    <label class="radio-inline">
+                        <input type="radio" checked name="zona_concorrencia" id="zona_concorrencia_sim" value="Sim"> Sim
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="zona_concorrencia" id="zona_concorrencia_nao" value="Não"> Não
+                    </label>
+                </div>
             </div>
 
-            <div class="radio-inline">
+            <div class="form-group">
                 <strong>Actual Cliente</strong>
-                <label class="radio-inline">
-                    <input type="radio" name="actual_cliente" id="actual_cliente_sim" value="Sim"> Sim
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" checked name="actual_cliente" id="actual_cliente_nao" value="Não"> Não
-                </label>
+
+                <div class="form-control">
+                    <label class="radio-inline">
+                        <input type="radio" name="actual_cliente" id="actual_cliente_sim" value="Sim"> Sim
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" checked name="actual_cliente" id="actual_cliente_nao" value="Não"> Não
+                    </label>
+                </div>
             </div>
 
         </form>
