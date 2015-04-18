@@ -92,7 +92,7 @@ var app4 = (function () {
         });
 
         function fnPaginaValidada() {
-//todo so isto???
+//todo so isto??? é o único required, os restantes dependem de circunstancias que ATM não estão claras
             var bEmailClienteExpedicao = jqC.find("#dados_email_expedicao").valid();
             return bEmailClienteExpedicao;
         }
@@ -160,7 +160,7 @@ var app4 = (function () {
             email_expedicao: jqC.find("#dados_email_expedicao").val(),
             agendar_instalacao: jqC.find("#dados_agendar_instalacao").is(":checked"),
             agendar_instalacao_dia: jqC.find("#dados_agendar_instalacao_dia").val(),
-            agendar_instalacao_periodo: jqC.find("#dados_agendar_instalacao_periodo").is(":checked"),
+            agendar_instalacao_periodo: jqC.find("[name=dados_agendar_instalacao_periodo]:checked").val(),
             modalidade_pagamento_factura_electronica: jqC.find("#dados_modalidade_pagamento_factura_electronica").is(":checked"),
             modalidade_pagamento_referencia_mb: jqC.find("#dados_modalidade_pagamento_referencia_mb").is(":checked"),
             modalidade_pagamento_nib: jqC.find("#dados_modalidade_pagamento_nib").val(),

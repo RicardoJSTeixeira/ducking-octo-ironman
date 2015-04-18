@@ -111,8 +111,7 @@ var app5 = (function () {
             processamento_telefone_contacto: jqC.find("#processamento_telefone_contacto").val(),
             processamento_email: jqC.find("#processamento_email").val(),
             processamento_informacao_data_transferencia: jqC.find("[name=processamento_informacao_data_transferencia]:checked").val(),
-            processamento_informacao_data_transferencia_dias: jqC.find("[name=processamento_informacao_data_transferencia_dias]:checked").val(),
-            processamento_informacao_data_transferencia_data: jqC.find("[name=processamento_informacao_data_transferencia_data]:checked").val(),
+            processamento_informacao_data_transferencia_dias: jqC.find("#processamento_informacao_data_transferencia_data").val(),
             processamento_observacoes: jqC.find("#processamento_observacoes_venda").val()
         }
 
