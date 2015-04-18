@@ -46,6 +46,14 @@ var mUtil = {
         return checkDigit === parseInt(sNif.charAt(8));
 
 
+    },
+    disableAnimationOneScroll: function (jqS) {
+        $(window).on("scroll mousedown DOMMouseScroll mousewheel keyup", function (e) {
+            if (e.which > 0 || e.type === "mousedown" || e.type === "mousewheel") {
+                jqS.clearQueue().stop();
+                $(window).off('scroll mousedown DOMMouseScroll mousewheel keyup'); // This identifies the scroll as a user action, stops the animation, then unbinds the event straight after (optional)
+            }
+        })
     }
 
 };

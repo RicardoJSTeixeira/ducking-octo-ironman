@@ -9,7 +9,9 @@ var app3 = (function () {
     var fnNextPag;
     var fnPreviousPag;
     var jqC;
+
     var iNrProp;
+
     var cliente_aceita_observacoes;
     var quantas_boxes;
 
@@ -51,31 +53,23 @@ var app3 = (function () {
 
     function fnSetEvents() {
 
-
-        var fnDisableAnimation = function () {
-            $(window).on("scroll mousedown DOMMouseScroll mousewheel keyup", function (e) {
-                if (e.which > 0 || e.type === "mousedown" || e.type === "mousewheel") {
-                    $('html, body').clearQueue().stop();
-                    $(window).off('scroll mousedown DOMMouseScroll mousewheel keyup'); // This identifies the scroll as a user action, stops the animation, then unbinds the event straight after (optional)
-                }
-            });
-
-        };
+        var jqHB = $('html, body');
 
         jqC.find("#container_propostas").on("change", "[name=propostas]", function () { // quando mudar o elemento named propostas, dentro do container
 
             var n = $(document).height();
-            $('html, body').clearQueue().stop().animate({scrollTop: 90}, 4000).animate({scrollTop: n}, 3000);
+            jqHB.clearQueue().stop()
+                .animate({scrollTop: jqC.find("#descritivo_argumentario").offset().top}, 1000);
 
             var oProposta = aPropostas[this.value];
             fnPopulateTableProposta(oProposta);
             fnArgumentario(oProposta.mens_1a12, oPerfil.mensalidade_total);
 
-            fnDisableAnimation()
+            mUtil.disableAnimationOneScroll(jqHB)
 
         });
 
-        fnDisableAnimation();
+        mUtil.disableAnimationOneScroll(jqHB);
 
         jqC.find("[name=ver_proposta]").change(function () {
             fnGetDados(this.value);
@@ -133,46 +127,54 @@ var app3 = (function () {
     function fnPopulateTableProposta(oProposta) {
 //todo inverter
         var sTableTR = "\
+        </tr>\
         <tr>\
+            <th>Televisão</th>\
             <td>\
                 <p class='lead'><u>{{tv_canais}}{{^tv_canais}}Sem TV{{/tv_canais}}</u></p>\
                 <p><small>{{equip_tv}}{{^equip_tv}}{{/equip_tv}}</small></p>\
                 <p><small>{{tv_horas_gravacao}}{{^tv_horas_gravacao}}{{/tv_horas_gravacao}}</small></p>\
+                <p><small>{{notas_televisao}}{{^notas_televisao}}{{/notas_televisao}}</small></p>\
             </td>\
+        </tr>\
+            <th>Net Fixa</th>\
             <td>\
                 <p class='lead'><u>{{net}}{{^net}}Sem Net{{/net}}</u></p>\
                 <p><small>{{equip_net}}{{^equip_net}}{{/equip_net}}</small></p>\
+                <p><small>{{notas_net}}{{^notas_net}}{{/notas_net}}</small></p>\
             </td>\
+        </tr>\
+            <th>Telefone</th>\
             <td>\
                 <p class='lead'><u>{{telefone}}{{^telefone}}Sem Telefone{{/telefone}}</u></p>\
                 <p><small>{{notas_telefone}}{{^notas_telefone}}{{/notas_telefone}}</small></p>\
             </td>\
+        </tr>\
+            <th>Telemóvel</th>\
             <td>\
                 <p class='lead'><u>{{movel_cartoes}}{{^movel_cartoes}}Sem Telemovel{{/movel_cartoes}}</u></p>\
                 <p><small>{{movel_minutos}}{{^movel_minutos}}{{/movel_minutos}}</small></p>\
                 <p><small>{{movel_internet}}{{^movel_internet}}{{/movel_internet}}</small></p>\
             </td>\
+        </tr>\
+            <th>Net Móvel</th>\
             <td>\
                 <p class='lead'><u>{{net_movel}}{{^net_movel}}Sem Net Movel{{/net_movel}}</u></p>\
                 <p><small>{{notas_net_movel}}{{^notas_net_movel}}{{/notas_net_movel}}</small></p>\
+            </td>\
+        </tr>\
+            <th>Cinema</th>\
             <td>\
                 <p><u>{{tv_creditos}}{{^tv_creditos}}Sem Creditos{{/tv_creditos}}</u></p>\
+            </td>\
+        </tr>\
+        <th>Mensalidade</th>\
             <td>\
                 <p class='lead'><u>{{mens_1a12}}{{^mens_1a12}}Sem mensalidade{{/mens_1a12}}</u></p>\
                 <p><small>Preço 13-24 meses: {{mens_13a24}}{{^mens_13a24}}{{/mens_13a24}}</small></p>\
                 <p><small>Preço > 24 meses: {{mens_24}}{{^mens_24}}{{/mens_24}}</small></p>\
                 <p><small>Preço 1ª mensalidade: {{mens_1}}{{^mens_1}}{{/mens_1}}</small></p>\
-        </tr>\
-        <tr>\
-        <td></td>\
-        <td colspan='6'>\
-            <p><small>{{notas_net}}{{^notas_net}}{{/notas_net}}</small></p>\
-        </td>\
-        </tr>\
-        <tr>\
-        <td colspan='7'>\
-            <p><small>{{notas_televisao}}{{^notas_televisao}}{{/notas_televisao}}</small></p>\
-        </td>\
+            </td>\
         </tr>";
 
         jqC.find("#table_proposta > tbody").html(Mustache.render(sTableTR, oProposta));
@@ -190,9 +192,12 @@ var app3 = (function () {
 
     }
 
-    function fnGetDados(nr) {
+    function fnGetDados(nr, force) {
 
-        var iNr = nr;
+        var iNr = +nr;
+
+        if (!_.isFinite(iNr))
+            return false;
 
         if (iNr > 3)
             return false;
@@ -200,7 +205,7 @@ var app3 = (function () {
         if (!jqC)
             return false;
 
-        if (iNrProp == iNr && !_.isUndefined(nr))
+        if (iNrProp == iNr && !force)
             return false;
 
         iNrProp = iNr;
@@ -218,8 +223,11 @@ var app3 = (function () {
 
                 if (!aPropostasRecebidas.length) {
                     console.warn("Consulta às propostas[" + (iNr + 1 ) + "] não retornou dados!");
-                    if (iNr < 3)
+
+                    if (iNr < 2)
                         jqC.find("[name=ver_proposta]").filter('[value=' + ++iNr + ']').parent().button('toggle');
+                    else
+                        bootbox.alert("Consulta às propostas não retornou dados!");
                 }
 
                 fnMakePropostas(aPropostasRecebidas);
@@ -236,7 +244,7 @@ var app3 = (function () {
 
         aPropostas.forEach(function (aProposta, index) {
 
-            sRadiosPropostas += ' <label class="btn btn-primary">\
+            sRadiosPropostas += ' <label class="btn btn-primary col-xs-6 col-md-4 col-lg-3">\
                                       <input type="radio" name="propostas" value="' + index + '"> ' + aProposta.pacote + '\
                                   </label>';
 
@@ -287,6 +295,7 @@ var app3 = (function () {
                    <textarea class='form-control required' required id='cliente_aceita_observacoes'></textarea>\
      </div>\
      </form>\
+     <script>$('html,body').animate({scrollTop: 0}, 100)</script>\
             ";
 
         sMessage = Mustache.render(sMessage, oProposta);
@@ -332,11 +341,20 @@ var app3 = (function () {
         }
     }
 
+    function fnGetFristProposta() {
+
+        if (!jqC)
+            return false;
+
+        if (!jqC.find("[name=ver_proposta]").filter('[value=0]').is(":checked"))
+            jqC.find("[name=ver_proposta]").filter('[value=0]').parent().button('toggle');
+        else
+            fnGetDados(0, true)
+    }
+
     return {
         init: fnInit,
-        restartPropostas: function () {
-            $("[name=ver_proposta]").filter('[value=0]').parent().button('toggle');
-        },
+        restartPropostas: fnGetFristProposta,
         getValues: fnGetValues,
         setNextPage: fnSetNextPage,
         setPreviousPage: fnSetPreviousPage,

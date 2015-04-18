@@ -9,6 +9,8 @@ var app2 = (function () {
     var fnPreviousPag;
     var jqC;
 
+    var bPerfilChanged = false;
+
 
     function fnInit() {
 
@@ -129,6 +131,10 @@ var app2 = (function () {
             }
         });
 
+        jqC.find(":input:not(#perfil_entrada)").change(function () {
+            bPerfilChanged = true;
+        });
+
         // permitir apenas floats nas mensalidades
         jqC.find('#mensalidade_total,#tem_tv_mensalidade,#tem_net_fixa_mensalidade,#tem_telefone_mensalidade,#tem_net_movel_mensalidade')
             .keypress(function (event) {
@@ -142,6 +148,11 @@ var app2 = (function () {
 
             if (!fnPaginaValidada())
                 return false;
+
+            if (bPerfilChanged) {
+                app3.restartPropostas();
+                bPerfilChanged = false;
+            }
 
             fnNextPag();
 
