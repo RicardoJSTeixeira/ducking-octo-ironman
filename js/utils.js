@@ -46,7 +46,6 @@ var mUtil = {
         return checkDigit === parseInt(sNif.charAt(8));
 
 
-
     }
 
 };
@@ -55,7 +54,7 @@ Object.freeze(mUtil); // não permite que a classe seja "mexida" de fora
 
 
 //toggle sem trigger do change
-$.fn.button.Constructor.prototype.toggle=function () {
+$.fn.button.Constructor.prototype.toggleNoEvent = function () {
     var changed = true;
     var $parent = this.$element.closest('[data-toggle="buttons"]');
 
