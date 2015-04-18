@@ -63,8 +63,10 @@ var app6 = (function () {
         jqC.find("#pag6_continuar").click(function () {
             fnSubmit();
             bootbox.confirm("Quer vender outro serviço?", function (bYes) {
+
+                fnMakeBanner();
+
                 if (bYes) {
-                    fnMakeBanner();
                     fnAnotherOne();
                 }else{
                     //bloquea-mos o script

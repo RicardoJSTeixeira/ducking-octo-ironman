@@ -136,15 +136,18 @@ $telefone = "963258741";
 
 <body>
 
-<div class="container"  style="padding-top: 0px">
+<div class="container"  style="padding-top: 0">
 
 
     <div class="row" style="margin-bottom: -23px;">
 
         <div> <!-- Start header -->
 
-            <div class="col-md-6 panel panel-default" id="header">
-                <img src="img/cliente/cliente_logo.png">
+            <div class="col-md-6 panel panel-default">
+                <div class="row">
+                    <div class="col-xs-3"> <img src="img/cliente/cliente_logo.png"></div>
+                    <div class="col-xs-6" id="header"></div>
+                </div>
             </div>
 
             <div class="col-md-6 panel panel-default">
