@@ -171,10 +171,10 @@ var app3 = (function () {
                 <p><small>Preço 1ª mensalidade: {{mens_1}}{{^mens_1}}{{/mens_1}}</small></p>\
         </tr>\
         <tr>\
-        <td>\
+        <td></td>\
+        <td colspan='6'>\
             <p><small>{{notas_net}}{{^notas_net}}{{/notas_net}}</small></p>\
         </td>\
-        <td colspan='6'></td>\
         </tr>\
         <tr>\
         <td colspan='7'>\
