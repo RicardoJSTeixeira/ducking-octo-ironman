@@ -266,7 +266,8 @@ function fnSave(PDO $db, $dados)
 
     try {
         $sqlInsercao = 'INSERT INTO [dbo].[FIN] (' . $oVars["keys"] . ') VALUES (' . $oVars["vals"] . ')';
-        $stmt = $dbGravar->prepare($sqlInsercao);
+        //$sqlInsercaoPSQL = 'INSERT INTO fsdatabases.nos_residencial_fin (' . $oVars["keys"] . ') VALUES (' . $oVars["vals"] . ')';
+        $stmt = $db->prepare($sqlInsercao);
         return $stmt->execute($oVars["vars"]);
 
     } catch (PDOException $exGravarVenda) {
