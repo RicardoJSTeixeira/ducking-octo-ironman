@@ -8,7 +8,7 @@ var app3 = (function () {
     var aPropostas = [];
     var fnNextPag;
     var fnPreviousPag;
-    var jsC;
+    var jqC;
 
     var cliente_aceita_observacoes;
     var quantas_boxes;
@@ -17,10 +17,10 @@ var app3 = (function () {
 
         oPerfil = oDadosPagina2;
 
-        jsC = $("#container").find("#pag3");
+        jqC = $("#container").find("#pag3");
 
-        if (jsC.length) {
-            jsC.show();
+        if (jqC.length) {
+            jqC.show();
             fnGetDados(0);
             return true
         }
@@ -30,7 +30,7 @@ var app3 = (function () {
 
                 var sRendered = Mustache.render(sHTML, oPerfil);
 
-                jsC = $("#container").append(sRendered).find("#pag3");
+                jqC = $("#container").append(sRendered).find("#pag3");
 
                 fnGetDados(0);
 
@@ -52,7 +52,7 @@ var app3 = (function () {
     function fnSetEvents() {
 
 
-        jsC.find("#container_propostas").on("change", "[name=propostas]", function () { // quando mudar o elemento named propostas, dentro do container
+        jqC.find("#container_propostas").on("change", "[name=propostas]", function () { // quando mudar o elemento named propostas, dentro do container
 
             var n = $(document).height();
             $('html, body').animate({ scrollTop: 90 }, 4000).animate({ scrollTop: n }, 3000);
@@ -63,24 +63,24 @@ var app3 = (function () {
 
         });
 
-        jsC.find("#ver_proposta_um").click(function () {
+        jqC.find("#ver_proposta_um").click(function () {
             fnGetDados(0);
         });
 
-        jsC.find("#ver_proposta_dois").click(function () {
+        jqC.find("#ver_proposta_dois").click(function () {
             fnGetDados(1);
         });
 
-        jsC.find("#ver_proposta_tres").click(function () {
+        jqC.find("#ver_proposta_tres").click(function () {
             fnGetDados(2);
         });
 
-        jsC.find("#cliente_aceita_proposta").click(function () {
+        jqC.find("#cliente_aceita_proposta").click(function () {
             fnModalClienteAceita();
         });
 
         //previous
-        jsC.find("#pag3_back").click(function () {
+        jqC.find("#pag3_back").click(function () {
 
             fnPreviousPag();
 
@@ -89,7 +89,7 @@ var app3 = (function () {
     }
 
     function fnGetSelectedProposta() {
-        var jqP = jsC.find("[name=propostas]:checked");
+        var jqP = jqC.find("[name=propostas]:checked");
 
         if (!jqP.length)
             return false;
@@ -99,7 +99,7 @@ var app3 = (function () {
 
     function fnArgumentario(nova, antiga) {
 
-        jsC.find("#descritivo_argumentario").html(fnCalcArgumentario(nova, antiga));
+        jqC.find("#descritivo_argumentario").html(fnCalcArgumentario(nova, antiga));
 
     }
 
@@ -160,18 +160,18 @@ var app3 = (function () {
                 <p><small>Preço 1ª mensalidade: {{mens_1}}{{^mens_1}}{{/mens_1}}</small></p>\
         </tr>";
 
-        jsC.find("#table_proposta > tbody").html(Mustache.render(sTableTR, oProposta));
-        jsC.find("#proposta_pacote").text(oProposta.pacote);
-        jsC.find("#proposta_pacote_comercial").text(oProposta.pacote_comercial);
+        jqC.find("#table_proposta > tbody").html(Mustache.render(sTableTR, oProposta));
+        jqC.find("#proposta_pacote").text(oProposta.pacote);
+        jqC.find("#proposta_pacote_comercial").text(oProposta.pacote_comercial);
 
     }
 
     function fnTableResetPropostaEArgumentarios() {
 
-        jsC.find("#table_proposta > tbody").empty();
-        jsC.find("#proposta_pacote").empty();
-        jsC.find("#proposta_pacote_comercial").empty();
-        jsC.find("#descritivo_argumentario").empty();
+        jqC.find("#table_proposta > tbody").empty();
+        jqC.find("#proposta_pacote").empty();
+        jqC.find("#proposta_pacote_comercial").empty();
+        jqC.find("#descritivo_argumentario").empty();
 
     }
 
@@ -210,7 +210,7 @@ var app3 = (function () {
 
         });
 
-        jsC.find("#container_propostas").html(sRadiosPropostas);
+        jqC.find("#container_propostas").html(sRadiosPropostas);
 
     }
 
@@ -305,7 +305,7 @@ var app3 = (function () {
         setNextPage: fnSetNextPage,
         setPreviousPage: fnSetPreviousPage,
         hide: function () {
-            jsC.hide();
+            jqC.hide();
         }
     }
 
