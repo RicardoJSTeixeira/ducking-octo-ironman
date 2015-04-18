@@ -193,6 +193,8 @@ var app3 = (function () {
 
     function fnGetDados(nr) {
 
+        nr = (nr) ? nr : 0;
+
         fnTableResetPropostaEArgumentarios();
 
         $.get("ajax/request.php",
