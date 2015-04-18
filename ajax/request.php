@@ -149,7 +149,7 @@ function fnGetInfoMatriz(PDO $db, $oDados, $nr)
     $where .= " AND a.novo_cliente=:novo_cliente ";
     $vars[":novo_cliente"] = $bNovoClient ? '1' : '';
 
-    if(!$bNovoClient)
+    if (!$bNovoClient)
         $where .= " AND b.novo_cliente='3' ";
 
     $where .= " AND a.perfil_de_entrada=:perfil_de_entrada ";
@@ -159,8 +159,10 @@ function fnGetInfoMatriz(PDO $db, $oDados, $nr)
     /*$where .= " AND quatrog=:quatrog ";
     $vars[] = $oDados['pacote']['quatrog'];*/
 
-    $where .= " AND a.tem_pc=:tem_pc ";
-    $vars[":tem_pc"] = $oDados['net_fixa']['tem_computador_portatil'] == 'Sim' ? '1' : '';
+    if ($oDados['net_fixa']['tem_computador_portatil'] !== 'Sim') {
+        $where .= " AND a.tem_pc=:tem_pc ";
+        $vars[":tem_pc"] = '1';
+    }
 
     $where .= " AND a.fid_tv=:fid_tv ";
     $vars["fid_tv"] = $oDados['televisao']['fidelizado'] ? '1' : '';
