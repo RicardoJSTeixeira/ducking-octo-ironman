@@ -219,7 +219,8 @@ var app3 = (function () {
 
                 if (!aPropostasRecebidas.length) {
                     console.warn("Consulta às propostas[" + (nr + 1 ) + "] não retornou dados!");
-                    fnGetDados(++nr);
+                    if (nr < 3)
+                        fnGetDados(++nr);
                 }
 
                 fnMakePropostas(aPropostasRecebidas);
