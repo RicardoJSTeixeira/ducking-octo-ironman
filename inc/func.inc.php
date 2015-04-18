@@ -114,7 +114,7 @@ function bdPDOPSQLNOSResidencial()
         //$oProperties = json_decode($oPropertiesJSON);
 
         //$db = new PDO("pgsql:dbname=" . $oProperties->database . ";host=" . $oProperties->serverip, $oProperties->username, $oProperties->password);
-        $db = new PDO("pgsql:dbname=fusionpbx;host=172.16.7.26", "postgres", "");
+        $db = new PDO("pgsql:dbname=fusionpbx;host=172.16.7.27", "postgres", "");
         $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
         $db->exec("SET CLIENT_ENCODING TO 'UTF8'");
