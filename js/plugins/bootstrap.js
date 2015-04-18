@@ -240,6 +240,23 @@ if (typeof jQuery === 'undefined') {
     if (changed) this.$element.toggleClass('active')
   }
 
+  Button.prototype.toggleNoEvent = function () {
+    var changed = true;
+    var $parent = this.$element.closest('[data-toggle="buttons"]');
+
+    if ($parent.length) {
+      var $input = this.$element.find('input');
+      if ($input.prop('type') == 'radio') {
+        if ($input.prop('checked') && this.$element.hasClass('active')) changed = false;
+        else $parent.find('.active').removeClass('active')
+      }
+      if (changed) $input.prop('checked', !this.$element.hasClass('active'))
+    } else {
+      this.$element.attr('aria-pressed', !this.$element.hasClass('active'))
+    }
+
+    if (changed) this.$element.toggleClass('active')
+  }
 
   // BUTTON PLUGIN DEFINITION
   // ========================

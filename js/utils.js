@@ -51,23 +51,3 @@ var mUtil = {
 };
 
 Object.freeze(mUtil); // não permite que a classe seja "mexida" de fora
-
-
-//toggle sem trigger do change
-$.fn.button.Constructor.prototype.toggleNoEvent = function () {
-    var changed = true;
-    var $parent = this.$element.closest('[data-toggle="buttons"]');
-
-    if ($parent.length) {
-        var $input = this.$element.find('input');
-        if ($input.prop('type') == 'radio') {
-            if ($input.prop('checked') && this.$element.hasClass('active')) changed = false;
-            else $parent.find('.active').removeClass('active')
-        }
-        if (changed) $input.prop('checked', !this.$element.hasClass('active'))
-    } else {
-        this.$element.attr('aria-pressed', !this.$element.hasClass('active'))
-    }
-
-    if (changed) this.$element.toggleClass('active')
-};

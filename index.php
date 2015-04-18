@@ -214,7 +214,7 @@ $telefone = "963258741";
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/plugins/jquery-1.11.2.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/plugins/bootstrap.min.js"></script>
+<script src="js/plugins/bootstrap.js"></script>
 <script src="js/plugins/jasny-bootstrap.min.js"></script>
 <script src="js/plugins/jquery.validate.min.js"></script>
 <script src="js/plugins/jquery-validate.bootstrap-tooltip.min.js"></script>
