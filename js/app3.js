@@ -205,7 +205,7 @@ var app3 = (function () {
 
         iNrProp = nr;
 
-        jqC.find("[name=ver_proposta]").filter('[value=' + nr + ']').prop('checked', true).button('toggle');
+        jqC.find("[name=ver_proposta]").filter('[value=' + nr + ']').parent().button('toggle');
 
         fnTableResetPropostaEArgumentarios();
 
