@@ -330,7 +330,7 @@ var app3 = (function () {
         });
 
         jqB.on("shown.bs.modal", function () {
-            $('html,body').animate({scrollTop: 0}, 100)
+            jqB.clearQueue().stop().animate({scrollTop: 0}, 100)
         })
     }
 

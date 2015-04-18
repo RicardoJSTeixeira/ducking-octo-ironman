@@ -66,9 +66,16 @@ var app6 = (function () {
                 if (bYes) {
                     fnMakeBanner();
                     fnAnotherOne();
+                }else{
+                    //bloquea-mos o script
+                    $.msg({
+                        bgPath : '/img/',
+                        autoUnblock : false,
+                        clickUnblock : false,
+                        content: "Script Fechado!!!"
+                    });
                 }
             })
-
 
         });
     }
@@ -77,7 +84,7 @@ var app6 = (function () {
 
         var sTemplate = "<h5 style='display: inline;margin-left: 25px;'>\
                             <span class='label label-success'>Fechado: {{pacote}}</span>\
-                       </h5>";
+                         </h5>";
 
         var sRendered = Mustache.render(sTemplate, oDados.pag3.proposta);
 

@@ -83,6 +83,9 @@ $telefone = "963258741";
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <!-- msg -->
+    <link media="screen" href="js/plugins/msg/jquery.msg.css" rel="stylesheet" type="text/css">
+
     <style>
 
         /* http://css-tricks.com/perfect-full-page-background-image/ */
@@ -219,6 +222,9 @@ $telefone = "963258741";
 <script src="js/plugins/jquery.validate.min.js"></script>
 <script src="js/plugins/jquery-validate.bootstrap-tooltip.min.js"></script>
 <script src="js/plugins/moment-with-locales.min.js"></script>
+<!-- msg -->
+<script type="text/javascript" src="js/plugins/msg/jquery.center.min.js"></script>
+<script type="text/javascript" src="js/plugins/msg/jquery.msg.min.js"></script>
 <script>
     //change moment local
     moment.locale("pt");
