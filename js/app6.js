@@ -7,12 +7,14 @@ var app6 = (function () {
     var oDados = [];
     var fnAnotherOne;
     var fnPreviousPag;
+    var jsC;
 
     function fnInit(oPageData) {
-        console.log(oPageData);
 
-        if ($("#container").find("#pag6").length) {
-            $("#container").find("#pag6").show();
+        jsC = $("#container").find("#pag6");
+
+        if (jsC.length) {
+            jsC.show();
             return true
         }
 
@@ -21,9 +23,10 @@ var app6 = (function () {
 
         $.get("pages/pag6.html",
             function (sHTML) {
+
                 var sRendered = Mustache.render(sHTML, oPageData);
 
-                $("#container").append(sRendered);
+                jsC = $("#container").append(sRendered).find("#pag6");
 
 
                 fnSetEvents();
@@ -51,13 +54,13 @@ var app6 = (function () {
     function fnSetEvents() {
 
         //previous
-        $("#pag6_back").click(function () {
+        jsC("#pag6_back").click(function () {
 
             fnPreviousPag();
 
         });
 
-        $("#pag6_continuar").click(function () {
+        jsC("#pag6_continuar").click(function () {
             fnSubmit();
             bootbox.confirm("Quer vender outro serviço?", function (bYes) {
                 if (bYes)
@@ -88,7 +91,7 @@ var app6 = (function () {
         anotherOne: fnSetAnotherOne,
         setPreviousPage: fnSetPreviousPage,
         hide: function () {
-            $("#container").find("#pag6").hide();
+            jsC.hide();
         }
     }
 

@@ -10,23 +10,25 @@ var app5 = (function () {
     var oDados = [];
     var fnNextPag;
     var fnPreviousPag;
+    var jqC;
 
     function fnInit(oPageData) {
-        console.log(oPageData);
 
-        if ($("#container").find("#pag5").length) {
-            $("#container").find("#pag5").show();
+        jqC = $("#container").find("#pag5");
+        if (jqC.length) {
+            jqC.show();
             return true
         }
 
-        var aDadosTodos= oPageData;
+        oDados = oPageData;
 
 
         $.get("pages/pag5.html",
             function (sHTML) {
                 var sRendered = Mustache.render(sHTML, oPageData);
 
-                $("#container").append(sRendered);
+                //faz append do html e devolve o container, depois fazemos find no container e devolve a pag5
+                jqC = $("#container").append(sRendered).find("#pag5");
 
                 fnGetDados();
 
@@ -43,21 +45,21 @@ var app5 = (function () {
     }
 
     function fnSetEvents() {
-
-        $("#container_portabilidade").hide();
+        //agora so pesquisamos dentro da pagina evitando conflitos
+        jqC.find("#container_portabilidade").hide();
 
         //previous
-        $("#pag5_back").click(function () {
+        jqC.find("#pag5_back").click(function () {
 
             fnPreviousPag();
 
         });
 
         //next page
-        $("#pag5_continuar").click(function () {
+        jqC.find$("#pag5_continuar").click(function () {
 
-           /* if (!fnPaginaValidada())
-                return false;*/
+            /* if (!fnPaginaValidada())
+             return false;*/
 
             fnNextPag();
 
@@ -65,17 +67,15 @@ var app5 = (function () {
 
 
         //Mostrar container_portabilidade apenas se houver portabilidade
-        $("[name='portabilidade']").change(function () {
-
-            //console.log(this.value)
+        jqC.find("[name='portabilidade']").change(function () {
 
             //caso sim show, caso não hide
-            $("#container_portabilidade").toggle(this.value=="Sim");
+            jqC.find("#container_portabilidade").toggle(this.value == "Sim");
 
         });
 
 
-        $("#portabilidade_validade_doc_identificacao,\
+        jqC.find("#portabilidade_validade_doc_identificacao,\
         #portabilidade_alteracao_validade_doc_identificacao,\
         #processamento_informacao_data_transferencia_data")
             .datetimepicker({
@@ -86,34 +86,34 @@ var app5 = (function () {
 
     function fnGetValues() {
 
-        return{
-            ha_portabilidade: $("[name=portabilidade]:checked").val(),
-            portabilidade_fixo: $("#portabilidade_fixo").is(":checked"),
-            portabilidade_movel: $("#portabilidade_movel").is(":checked"),
-            quantos_cartoes : $("#portabilidade_quantos_cartoes").val(),
-            quantos_cartoes_novos : $("#portabilidade_quantos_cartoes_novos").val(),
-            portabilidade_a_operadora_actual : $("#portabilidade_a_operadora_actual").val(),
-            portabilidade_nome_cliente : $("#portabilidade_nome_cliente").val(),
-            portabilidade_sobrenome_cliente : $("#portabilidade_sobrenome_cliente").val(),
-            tipo_doc_identificacao : $("[name=doc_identificacao]:checked").val(),
-            numero_doc_identificacao : $("#portabilidade_numero_doc_identificacao").val(),
-            validade_doc_identificacao : $("#portabilidade_validade_doc_identificacao").val(),
-            portabilidade_numero_contribuinte : $("#portabilidade_numero_contribuinte").val(),
-            portabilidade_alteracao_nome_cliente : $("#portabilidade_alteracao_nome_cliente").val(),
-            portabilidade_alteracao_sobrenome_cliente : $("#portabilidade_alteracao_sobrenome_cliente").val(),
-            tipo_doc_identificacao_alteracao : $("[name=doc_identificacao_alteracao]:checked").val(),
-            portabilidade_alteracao_numero_doc_identificacao : $("#portabilidade_alteracao_numero_doc_identificacao").val(),
-            portabilidade_alteracao_validade_doc_identificacao : $("#portabilidade_alteracao_validade_doc_identificacao").val(),
-            portabilidade_alteracao_numero_contribuinte : $("#portabilidade_alteracao_numero_contribuinte").val(),
-            processamento_numero_telefone_fixo : $("#processamento_numero_telefone_fixo").val(),
-            processamento_numero_cliente : $("#processamento_numero_cliente").val(),
-            processamento_local_servico : $("#processamento_local_servico").val(),
-            processamento_telefone_contacto : $("#processamento_telefone_contacto").val(),
-            processamento_email : $("#processamento_email").val(),
-            processamento_informacao_data_transferencia : $("[name=processamento_informacao_data_transferencia]:checked").val(),
-            processamento_informacao_data_transferencia_dias : $("[name=processamento_informacao_data_transferencia_dias]:checked").val(),
-            processamento_informacao_data_transferencia_data : $("[name=processamento_informacao_data_transferencia_data]:checked").val(),
-            processamento_observacoes : $("#processamento_observacoes_venda").val()
+        return {
+            ha_portabilidade: jqC.find("[name=portabilidade]:checked").val(),
+            portabilidade_fixo: jqC.find("#portabilidade_fixo").is(":checked"),
+            portabilidade_movel: jqC.find("#portabilidade_movel").is(":checked"),
+            quantos_cartoes: jqC.find("#portabilidade_quantos_cartoes").val(),
+            quantos_cartoes_novos: jqC.find("#portabilidade_quantos_cartoes_novos").val(),
+            portabilidade_a_operadora_actual: jqC.find("#portabilidade_a_operadora_actual").val(),
+            portabilidade_nome_cliente: jqC.find("#portabilidade_nome_cliente").val(),
+            portabilidade_sobrenome_cliente: jqC.find("#portabilidade_sobrenome_cliente").val(),
+            tipo_doc_identificacao: jqC.find("[name=doc_identificacao]:checked").val(),
+            numero_doc_identificacao: jqC.find("#portabilidade_numero_doc_identificacao").val(),
+            validade_doc_identificacao: jqC.find("#portabilidade_validade_doc_identificacao").val(),
+            portabilidade_numero_contribuinte: jqC.find("#portabilidade_numero_contribuinte").val(),
+            portabilidade_alteracao_nome_cliente: jqC.find("#portabilidade_alteracao_nome_cliente").val(),
+            portabilidade_alteracao_sobrenome_cliente: jqC.find("#portabilidade_alteracao_sobrenome_cliente").val(),
+            tipo_doc_identificacao_alteracao: jqC.find("[name=doc_identificacao_alteracao]:checked").val(),
+            portabilidade_alteracao_numero_doc_identificacao: jqC.find("#portabilidade_alteracao_numero_doc_identificacao").val(),
+            portabilidade_alteracao_validade_doc_identificacao: jqC.find("#portabilidade_alteracao_validade_doc_identificacao").val(),
+            portabilidade_alteracao_numero_contribuinte: jqC.find("#portabilidade_alteracao_numero_contribuinte").val(),
+            processamento_numero_telefone_fixo: jqC.find("#processamento_numero_telefone_fixo").val(),
+            processamento_numero_cliente: jqC.find("#processamento_numero_cliente").val(),
+            processamento_local_servico: jqC.find("#processamento_local_servico").val(),
+            processamento_telefone_contacto: jqC.find("#processamento_telefone_contacto").val(),
+            processamento_email: jqC.find("#processamento_email").val(),
+            processamento_informacao_data_transferencia: jqC.find("[name=processamento_informacao_data_transferencia]:checked").val(),
+            processamento_informacao_data_transferencia_dias: jqC.find("[name=processamento_informacao_data_transferencia_dias]:checked").val(),
+            processamento_informacao_data_transferencia_data: jqC.find("[name=processamento_informacao_data_transferencia_data]:checked").val(),
+            processamento_observacoes: jqC.find("#processamento_observacoes_venda").val()
         }
 
     }
@@ -132,7 +132,7 @@ var app5 = (function () {
         setNextPage: fnSetNextPage,
         setPreviousPage: fnSetPreviousPage,
         hide: function () {
-            $("#container").find("#pag5").hide();
+            jqC.hide();
         }
     }
 

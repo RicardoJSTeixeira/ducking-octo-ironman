@@ -16,7 +16,7 @@ var controller = (function () {
 
 
     function fnInit() {
-
+//configuraçao de paginas
 //app1 inicial
         app1.init();
         app1.setNextPage(function () {
