@@ -5,6 +5,15 @@ var banana2000xpto = false;
 function ok() {
     return banana2000xpto
 }
+
+function receiveMessage(event) {
+    //devolve o uuid
+    parent.postMessage(event.data, "http://" + document.domain);
+
+}
+
+window.addEventListener("message", receiveMessage, false);
+
 var controller = (function () {
     var oPageData = {
         pag1: {},
