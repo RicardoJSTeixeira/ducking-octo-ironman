@@ -263,13 +263,14 @@ var app3 = (function () {
                         label: "Continuar",
                         className: "btn-success",
                         callback: function () {
-
-                            if (!($("#quantas_boxes").valid() && $("#cliente_aceita_observacoes").valid()))
+                            var jqQB = $("#quantas_boxes");
+                            var jqCAO = $("#cliente_aceita_observacoes");
+                            if (!(jqQB.valid() && jqCAO.valid()))
                                 return false;
 
                             //globais ao app3
-                            cliente_aceita_observacoes = $('#cliente_aceita_observacoes').val();
-                            quantas_boxes = $("#quantas_boxes").val();
+                            cliente_aceita_observacoes = jqCAO.val();
+                            quantas_boxes = jqQB.val();
 
                             fnNextPag();
                         }
