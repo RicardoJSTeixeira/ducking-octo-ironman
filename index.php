@@ -174,7 +174,6 @@ $oVars = (object)[
 
 </script>
 
-
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="js/plugins/jquery-1.11.2.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
