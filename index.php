@@ -158,7 +158,7 @@ $oVars = (object)[
         <p class="text-muted">
             <?php
 
-            echo getFooter();
+            #echo getFooter();
 
             if (APP_TYPE == 'DEV') {
 
