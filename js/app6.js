@@ -37,18 +37,26 @@ var app6 = (function () {
     }
 
     function fnSubmit() {
-        $.post("ajax/request.php",
-            {
-                action: "Save",
-                dados_chamada: oDados
-            },
-            function (bOk) { // recebendo ok / true do request::fnSave, fechar interaccao
-                console.log(bOk);
-                //global
-                banana2000xpto = bOk; // dá indicação à FSCONTACT que a venda terminou
-                //todo append em qualquer lado que fez um submit (por pelo menos o nome do pacote) para ir mostrando que pacotes já foram vendidos
+        return new Promise(function (resolve, reject) {
 
-            }, "json")
+            $.post("ajax/request.php",
+                {
+                    action: "Save",
+                    dados_chamada: oDados
+                },
+                function (bOk) { // recebendo ok / true do request::fnSave, fechar interaccao
+                    console.log(bOk);
+                    //global
+                    banana2000xpto = bOk; // dá indicação à FSCONTACT que a venda terminou
+                    resolve()
+
+                }, "json")
+                .fail(function (Ex) {
+                    //Erro no save
+                    reject(Ex)
+                })
+
+        })
     }
 
     function fnSetEvents() {
@@ -61,23 +69,35 @@ var app6 = (function () {
         });
 
         jqC.find("#pag6_continuar").click(function () {
-            fnSubmit();
-            bootbox.confirm("Quer vender outro serviço?", function (bYes) {
+            fnSubmit()
+                .then(function () {
+                    bootbox.confirm("Quer vender outro serviço?", function (bYes) {
 
-                fnMakeBanner();
+                        fnMakeBanner();
 
-                if (bYes) {
-                    fnAnotherOne();
-                }else{
-                    //bloqueamos o script
+                        if (bYes) {
+                            fnAnotherOne();
+                        } else {
+                            //bloqueamos o script
+                            $.msg({
+                                bgPath: '/img/',
+                                autoUnblock: false,
+                                clickUnblock: false,
+                                content: "Script Fechado!!!"
+                            });
+                        }
+                    })
+                })
+                .catch(function (Error) {
+                    console.error("Corre no submit na consola",Error);
                     $.msg({
-                        bgPath : '/img/',
-                        autoUnblock : false,
-                        clickUnblock : false,
-                        content: "Script Fechado!!!"
+                        bgPath: '/img/',
+                        autoUnblock: false,
+                        clickUnblock: false,
+                        content: "Erro na Gravaçao, Contacte um administrador!!!"
                     });
-                }
-            })
+                })
+
 
         });
     }
@@ -112,6 +132,7 @@ var app6 = (function () {
         getValues: fnGetValues,
         anotherOne: fnSetAnotherOne,
         setPreviousPage: fnSetPreviousPage,
+        submit:fnSubmit,
         hide: function () {
             jqC.hide();
         }

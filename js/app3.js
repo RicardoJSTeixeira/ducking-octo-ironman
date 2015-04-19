@@ -350,7 +350,7 @@ var app3 = (function () {
         if (!jqCT.find("#pag3").length)
             jqC = jqCT.append(sRendered).find("#pag3");
         else
-            jqC = jqCT.find("#pag3").remove().end().append(sRendered);
+            jqC = jqCT.find("#pag3").remove().end().append(sRendered).find("#pag3");
 
 
         fnSetEvents();
