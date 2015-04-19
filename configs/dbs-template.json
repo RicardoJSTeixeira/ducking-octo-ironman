@@ -1,0 +1,22 @@
+{
+  "Clientes": {
+    "connect_string": "",
+    "user": "",
+    "pass": ""
+  },
+  "Dark": {
+    "connect_string": "",
+    "user": "",
+    "pass": ""
+  },
+  "NOS_Residencial": {
+    "connect_string": "",
+    "user": "",
+    "pass": ""
+  },
+  "FS": {
+    "connect_string": "",
+    "user": "",
+    "pass": ""
+  }
+}

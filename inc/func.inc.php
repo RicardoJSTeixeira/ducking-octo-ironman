@@ -25,100 +25,72 @@ function getAppCompany()
 
 
 // BDs
-
-function bdPDOMSSQLClientes()
+Class DB
 {
 
-    $emDebug = true;
+    private $oDBs;
 
-    try {
+    public function __construct()
+    {
 
-        $pdoMSSQLClientes = new PDO(DB_DSN_MSSQL_CLIENTES, DB_USERNAME, DB_PASSWORD, array(
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
-        );
+        $this->oDBs = $this->fnGetFile();
+        return $this;
 
-    } catch (PDOException $exPDOMSSQL) {
+    }
 
-        if ($emDebug) {
-            exit($exPDOMSSQL->getMessage());
-        } else {
-            exit('Erro na ligação à BD!');
+    public function Get($dbName)
+    {
+
+        if (!isset($this->oDBs->{$dbName}))
+            throw new Exception("No DB Name :: $dbName");
+        else
+            $db = $this->oDBs->{$dbName};
+
+        $emDebug = true;
+
+        try {
+
+            $connection = new PDO($db->connect_string, $db->user, $db->pass, array(
+                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
+            );
+
+            if ($dbName == "FS") {
+                $connection->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+                $connection->exec("SET CLIENT_ENCODING TO 'UTF8'");
+            }
+
+        } catch (PDOException $exPDOMSSQL) {
+
+            if ($emDebug) {
+                exit($exPDOMSSQL->getMessage());
+            } else {
+                exit('Erro na ligação à BD!');
+            }
+
         }
 
+        return $connection;
     }
 
-    return $pdoMSSQLClientes;
-}
+    private function fnGetFile()
+    {
 
-function bdPDOMSSQLDark()
-{
+        $sPath = "../configs/dbs.json";
 
-    $emDebug = true;
+        if (!file_exists($sPath))
+            throw new Exception("File Config doesn't Exists!");
 
-    try {
+        $sDB_config_row = file_get_contents($sPath);
 
-        $pdoMSSQLDark = new PDO(DB_DSN_MSSQL_DARK, DB_USERNAME_DARK, DB_PASSWORD_DARK, array(
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION)
-        );
+        $oDB = json_decode($sDB_config_row);
 
-    } catch (PDOException $exPDOMSSQL) {
+        if (json_last_error() !== JSON_ERROR_NONE)
+            throw new Exception("File Config Bad Format!");
 
-        if ($emDebug) {
-            exit($exPDOMSSQL->getMessage());
-        } else {
-            exit('Erro na ligação à BD!');
-        }
+        return $oDB;
 
     }
 
-    return $pdoMSSQLDark;
-}
-
-function bdPDOMSSQLICNOSResidencial()
-{
-
-    $emDebug = true;
-
-    try {
-
-        $pdoMSSQLICNOSResidencial = new PDO(
-            DB_DSN_MSSQL_IC_NOSRESIDENCIAL,
-            DB_USERNAME_IC,
-            DB_PASSWORD_IC,
-            array(
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-            )
-        );
-
-    } catch (PDOException $exPDOMSSQL) {
-
-        if ($emDebug) {
-            throw $exPDOMSSQL;
-        } else {
-            echo('Erro na ligação à BD!');
-        }
-
-    }
-
-    return $pdoMSSQLICNOSResidencial;
-}
-
-function bdPDOPSQLNOSResidencial()
-{
-    try {
-        //$oPropertiesJSON = file_get_contents("/opt/fscontact-server/modules/utils/pg/pg-settings.json");
-        //$oProperties = json_decode($oPropertiesJSON);
-
-        //$db = new PDO("pgsql:dbname=" . $oProperties->database . ";host=" . $oProperties->serverip, $oProperties->username, $oProperties->password);
-        $db = new PDO("pgsql:dbname=fusionpbx;host=172.16.7.27", "postgres", "");
-        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
-        $db->exec("SET CLIENT_ENCODING TO 'UTF8'");
-    } catch (PDOException $e) {
-        echo('Connection failed: ' . $e->getMessage());
-    }
-
-    return $db;
 }
 
 // Strings

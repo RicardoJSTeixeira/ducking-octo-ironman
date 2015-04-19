@@ -1,0 +1,22 @@
+{
+  "Clientes": {
+    "connect_string": "dblib:host=172.16.5.2;dbname=Clientes",
+    "user": "clientes",
+    "pass": ""
+  },
+  "Dark": {
+    "connect_string": "dblib:host=172.16.5.7;dbname=Dark",
+    "user": "dark",
+    "pass": "dark"
+  },
+  "NOS_Residencial": {
+    "connect_string": "dblib:host=172.16.6.225;dbname=NOS_Residencial",
+    "user": "connecta",
+    "pass": "ARconnectacc"
+  },
+  "FS": {
+    "connect_string": "pgsql:dbname=fusionpbx;host=172.16.7.27",
+    "user": "postgres",
+    "pass": ""
+  }
+}
