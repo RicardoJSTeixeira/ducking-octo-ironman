@@ -1,14 +1,15 @@
 /**
  * Created by vitor.correia on 10-04-2015.
  */
+//todo mudar esta var para privada
 var banana2000xpto = false;
 function ok() {
     return banana2000xpto
 }
 
 function receiveMessage(event) {
-    //devolve o uuid
-    parent.postMessage(event.data, "http://" + document.domain);
+    if (event.data == "isValid")
+        parent.postMessage(ok(), "http://" + document.domain);
 
 }
 
