@@ -9,7 +9,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.php"><?php echo APP_NAME; ?></a>
+            <a class="navbar-brand" href="index.php"><?= APP_NAME; ?></a>
 </div>
 <div id="navbar" class="collapse navbar-collapse">
     <ul class="nav navbar-nav">
