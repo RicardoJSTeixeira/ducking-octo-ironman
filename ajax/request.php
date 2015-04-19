@@ -18,9 +18,11 @@ $action = filter_var($REQVARS["action"]);
 $DBs = new DB();
 
 switch ($action) {
+
     case "GetPerfil":
         echo json_encode(Script::getPerfil());
         break;
+
     case "GetProposta":
         $dados = filter_var_array($REQVARS["dados_perfil"]);
         $nr_proposta = filter_var($REQVARS["nr_proposta"]);
@@ -28,11 +30,13 @@ switch ($action) {
         $db = $DBs->Get("FS");
         echo json_encode(Script::getInfoMatriz($db, $dados, $nr_proposta));
         break;
+
     case "Save":
         $db = $DBs->Get("NOS_Residencial");
         $dados = filter_var_array($REQVARS["dados_chamada"]);
         echo json_encode(Script::save($db, $dados));
         break;
+
     default:
         die("WTF!?");
 }
@@ -53,14 +57,11 @@ Class Script
             $stmt = $db->prepare($sqlInsercao);
             return $stmt->execute($oVars["vars"]);
 
-        } catch (PDOException $exGravarVenda) {
-            echo $exGravarVenda->getMessage();
+        } catch (PDOException $ex) {
+            echo $ex->getMessage();
             return false;
         }
 
-        // DEBUG purposes
-        //var_dump($oVars);
-        //return true;
     }
 
     private static function fnMakeInsert($aData)
@@ -223,10 +224,6 @@ Class Script
         $where .= " AND a.perfil_de_entrada=:perfil_de_entrada ";
         $vars[":perfil_de_entrada"] = $oDados['pacote']['tipo_pacote'];
 
-        // o 4g está está na matriz, mas não é recolhido em script em lado algum
-        /*$where .= " AND quatrog=:quatrog ";
-        $vars[] = $oDados['pacote']['quatrog'];*/
-
         if ($oDados['net_fixa']['tem_computador_portatil'] !== 'Sim') {
             $where .= " AND a.tem_pc=:tem_pc ";
             $vars[":tem_pc"] = '1';
@@ -239,36 +236,36 @@ Class Script
         $vars[":fid_movel"] = $oDados['telemovel']['fidelizado'] ? '1' : '';
 
         $query = "SELECT
-        b.id,
-        grupo,
-        tipo_pacote,
-        perfil,
-        pacote,
-        tv_canais,
-        tv_creditos,
-        tv_horas_gravacao,
-        net,
-        net_movel,
-        telefone,
-        movel_cartoes,
-        movel_minutos,
-        movel_internet,
-        mens_1,
-        mens_1a12,
-        mens_13a24,
-        mens_24,
-        outras_ofertas,
-        envio_cartao_nos,
-        equip_tv,
-        equip_net,
-        pacote_comercial,
-        notas_televisao,
-        notas_net_movel,
-        notas_net,
-        notas_telefone
-  FROM fsdatabases.nos_residencial_propostas b
-  INNER JOIN fsdatabases.nos_residencial_matriz_decisao a ON a." . $propostas[$nr] . " = b.grupo AND a.tecnologia=b.tecnologia
-  where $where ";
+                        b.id,
+                        grupo,
+                        tipo_pacote,
+                        perfil,
+                        pacote,
+                        tv_canais,
+                        tv_creditos,
+                        tv_horas_gravacao,
+                        net,
+                        net_movel,
+                        telefone,
+                        movel_cartoes,
+                        movel_minutos,
+                        movel_internet,
+                        mens_1,
+                        mens_1a12,
+                        mens_13a24,
+                        mens_24,
+                        outras_ofertas,
+                        envio_cartao_nos,
+                        equip_tv,
+                        equip_net,
+                        pacote_comercial,
+                        notas_televisao,
+                        notas_net_movel,
+                        notas_net,
+                        notas_telefone
+                  FROM fsdatabases.nos_residencial_propostas b
+                  INNER JOIN fsdatabases.nos_residencial_matriz_decisao a ON a." . $propostas[$nr] . " = b.grupo AND a.tecnologia=b.tecnologia
+                  where $where ";
 
 
         $stmt = $db->prepare($query);
@@ -282,36 +279,37 @@ Class Script
     public static function getInfoProposta(PDO $db)
     {
 
-        $query = "SELECT [id]
-      ,[grupo]
-      ,[filtro1]
-      ,[filtro2]
-      ,[filtro3]
-      ,[tipo_pacote]
-      ,[perfil]
-      ,[pacote]
-      ,[tv_canais]
-      ,[tv_creditos]
-      ,[tv_horas_gravacao]
-      ,[net]
-      ,[net_movel]
-      ,[telefone]
-      ,[movel_cartoes]
-      ,[movel_minutos]
-      ,[movel_internet]
-      ,[mens_1]
-      ,[mens_1a12]
-      ,[mens_13a24]
-      ,[mens_24]
-      ,[outras_ofertas]
-      ,[envio_cartao_nos]
-      ,[equip_tv]
-      ,[equip_net]
-      ,[pacote_comercial]
-      ,[notas_televisao]
-      ,[notas_net_movel]
-      ,[notas_telefone]
-  FROM [dbo].[Propostas]";
+        $query = "SELECT
+                      [id],
+                      [grupo],
+                      [filtro1],
+                      [filtro2],
+                      [filtro3],
+                      [tipo_pacote],
+                      [perfil],
+                      [pacote],
+                      [tv_canais],
+                      [tv_creditos],
+                      [tv_horas_gravacao],
+                      [net],
+                      [net_movel],
+                      [telefone],
+                      [movel_cartoes],
+                      [movel_minutos],
+                      [movel_internet],
+                      [mens_1],
+                      [mens_1a12],
+                      [mens_13a24],
+                      [mens_24],
+                      [outras_ofertas],
+                      [envio_cartao_nos],
+                      [equip_tv],
+                      [equip_net],
+                      [pacote_comercial],
+                      [notas_televisao],
+                      [notas_net_movel],
+                      [notas_telefone]
+                  FROM [dbo].[Propostas]";
 
         $stmt = $db->prepare($query);
 

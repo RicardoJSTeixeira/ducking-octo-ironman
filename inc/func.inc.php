@@ -95,32 +95,6 @@ Class DB
 
 // Strings
 
-
-//-------------------------------------------------------------------
-/**
- * StartsWith
- * Tests if a text starts with an given string.
- *
- * @param     string
- * @param     string
- * @return    bool
-
-http://www.jonasjohn.de/snippets/php/starts-with.htm
- *
- * $ExampleText = 'Hello world!';
- *
- * if (StartsWith($ExampleText, 'Hello')){
- * print 'The text starts with hello!';
- * }
- *
- *
- * $ExampleText = 'Evil monkey.';
- *
- * if (!StartsWith($ExampleText, 'monkey')){
- * print 'The text does not start with monkey!';
- * }
- */
-
 function StartsWith($Haystack, $Needle)
 {
     // Recommended version, using strpos
