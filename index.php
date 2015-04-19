@@ -136,7 +136,7 @@ $oVars = (object)[
                 <br>
                 <b>Número:</b> <?= $oVars->telefone ? $oVars->telefone : '[SEM DADOS]' ?>
                 <br>
-                <b>IP:</b> <?= getRealIpAddr(); ?>
+                <b>IP:</b> <?= $oVars->ip ?>
             </div>
 
             <div class="col-md-12 panel panel-default" id="container" style="padding: 0"> <!-- Start main content -->
