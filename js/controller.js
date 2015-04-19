@@ -32,7 +32,9 @@ var controller = (function () {
         app1.setNextPage(function () {
             app1.hide();
             oPageData.pag1 = app1.getValues();
-            app2.init()
+            app2.init();
+            //app3 inicializada para se poder verificar se existe propostas para o seleccionado
+            app3.init()
         });
 
 //app2

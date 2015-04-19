@@ -15,6 +15,8 @@ var app3 = (function () {
     var cliente_aceita_observacoes;
     var quantas_boxes;
 
+    var sTemplate;
+
     function fnInit(oDadosPagina2) {
 
         if (oDadosPagina2)
@@ -29,15 +31,7 @@ var app3 = (function () {
 
         $.get("pages/pag3.html",
             function (sHTML) {
-
-                var sRendered = Mustache.render(sHTML, oPerfil);
-
-                jqC = $("#container").append(sRendered).find("#pag3");
-
-                fnGetDados(0);
-
-                fnSetEvents();
-
+                sTemplate = sHTML;
             },
             "html")
 
@@ -194,6 +188,9 @@ var app3 = (function () {
 
     function fnGetDados(nr, force) {
 
+        if (!oPerfil)
+            return false;
+
         var iNr = +nr;
 
         if (!_.isFinite(iNr))
@@ -342,7 +339,21 @@ var app3 = (function () {
         }
     }
 
-    function fnGetFristProposta() {
+    function fnGetFristProposta(oDadosPagina2) {
+
+        if (oDadosPagina2)
+            oPerfil = oDadosPagina2;
+
+        var sRendered = Mustache.render(sTemplate, oPerfil);
+
+        var jqCT = $("#container");
+        if (!jqCT.find("#pag3").length)
+            jqC = jqCT.append(sRendered).find("#pag3");
+        else
+            jqC = jqCT.find("#pag3").remove().end().append(sRendered);
+
+
+        fnSetEvents();
 
         if (!jqC)
             return false;

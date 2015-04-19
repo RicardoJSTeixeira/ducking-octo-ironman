@@ -84,7 +84,7 @@ var app2 = (function () {
     function fnSetEvents() {
         jqC.find("#perfil_entrada").change(function () {
 
-            app3.restartPropostas();
+            app3.restartPropostas(fnGetValues());
 
             // limpar formatações derivadas de filtros
             jqC.find(".tag_servicos")
