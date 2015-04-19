@@ -160,10 +160,8 @@ $oVars = (object)[
 
             #echo getFooter();
 
-            if (APP_TYPE == 'DEV') {
-
+            if (APP_TYPE == 'DEV')
                 echo ' > ' . APP_TYPE . ' :: ' . APP_LASTUPDATE;
-            }
 
             ?>
         </p>
