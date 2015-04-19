@@ -5,19 +5,16 @@ include 'inc/func.inc.php';
 
 
 // Ler variáveis vindas da GoContact
+$oVars = (object)[
+    "uuid" => filter_var($_GET["uuid"]),
+    "id_client" => filter_var($_GET["contactid"]),
+    "top" => filter_var($_GET["userfullname"]),
+    "nome" => filter_var($_GET["contact"]),
+    "morada" => filter_var($_GET["address"]),
+    "telefone" => filter_var($_GET["phone"]),
+    "email" => filter_var($_GET["email"])
+];
 
-$uuid = filter_var($_GET["uuid"]);
-$id_client = filter_var($_GET["contact_id"]);
-$top = filter_var($_GET["agent_id"]);
-$nome = filter_var($_GET["name"]);
-$morada = filter_var($_GET["morada"]);
-$telefone = filter_var($_GET["phone_number"]);
-
-// PARA DEV
-$top = "banana";
-$nome = "Maria Rosário";
-$morada = "Rua das campainhas";
-$telefone = "963258741";
 
 
 ?>
@@ -136,7 +133,7 @@ $telefone = "963258741";
 
 <body>
 
-<div class="container"  style="padding-top: 0">
+<div class="container" style="padding-top: 0">
 
 
     <div class="row" style="margin-bottom: -23px;">
@@ -145,48 +142,52 @@ $telefone = "963258741";
 
             <div class="col-md-6 panel panel-default">
                 <div class="row">
-                    <div class="col-xs-3"> <img src="img/cliente/cliente_logo.png"></div>
+                    <div class="col-xs-3"><img src="img/cliente/cliente_logo.png"></div>
                     <div class="col-xs-6" id="header"></div>
                 </div>
             </div>
 
             <div class="col-md-6 panel panel-default">
-                <b>Operador:</b> <?= $top ?>
+                <b>Operador:</b> <?= $oVars->top ?>
                 <br>
-                <b>Número:</b> <?= $telefone ? $telefone :'[SEM DADOS]' ?>
+                <b>Número:</b> <?= $oVars->telefone ? $oVars->telefone : '[SEM DADOS]' ?>
                 <br>
                 <b>IP:</b> <?= getRealIpAddr(); ?>
             </div>
 
-            <!--<div class="col-md-10 panel panel-default">
+              <!--<div class="col-md-10 panel panel-default">
 
-                <div class="col-md-6">
+                  <div class="col-md-6">
 
-                    Nome: $NOME_CLIENTE$
-                    <br>
-                    Morada: $MORADA$
+                      Nome: $NOME_CLIENTE$
+                      <br>
+                      Morada: $MORADA$
 
-                </div>
+                  </div>
 
-                <div class="col-md-6">
+                  <div class="col-md-6">
 
-                    Tel: $912345678$
-                    <br>
-                    Tec: $TECNOLOGIA$
+                      Tel: $912345678$
+                      <br>
+                      Tec: $TECNOLOGIA$
 
-                </div>
-            </div>-->
+                  </div>
+              </div>-->
 
 
             <div class="col-md-12 panel panel-default" id="container" style="padding: 0"> <!-- Start main content -->
 
 
-            </div> <!-- End main content -->
+            </div>
+              <!-- End main content -->
 
 
-        </div> <!-- End header -->
-    </div> <!-- row -->
-</div> <!-- /container -->
+        </div>
+        <!-- End header -->
+    </div>
+    <!-- row -->
+</div>
+<!-- /container -->
 
 <footer class="footer">
     <div class="container">
@@ -207,12 +208,7 @@ $telefone = "963258741";
 
 <script>
 
-    var oVars = {
-        top:     "<?=$top?>",
-        nome:    "<?=$nome?>",
-        morada:  "<?=$morada?>",
-        telefone:"<?=$telefone?>"
-    }
+    var oVars = <?= json_encode($oVars); ?>;
 
 </script>
 
