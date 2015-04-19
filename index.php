@@ -15,8 +15,6 @@ $oVars = (object)[
     "email" => filter_var($_GET["email"])
 ];
 
-
-
 ?>
 
 
@@ -85,17 +83,6 @@ $oVars = (object)[
 
     <style>
 
-        /* http://css-tricks.com/perfect-full-page-background-image/ */
-
-        html {
-            /*background: url(img/cliente/wpid-nos-zon-açores-635x340.png.png) no-repeat center center fixed;
-            -webkit-background-size: cover;
-            -moz-background-size: cover;
-            -o-background-size: cover;
-            /* background-size : cover; */
-            /*background-size: 635px 340px;*/
-        }
-
         body {
             font-family: "Open Sans", serif;
             background: transparent;
@@ -128,9 +115,6 @@ $oVars = (object)[
 
 </head>
 
-<?php //include 'inc/navbar.html.php'; ?>
-
-
 <body>
 
 <div class="container" style="padding-top: 0">
@@ -154,26 +138,6 @@ $oVars = (object)[
                 <br>
                 <b>IP:</b> <?= getRealIpAddr(); ?>
             </div>
-
-              <!--<div class="col-md-10 panel panel-default">
-
-                  <div class="col-md-6">
-
-                      Nome: $NOME_CLIENTE$
-                      <br>
-                      Morada: $MORADA$
-
-                  </div>
-
-                  <div class="col-md-6">
-
-                      Tel: $912345678$
-                      <br>
-                      Tec: $TECNOLOGIA$
-
-                  </div>
-              </div>-->
-
 
             <div class="col-md-12 panel panel-default" id="container" style="padding: 0"> <!-- Start main content -->
 
