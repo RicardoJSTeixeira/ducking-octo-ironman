@@ -12,12 +12,11 @@ $oVars = (object)[
     "nome" => filter_var($_GET["contact"]),
     "morada" => filter_var($_GET["address"]),
     "telefone" => filter_var($_GET["phone"]),
-    "email" => filter_var($_GET["email"])
+    "email" => filter_var($_GET["email"]),
+    "ip" => filter_var($_GET["ip"])
 ];
 
 ?>
-
-
 <!DOCTYPE html>
 <html lang="pt">
 <head>
