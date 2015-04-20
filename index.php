@@ -116,7 +116,7 @@ $oVars = (object)[
 
 <body>
 
-<div class="container" style="padding-top: 0">
+<div class="container" style="padding: 0">
 
 
     <div class="row">
