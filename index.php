@@ -119,86 +119,81 @@ $oVars = (object)[
 <div class="container" style="padding-top: 0">
 
 
-    <div class="row" style="margin-bottom: -23px;">
+    <div class="row">
 
-        <div> <!-- Start header -->
-
-            <div class="col-md-6 panel panel-default">
-                <div class="row">
-                    <div class="col-xs-3"><img src="img/cliente/cliente_logo.png"></div>
-                    <div class="col-xs-6" id="header"></div>
-                </div>
+        <div class="col-md-6 panel panel-default">
+            <div class="row">
+                <div class="col-xs-3"><img src="img/cliente/cliente_logo.png"></div>
+                <div class="col-xs-6" id="header"></div>
             </div>
+        </div>
 
-            <div class="col-md-6 panel panel-default">
-                <p><b>Operador:</b> <?= $oVars->agent_id ?></p>
-                <p><b>Número:</b> <?= $oVars->telefone ? $oVars->telefone : '[SEM DADOS]' ?></p>
-                <p><b>IP:</b> <?= $oVars->ip ?></p>
-            </div>
+        <div class="col-md-6 panel panel-default">
+            <p><b>Operador:</b> <?= $oVars->agent_id ?></p>
 
-            <div class="col-md-12 panel panel-default" id="container" style="padding: 0"> <!-- Start main content -->
+            <p><b>Número:</b> <?= $oVars->telefone ? $oVars->telefone : '[SEM DADOS]' ?></p>
 
-
-            </div>
-              <!-- End main content -->
-
-
+            <p><b>IP:</b> <?= $oVars->ip ?></p>
         </div>
         <!-- End header -->
     </div>
-    <!-- row -->
-</div>
-<!-- /container -->
 
-<footer class="footer" style="display: none;">
-    <div class="container">
-        <p class="text-muted">
-            <?php
-
-            #echo getFooter();
-
-            if (APP_TYPE == 'DEV')
-                echo ' > ' . APP_TYPE . ' :: ' . APP_LASTUPDATE;
-
-            ?>
-        </p>
+    <div class="row">
+        <!-- Start main content -->
+        <div class="col-md-12 panel panel-default" id="container" style="padding: 0"></div>
+        <!-- End main content -->
     </div>
-</footer>
+    <!-- /container -->
 
-<script>
+    <footer class="footer" style="display: none;">
+        <div class="container">
+            <p class="text-muted">
+                <?php
 
-    var oVars = <?= json_encode($oVars); ?>;
+                #echo getFooter();
 
-</script>
+                if (APP_TYPE == 'DEV')
+                    echo ' > ' . APP_TYPE . ' :: ' . APP_LASTUPDATE;
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="js/plugins/jquery-1.11.2.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/plugins/bootstrap.js"></script>
-<script src="js/plugins/jasny-bootstrap.min.js"></script>
-<script src="js/plugins/jquery.validate.min.js"></script>
-<script src="js/plugins/jquery-validate.bootstrap-tooltip.min.js"></script>
-<script src="js/plugins/moment-with-locales.min.js"></script>
-<!-- msg -->
-<script type="text/javascript" src="js/plugins/msg/jquery.center.min.js"></script>
-<script type="text/javascript" src="js/plugins/msg/jquery.msg.min.js"></script>
-<script>
-    //change moment local
-    moment.locale("pt");
-</script>
-<script src="js/plugins/bootstrap-datetimepicker.min.js"></script>
-<script src="js/plugins/messages_pt_PT.js"></script>
-<script src="js/plugins/bootbox.min.js"></script>
-<script src="js/plugins/mustache.js"></script>
-<script src="js/plugins/lodash.min.js"></script>
-<script src="js/utils.js"></script>
-<script src="js/app1.js"></script>
-<script src="js/app2.js"></script>
-<script src="js/app3.js"></script>
-<script src="js/app4.js"></script>
-<script src="js/app5.js"></script>
-<script src="js/app6.js"></script>
-<script src="js/controller.js"></script>
+                ?>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+
+        var oVars = <?= json_encode($oVars); ?>;
+
+    </script>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/plugins/jquery-1.11.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/plugins/bootstrap.js"></script>
+    <script src="js/plugins/jasny-bootstrap.min.js"></script>
+    <script src="js/plugins/jquery.validate.min.js"></script>
+    <script src="js/plugins/jquery-validate.bootstrap-tooltip.min.js"></script>
+    <script src="js/plugins/moment-with-locales.min.js"></script>
+    <!-- msg -->
+    <script type="text/javascript" src="js/plugins/msg/jquery.center.min.js"></script>
+    <script type="text/javascript" src="js/plugins/msg/jquery.msg.min.js"></script>
+    <script>
+        //change moment local
+        moment.locale("pt");
+    </script>
+    <script src="js/plugins/bootstrap-datetimepicker.min.js"></script>
+    <script src="js/plugins/messages_pt_PT.js"></script>
+    <script src="js/plugins/bootbox.min.js"></script>
+    <script src="js/plugins/mustache.js"></script>
+    <script src="js/plugins/lodash.min.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/app1.js"></script>
+    <script src="js/app2.js"></script>
+    <script src="js/app3.js"></script>
+    <script src="js/app4.js"></script>
+    <script src="js/app5.js"></script>
+    <script src="js/app6.js"></script>
+    <script src="js/controller.js"></script>
 
 </body>
 </html>
