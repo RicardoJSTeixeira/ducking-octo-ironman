@@ -150,7 +150,7 @@ $oVars = (object)[
 </div>
 <!-- /container -->
 
-<footer class="footer">
+<footer class="footer" style="display: none;">
     <div class="container">
         <p class="text-muted">
             <?php
