@@ -1,73 +1,81 @@
 <div id="pag1">
     <div class="row">
 
-        <div class="progress">
-            <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
-                 style="min-width: 2em;">
-                0%
+        <div class="col-md-12">
+            <div class="progress">
+                <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
+                     style="min-width: 2em;">
+                    0%
+                </div>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="well">
-            <p>Muito bom dia, o meu nome é <strong> {{agent_id}} </strong> e sou gestor comercial da NOS.
+        <div class="col-md-12">
+            <div class="well">
+                <p>Muito bom dia, o meu nome é <strong> {{agent_id}} </strong> e sou gestor comercial da NOS.
 
-            <p>
+                <p>
 
-            <p>Tenho o gosto de estar a falar com o Sr.(a) {{nome}}? Como está passou bem?</p>
+                <p>Tenho o gosto de estar a falar com o Sr.(a) {{nome}}? Como está passou bem?</p>
 
-            <p><em>(Se não for, reagendar.)</em></p>
+                <p><em>(Se não for, reagendar.)</em></p>
 
-            <form class="form-inline" onsubmit="return false;">
+                <form class="form-inline" onsubmit="return false;">
 
-                <div class="form-group">
-                    <label for="nome_cliente">Nome</label>
-                    <input type="text" class="form-control" id="nome_cliente" value="{{nome}}">
-                </div>
+                    <div class="form-group">
+                        <label for="nome_cliente">Nome</label>
+                        <input type="text" class="form-control" id="nome_cliente" value="{{nome}}">
+                    </div>
 
-                <label class="radio-inline">
-                    <input type="radio" name="contacto_cliente" id="contacto_cliente_sim" value="Sim"> Sim
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" name="contacto_cliente" id="contacto_cliente_nao" value="Não"> Não
-                </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="contacto_cliente" id="contacto_cliente_sim" value="Sim"> Sim
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="contacto_cliente" id="contacto_cliente_nao" value="Não"> Não
+                    </label>
 
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 
     <div class="row">
-        <div class="well" id="autoriza_gravacao" style="display:none">
+        <div class="col-md-12">
+            <div class="well" id="autoriza_gravacao" style="display:none">
 
-            <p>A sua chamada será gravada para efeitos de prova de transacções comerciais, outras comunicações respeitantes à relação contratual e monitorização de qualidade de serviço.</p>
+                <p>A sua chamada será gravada para efeitos de prova de transacções comerciais, outras comunicações respeitantes à relação contratual e monitorização de qualidade de serviço.</p>
 
-            <p>Autoriza a gravação da chamada?</p>
+                <p>Autoriza a gravação da chamada?</p>
 
-            <form class="form-inline" onsubmit="return false;">
+                <form class="form-inline" onsubmit="return false;">
 
-                <label class="radio-inline">
-                    <input type="radio" name="autoriza_gravacao" id="autoriza_gravacao_sim" value="Sim"> Sim
-                </label>
-                <label class="radio-inline">
-                    <input type="radio" name="autoriza_gravacao" id="autoriza_gravacao_nao" value="Não"> Não
-                </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="autoriza_gravacao" id="autoriza_gravacao_sim" value="Sim"> Sim
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="autoriza_gravacao" id="autoriza_gravacao_nao" value="Não"> Não
+                    </label>
 
-            </form>
+                </form>
 
-            <br>
+                <br>
 
-            <button class="btn btn-primary" type="button" style="display:none" id="pag1_continuar">Continuar</button>
+                <button class="btn btn-primary" type="button" style="display:none" id="pag1_continuar">Continuar</button>
 
+            </div>
         </div>
     </div>
 
     <div class="row">
-        <div class="well" id="ir_para_agendamento" style="display:none">
+        <div class="col-md-12">
+            <div class="well" id="ir_para_agendamento" style="display:none">
 
-            <p>
-                <em>(No painel de outcomes FSCONTACT, seleccionar agendamento.)</em>
-            </p>
+                <p>
+                    <em>(No painel de outcomes FSCONTACT, seleccionar agendamento.)</em>
+                </p>
 
+            </div>
         </div>
     </div>
 </div>

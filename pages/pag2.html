@@ -1,455 +1,463 @@
 <div id="pag2">
 
     <div class="row">
-        <br>
+        <div class="col-md-12">
 
-        <button class="btn btn-primary btn-xs col-xs-offset-1" type="button" id="pag2_back">Voltar</button>
-        <hr>
+            <button class="btn btn-primary btn-xs col-xs-offset-1" type="button" id="pag2_back">Voltar</button>
+            <hr>
 
-        <div class="progress">
-            <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="20"
-                 aria-valuemin="0" aria-valuemax="100"
-                 style="width: 20%; min-width: 2em;">
-                20%
+            <div class="progress">
+                <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="20"
+                     aria-valuemin="0" aria-valuemax="100"
+                     style="width: 20%; min-width: 2em;">
+                    20%
+                </div>
             </div>
         </div>
     </div>
 
 
     <div class="row">
-        <div class="well col-xs-12">
+        <div class="col-md-12">
+            <div class="well">
 
 
-            <p>Sr.(a)
-                <b>{{nome}}</b>, estamos a contacta-lo(a) por termos Ofertas exclusivas para um lote restrito de clientes, como é o seu caso.
-            </p>
+                <p>Sr.(a)
+                    <b>{{nome}}</b>, estamos a contacta-lo(a) por termos Ofertas exclusivas para um lote restrito de clientes, como é o seu caso.
+                </p>
 
-            <p>Sr.(a) <b>{{nome}}</b>, se me permite a pergunta, atualmente que serviço de TV tem na sua residência?</p>
+                <p>Sr.(a) <b>{{nome}}</b>, se me permite a pergunta, atualmente que serviço de TV tem na sua residência?
+                </p>
+            </div>
         </div>
     </div>
     <div class="row">
-        <div class="well col-xs-12">
-            <form class="form-inline" onsubmit="return false;">
+        <div class="col-md-12">
+            <div class="well">
+                <form class="form-inline" onsubmit="return false;">
 
 
-                <div class="form-group">
-                    <label for="perfil_entrada"><strong>Perfil Entrada</strong></label>
-                    <select id="perfil_entrada" required class="form-control input-sm required"></select>
-                </div>
-
-                <div class="form-group">
-                    <strong>Tecnologia</strong>
-
-                    <div class="form-control">
-                        <label class="radio-inline">
-                            <input type="radio" checked name="tecnologia" id="tecnologia_cabo" value="CABO"> Cabo
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="tecnologia" id="tecnologia_dth" value="DTH"> DTH
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="tecnologia" id="tecnologia_ftth" value="FTTH"> FTTH
-                        </label>
+                    <div class="form-group">
+                        <label for="perfil_entrada"><strong>Perfil Entrada</strong></label>
+                        <select id="perfil_entrada" required class="form-control input-sm required"></select>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <strong>Zona Concorrência</strong>
+                    <div class="form-group">
+                        <strong>Tecnologia</strong>
 
-                    <div class="form-control">
-                        <label class="radio-inline">
-                            <input type="radio" checked name="zona_concorrencia" id="zona_concorrencia_sim" value="Sim"> Sim
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="zona_concorrencia" id="zona_concorrencia_nao" value="Não"> Não
-                        </label>
+                        <div class="form-control">
+                            <label class="radio-inline">
+                                <input type="radio" checked name="tecnologia" id="tecnologia_cabo" value="CABO"> Cabo
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="tecnologia" id="tecnologia_dth" value="DTH"> DTH
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="tecnologia" id="tecnologia_ftth" value="FTTH"> FTTH
+                            </label>
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <strong>Actual Cliente</strong>
+                    <div class="form-group">
+                        <strong>Zona Concorrência</strong>
 
-                    <div class="form-control">
-                        <label class="radio-inline">
-                            <input type="radio" name="actual_cliente" id="actual_cliente_sim" value="Sim"> Sim
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" checked name="actual_cliente" id="actual_cliente_nao" value="Não"> Não
-                        </label>
+                        <div class="form-control">
+                            <label class="radio-inline">
+                                <input type="radio" checked name="zona_concorrencia" id="zona_concorrencia_sim" value="Sim"> Sim
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="zona_concorrencia" id="zona_concorrencia_nao" value="Não"> Não
+                            </label>
+                        </div>
                     </div>
-                </div>
 
-            </form>
+                    <div class="form-group">
+                        <strong>Actual Cliente</strong>
+
+                        <div class="form-control">
+                            <label class="radio-inline">
+                                <input type="radio" name="actual_cliente" id="actual_cliente_sim" value="Sim"> Sim
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" checked name="actual_cliente" id="actual_cliente_nao" value="Não"> Não
+                            </label>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
         </div>
 
         <div class="row">
+            <div class="col-md-12">
+                <div class="well">
+                    <table class="table table-bordered">
+                        <tbody>
+                        <tr>
+                            <td>
+                                <span class="tag_servicos" id="tem_tv">Tem Televisão</span>
+                            </td>
+                            <td>
+                                <span class="tag_servicos" id="tem_tv_nos">NOS</span>
+                            </td>
+                            <td>
+                                <span class="tag_servicos" id="tem_tv_vodafone">VODAFONE</span>
+                            </td>
+                            <td>
+                                <span class="tag_servicos" id="tem_tv_cabovisao">CABOVISÃO</span>
+                            </td>
+                            <td>
+                                <span class="tag_servicos" id="tem_tv_meo">MEO</span>
+                            </td>
+                            <td>
+                                <span class="tag_servicos" id="tem_tv_outros">OUTROS</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <form onsubmit="return false;" class="form-inline">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" id="tem_tv_fidelizado"> Fidelizado
+                                        </label>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="tem_tv_mensalidade">Mensalidade</label>
+                                        <input type="text" class="form-control input-sm" id="tem_tv_mensalidade">
+                                    </div>
+                                </form>
+                            </td>
+                            <td colspan="5">
+                                <form onsubmit="return false;" class="form-inline">
+                                    Que tipo de canais tem o senhor?
+
+                                    <div class="radio-inline">
+                                        <label class="radio-inline">
+                                            <input type="radio" checked name="tipo_canais_tem" id="tipo_canais_tem_mais35" value="+35"> + 35
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="tipo_canais_tem" id="tipo_canais_tem_menos35" value="-35"> - 35
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="tipo_canais_tem" id="tipo_canais_tem_tdt" value="tdt"> TDT
+                                        </label>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label for="tipo_canais_gostava_ver">Que tipo de canais o senhor gostava de ver?</label>
+                                        <select id="tipo_canais_gostava_ver" class="form-control input-sm">
+
+                                            <option value='nothing'>[Seleccione uma opção]</option>
+                                            <option value='CINEMA'>CINEMA</option>
+                                            <option value='DESPORTO'>DESPORTO</option>
+                                            <option value='INFANTIS'>INFANTIS</option>
+                                            <option value='INFORMATIVOS'>INFORMATIVOS</option>
+
+                                        </select>
+                                    </div>
+                                </form>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <span class="tag_servicos" id="tem_net_fixa">Tem Net Fixa</span>
+                            </td>
+                            <td>
+                                <span class="tag_servicos" id="tem_net_fixa_nos">NOS</span>
+                            </td>
+                            <td>
+                                <span class="tag_servicos" id="tem_net_fixa_vodafone">VODAFONE</span>
+                            </td>
+                            <td>
+                                <span class="tag_servicos" id="tem_net_fixa_cabovisao">CABOVISÃO</span>
+                            </td>
+                            <td>
+                                <span class="tag_servicos" id="tem_net_fixa_meo">MEO</span>
+                            </td>
+                            <td>
+                                <span class="tag_servicos" id="tem_net_fixa_outros">OUTROS</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <form onsubmit="return false;" class="form-inline">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" id="tem_net_fixa_fidelizado"> Fidelizado
+                                        </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="tem_net_fixa_mensalidade">Mensalidade</label>
+                                        <input type="text" class="form-control input-sm" id="tem_net_fixa_mensalidade">
+                                    </div>
+                                </form>
+                            </td>
+                            <td colspan="5">
+                                <form class="form-inline" onsubmit="return false">
+                                    Tem computador portátil em casa?
+
+                                    <div class="radio-inline">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="tem_computador_portatil" id="tem_computador_portatil_sim" value="Sim"> Sim
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" checked name="tem_computador_portatil" id="tem_computador_portatil_nao"
+                                                   value="Não"> Não
+                                        </label>
+                                    </div>
+
+                                    <br>
+
+                                    Que velocidade tem em sua casa?
+
+                                    <div class="radio-inline">
+                                        <label class="radio-inline">
+                                            <input type="radio" checked name="velocidade_em_casa" id="velocidade_em_casa_mais30mb"
+                                                   value="+30"> + 30MB
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" name="velocidade_em_casa" id="velocidade_em_casa_menos30mb" value="-30"> - 30MB
+                                        </label>
+                                    </div>
+
+                                </form>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <span class="tag_servicos" id="tem_telefone">Tem Telefone</span>
+                            </td>
+                            <td>
+                                <span class="tag_servicos" id="tem_telefone_nos">NOS</span>
+                            </td>
+                            <td>
+                                <span class="tag_servicos" id="tem_telefone_vodafone">VODAFONE</span>
+                            </td>
+                            <td>
+                                <span class="tag_servicos" id="tem_telefone_cabovisao">CABOVISÃO</span>
+                            </td>
+                            <td>
+                                <span class="tag_servicos" id="tem_telefone_meo">MEO</span>
+                            </td>
+                            <td>
+                                <span class="tag_servicos" id="tem_telefone_outros">OUTROS</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <form onsubmit="return false;" class="form-inline">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" id="tem_telefone_fidelizado"> Fidelizado
+                                        </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="tem_telefone_mensalidade">Mensalidade</label>
+                                        <input type="text" class="form-control input-sm" id="tem_telefone_mensalidade">
+                                    </div>
+                                </form>
+                            </td>
+                            <td colspan="5">
+                                <form class="form-inline" onsubmit="return false">
+
+
+                                    <div class="form-group">
+                                        <label for="tipo_chamadas_inclui">Que tipo de chamadas inclui?</label>
+                                        <select id="tipo_chamadas_inclui" class="form-control input-sm">
+
+                                            <option value='nothing'>[Seleccione uma opção]</option>
+                                            <option value='24HINTERNACIONAIS'>24h INTERNACIONAIS</option>
+                                            <option value='24HNACIONAIS'>24h NACIONAIS</option>
+                                            <option value='NOITES'>NOITES</option>
+                                            <option value='SEMCHAMADASINCLUIDAS'>S\ CHAMADAS INCLUIDAS</option>
+
+                                        </select>
+                                    </div>
+
+                                    <br>
+
+                                    Tem familiares no estrangeiro?
+
+                                    <div class="radio-inline">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="tem_familiares_estrangeiro" id="tem_familiares_estrangeiro_sim"
+                                                   value="Sim"> Sim
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" checked name="tem_familiares_estrangeiro" id="tem_familiares_estrangeiro_nao"
+                                                   value="Não"> Não
+                                        </label>
+                                    </div>
+
+                                </form>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <span class="tag_servicos" id="tem_telemovel">Tem Telemovel</span>
+                            </td>
+                            <td>
+                                <span class="tag_servicos" id="tem_telemovel_nos">NOS</span>
+                            </td>
+                            <td>
+                                <span class="tag_servicos" id="tem_telemovel_vodafone">VODAFONE</span>
+                            </td>
+                            <td>
+                                <span class="tag_servicos" id="tem_telemovel_cabovisao">CABOVISÃO</span>
+                            </td>
+                            <td>
+                                <span class="tag_servicos" id="tem_telemovel_meo">MEO</span>
+                            </td>
+                            <td>
+                                <span class="tag_servicos" id="tem_telemovel_outros">OUTROS</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <form onsubmit="return false;" class="form-inline">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" id="tem_telemovel_fidelizado"> Fidelizado
+                                        </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="tem_telemovel_mensalidade">Mensalidade</label>
+                                        <input type="text" class="form-control input-sm" id="tem_telemovel_mensalidade">
+                                    </div>
+                                </form>
+                            </td>
+                            <td colspan="5">
+                                <form class="form-inline" onsubmit="return false">
+
+
+                                    Costuma ligar e/ou enviar SMS's para outras redes correcto?
+
+                                    <div class="radio-inline">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="ligar_enviar_sms_outras_redes" id="ligar_enviar_sms_outras_redes_sim"
+                                                   value="Sim"> Sim
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" checked name="ligar_enviar_sms_outras_redes"
+                                                   id="ligar_enviar_sms_outras_redes_nao" value="Não"> Não
+                                        </label>
+                                    </div>
+
+                                    <br>
+
+                                    <div class="form-group">
+                                        <label for="telemoveis_agregado_familiar">Quantos telemóveis tem no seu agregado familiar?</label>
+                                        <select id="telemoveis_agregado_familiar" class="form-control input-sm">
+
+                                            <option value='nothing'>[Seleccione uma opção]</option>
+                                            <option value='0'>0</option>
+                                            <option value='1'>1</option>
+                                            <option value='2'>2</option>
+                                            <option value='3'>3</option>
+                                            <option value='4'>4</option>
+                                            <option value='5'>5</option>
+                                            <option value='6'>6</option>
+                                            <option value='7'>7</option>
+                                            <option value='8'>8</option>
+                                            <option value='9'>9</option>
+                                            <option value='10'>10</option>
+                                            <option value='11'>11</option>
+                                            <option value='12'>12</option>
+                                            <option value='13'>13</option>
+                                            <option value='14'>14</option>
+                                            <option value='+15'>+15</option>
+
+
+                                        </select>
+                                    </div>
+
+                                </form>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <span class="tag_servicos" id="tem_net_movel">Tem Net Móvel</span>
+                            </td>
+                            <td>
+                                <span class="tag_servicos" id="tem_net_movel_nos">NOS</span>
+                            </td>
+                            <td>
+                                <span class="tag_servicos" id="tem_net_movel_vodafone">VODAFONE</span>
+                            </td>
+                            <td>
+                                <span class="tag_servicos" id="tem_net_movel_cabovisao">CABOVISÃO</span>
+                            </td>
+                            <td>
+                                <span class="tag_servicos" id="tem_net_movel_meo">MEO</span>
+                            </td>
+                            <td>
+                                <span class="tag_servicos" id="tem_net_movel_outros">OUTROS</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <form onsubmit="return false;" class="form-inline">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" id="tem_net_movel_fidelizado"> Fidelizado
+                                        </label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="tem_net_movel_mensalidade">Mensalidade</label>
+                                        <input type="text" class="form-control input-sm" id="tem_net_movel_mensalidade">
+                                    </div>
+                                </form>
+                            </td>
+                            <td colspan="5">
+                                <form class="form-inline" onsubmit="return false">
+
+
+                                    Utiliza algum tablet/smartphone?
+
+                                    <div class="radio-inline">
+                                        <label class="radio-inline">
+                                            <input type="radio" name="utiliza_tablet_smartphone" id="utiliza_tablet_smartphone_sim"
+                                                   value="Sim"> Sim
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" checked name="utiliza_tablet_smartphone" id="utiliza_tablet_smartphone_nao"
+                                                   value="Não"> Não
+                                        </label>
+                                    </div>
+
+                                </form>
+                            </td>
+                        </tr>
+
+                        </tbody>
+                        <tfoot>
+
+                        <tr>
+                            <td colspan="5">
+                                <form onsubmit="return false;" class="form-inline">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">Mensalidade Total</span>
+                                        <input type="text" id="mensalidade_total" required class="required input-sm form-control">
+                                        <span class="input-group-addon">€</span>
+                                    </div>
+                                </form>
+                            </td>
+                            <td>
+                                <button class="btn btn-primary" type="button" style="display:none" id="pag2_continuar">Continuar</button>
+                            </td>
+                        </tr>
+                        </tfoot>
+                    </table>
+
+                </div>
+            </div>
+
         </div>
-        <div class="well col-xs-12">
-            <table class="table table-bordered">
-                <tbody>
-                <tr>
-                    <td>
-                        <span class="tag_servicos" id="tem_tv">Tem Televisão</span>
-                    </td>
-                    <td>
-                        <span class="tag_servicos" id="tem_tv_nos">NOS</span>
-                    </td>
-                    <td>
-                        <span class="tag_servicos" id="tem_tv_vodafone">VODAFONE</span>
-                    </td>
-                    <td>
-                        <span class="tag_servicos" id="tem_tv_cabovisao">CABOVISÃO</span>
-                    </td>
-                    <td>
-                        <span class="tag_servicos" id="tem_tv_meo">MEO</span>
-                    </td>
-                    <td>
-                        <span class="tag_servicos" id="tem_tv_outros">OUTROS</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <form onsubmit="return false;" class="form-inline">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" id="tem_tv_fidelizado"> Fidelizado
-                                </label>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="tem_tv_mensalidade">Mensalidade</label>
-                                <input type="text" class="form-control input-sm" id="tem_tv_mensalidade">
-                            </div>
-                        </form>
-                    </td>
-                    <td colspan="5">
-                        <form onsubmit="return false;" class="form-inline">
-                            Que tipo de canais tem o senhor?
-
-                            <div class="radio-inline">
-                                <label class="radio-inline">
-                                    <input type="radio" checked name="tipo_canais_tem" id="tipo_canais_tem_mais35" value="+35"> + 35
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" name="tipo_canais_tem" id="tipo_canais_tem_menos35" value="-35"> - 35
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" name="tipo_canais_tem" id="tipo_canais_tem_tdt" value="tdt"> TDT
-                                </label>
-                            </div>
-
-
-                            <div class="form-group">
-                                <label for="tipo_canais_gostava_ver">Que tipo de canais o senhor gostava de ver?</label>
-                                <select id="tipo_canais_gostava_ver" class="form-control input-sm">
-
-                                    <option value='nothing'>[Seleccione uma opção]</option>
-                                    <option value='CINEMA'>CINEMA</option>
-                                    <option value='DESPORTO'>DESPORTO</option>
-                                    <option value='INFANTIS'>INFANTIS</option>
-                                    <option value='INFORMATIVOS'>INFORMATIVOS</option>
-
-                                </select>
-                            </div>
-                        </form>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <span class="tag_servicos" id="tem_net_fixa">Tem Net Fixa</span>
-                    </td>
-                    <td>
-                        <span class="tag_servicos" id="tem_net_fixa_nos">NOS</span>
-                    </td>
-                    <td>
-                        <span class="tag_servicos" id="tem_net_fixa_vodafone">VODAFONE</span>
-                    </td>
-                    <td>
-                        <span class="tag_servicos" id="tem_net_fixa_cabovisao">CABOVISÃO</span>
-                    </td>
-                    <td>
-                        <span class="tag_servicos" id="tem_net_fixa_meo">MEO</span>
-                    </td>
-                    <td>
-                        <span class="tag_servicos" id="tem_net_fixa_outros">OUTROS</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <form onsubmit="return false;" class="form-inline">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" id="tem_net_fixa_fidelizado"> Fidelizado
-                                </label>
-                            </div>
-                            <div class="form-group">
-                                <label for="tem_net_fixa_mensalidade">Mensalidade</label>
-                                <input type="text" class="form-control input-sm" id="tem_net_fixa_mensalidade">
-                            </div>
-                        </form>
-                    </td>
-                    <td colspan="5">
-                        <form class="form-inline" onsubmit="return false">
-                            Tem computador portátil em casa?
-
-                            <div class="radio-inline">
-                                <label class="radio-inline">
-                                    <input type="radio" name="tem_computador_portatil" id="tem_computador_portatil_sim" value="Sim"> Sim
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" checked name="tem_computador_portatil" id="tem_computador_portatil_nao"
-                                           value="Não"> Não
-                                </label>
-                            </div>
-
-                            <br>
-
-                            Que velocidade tem em sua casa?
-
-                            <div class="radio-inline">
-                                <label class="radio-inline">
-                                    <input type="radio" checked name="velocidade_em_casa" id="velocidade_em_casa_mais30mb"
-                                           value="+30"> + 30MB
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" name="velocidade_em_casa" id="velocidade_em_casa_menos30mb" value="-30"> - 30MB
-                                </label>
-                            </div>
-
-                        </form>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <span class="tag_servicos" id="tem_telefone">Tem Telefone</span>
-                    </td>
-                    <td>
-                        <span class="tag_servicos" id="tem_telefone_nos">NOS</span>
-                    </td>
-                    <td>
-                        <span class="tag_servicos" id="tem_telefone_vodafone">VODAFONE</span>
-                    </td>
-                    <td>
-                        <span class="tag_servicos" id="tem_telefone_cabovisao">CABOVISÃO</span>
-                    </td>
-                    <td>
-                        <span class="tag_servicos" id="tem_telefone_meo">MEO</span>
-                    </td>
-                    <td>
-                        <span class="tag_servicos" id="tem_telefone_outros">OUTROS</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <form onsubmit="return false;" class="form-inline">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" id="tem_telefone_fidelizado"> Fidelizado
-                                </label>
-                            </div>
-                            <div class="form-group">
-                                <label for="tem_telefone_mensalidade">Mensalidade</label>
-                                <input type="text" class="form-control input-sm" id="tem_telefone_mensalidade">
-                            </div>
-                        </form>
-                    </td>
-                    <td colspan="5">
-                        <form class="form-inline" onsubmit="return false">
-
-
-                            <div class="form-group">
-                                <label for="tipo_chamadas_inclui">Que tipo de chamadas inclui?</label>
-                                <select id="tipo_chamadas_inclui" class="form-control input-sm">
-
-                                    <option value='nothing'>[Seleccione uma opção]</option>
-                                    <option value='24HINTERNACIONAIS'>24h INTERNACIONAIS</option>
-                                    <option value='24HNACIONAIS'>24h NACIONAIS</option>
-                                    <option value='NOITES'>NOITES</option>
-                                    <option value='SEMCHAMADASINCLUIDAS'>S\ CHAMADAS INCLUIDAS</option>
-
-                                </select>
-                            </div>
-
-                            <br>
-
-                            Tem familiares no estrangeiro?
-
-                            <div class="radio-inline">
-                                <label class="radio-inline">
-                                    <input type="radio" name="tem_familiares_estrangeiro" id="tem_familiares_estrangeiro_sim"
-                                           value="Sim"> Sim
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" checked name="tem_familiares_estrangeiro" id="tem_familiares_estrangeiro_nao"
-                                           value="Não"> Não
-                                </label>
-                            </div>
-
-                        </form>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <span class="tag_servicos" id="tem_telemovel">Tem Telemovel</span>
-                    </td>
-                    <td>
-                        <span class="tag_servicos" id="tem_telemovel_nos">NOS</span>
-                    </td>
-                    <td>
-                        <span class="tag_servicos" id="tem_telemovel_vodafone">VODAFONE</span>
-                    </td>
-                    <td>
-                        <span class="tag_servicos" id="tem_telemovel_cabovisao">CABOVISÃO</span>
-                    </td>
-                    <td>
-                        <span class="tag_servicos" id="tem_telemovel_meo">MEO</span>
-                    </td>
-                    <td>
-                        <span class="tag_servicos" id="tem_telemovel_outros">OUTROS</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <form onsubmit="return false;" class="form-inline">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" id="tem_telemovel_fidelizado"> Fidelizado
-                                </label>
-                            </div>
-                            <div class="form-group">
-                                <label for="tem_telemovel_mensalidade">Mensalidade</label>
-                                <input type="text" class="form-control input-sm" id="tem_telemovel_mensalidade">
-                            </div>
-                        </form>
-                    </td>
-                    <td colspan="5">
-                        <form class="form-inline" onsubmit="return false">
-
-
-                            Costuma ligar e/ou enviar SMS's para outras redes correcto?
-
-                            <div class="radio-inline">
-                                <label class="radio-inline">
-                                    <input type="radio" name="ligar_enviar_sms_outras_redes" id="ligar_enviar_sms_outras_redes_sim"
-                                           value="Sim"> Sim
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" checked name="ligar_enviar_sms_outras_redes"
-                                           id="ligar_enviar_sms_outras_redes_nao" value="Não"> Não
-                                </label>
-                            </div>
-
-                            <br>
-
-                            <div class="form-group">
-                                <label for="telemoveis_agregado_familiar">Quantos telemóveis tem no seu agregado familiar?</label>
-                                <select id="telemoveis_agregado_familiar" class="form-control input-sm">
-
-                                    <option value='nothing'>[Seleccione uma opção]</option>
-                                    <option value='0'>0</option>
-                                    <option value='1'>1</option>
-                                    <option value='2'>2</option>
-                                    <option value='3'>3</option>
-                                    <option value='4'>4</option>
-                                    <option value='5'>5</option>
-                                    <option value='6'>6</option>
-                                    <option value='7'>7</option>
-                                    <option value='8'>8</option>
-                                    <option value='9'>9</option>
-                                    <option value='10'>10</option>
-                                    <option value='11'>11</option>
-                                    <option value='12'>12</option>
-                                    <option value='13'>13</option>
-                                    <option value='14'>14</option>
-                                    <option value='+15'>+15</option>
-
-
-                                </select>
-                            </div>
-
-                        </form>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>
-                        <span class="tag_servicos" id="tem_net_movel">Tem Net Móvel</span>
-                    </td>
-                    <td>
-                        <span class="tag_servicos" id="tem_net_movel_nos">NOS</span>
-                    </td>
-                    <td>
-                        <span class="tag_servicos" id="tem_net_movel_vodafone">VODAFONE</span>
-                    </td>
-                    <td>
-                        <span class="tag_servicos" id="tem_net_movel_cabovisao">CABOVISÃO</span>
-                    </td>
-                    <td>
-                        <span class="tag_servicos" id="tem_net_movel_meo">MEO</span>
-                    </td>
-                    <td>
-                        <span class="tag_servicos" id="tem_net_movel_outros">OUTROS</span>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <form onsubmit="return false;" class="form-inline">
-                            <div class="checkbox">
-                                <label>
-                                    <input type="checkbox" id="tem_net_movel_fidelizado"> Fidelizado
-                                </label>
-                            </div>
-                            <div class="form-group">
-                                <label for="tem_net_movel_mensalidade">Mensalidade</label>
-                                <input type="text" class="form-control input-sm" id="tem_net_movel_mensalidade">
-                            </div>
-                        </form>
-                    </td>
-                    <td colspan="5">
-                        <form class="form-inline" onsubmit="return false">
-
-
-                            Utiliza algum tablet/smartphone?
-
-                            <div class="radio-inline">
-                                <label class="radio-inline">
-                                    <input type="radio" name="utiliza_tablet_smartphone" id="utiliza_tablet_smartphone_sim"
-                                           value="Sim"> Sim
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" checked name="utiliza_tablet_smartphone" id="utiliza_tablet_smartphone_nao"
-                                           value="Não"> Não
-                                </label>
-                            </div>
-
-                        </form>
-                    </td>
-                </tr>
-
-                </tbody>
-                <tfoot>
-
-                <tr>
-                    <td colspan="5">
-                        <form onsubmit="return false;" class="form-inline">
-                            <div class="input-group">
-                                <span class="input-group-addon">Mensalidade Total</span>
-                                <input type="text" id="mensalidade_total" required class="required input-sm form-control">
-                                <span class="input-group-addon">€</span>
-                            </div>
-                        </form>
-                    </td>
-                    <td>
-                        <button class="btn btn-primary" type="button" style="display:none" id="pag2_continuar">Continuar</button>
-                    </td>
-                </tr>
-                </tfoot>
-            </table>
-
-        </div>
-
     </div>
 </div>

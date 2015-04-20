@@ -1,301 +1,308 @@
 <div id="pag5">
 
     <div class="row">
+        <div class="col-md-12">
 
-        <button class="btn btn-primary btn-xs col-xs-offset-1" type="button" id="pag5_back">Voltar</button>
-        <hr>
+            <button class="btn btn-primary btn-xs col-xs-offset-1" type="button" id="pag5_back">Voltar</button>
+            <hr>
 
-        <div class="progress">
-            <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="80"
-                 aria-valuemin="0" aria-valuemax="100"
-                 style="width: 80%; min-width: 2em;">
-                80%
+            <div class="progress">
+                <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="80"
+                     aria-valuemin="0" aria-valuemax="100"
+                     style="width: 80%; min-width: 2em;">
+                    80%
+                </div>
             </div>
         </div>
     </div>
 
     <div class="row">
-        <div class="well col-md-12">
+        <div class="col-md-12">
+            <div class="well">
 
-            <p class="lead">Sr(a) {{pag1.nome}}, existe portabilidade? </p>
+                <p class="lead">Sr(a) {{pag1.nome}}, existe portabilidade? </p>
 
-            <p>Se tem e-mail</p>
-            <ul>
-                <li>Que irá receber Formulário de Portabilidade pré-preenchidos por e-mail que deve assinar, digitalizar formulário + cópia BI e NIF + cabeçalho factura outro operador e devolver para manter@nos.pt</li>
-            </ul>
+                <p>Se tem e-mail</p>
+                <ul>
+                    <li>Que irá receber Formulário de Portabilidade pré-preenchidos por e-mail que deve assinar, digitalizar formulário + cópia BI e NIF + cabeçalho factura outro operador e devolver para manter@nos.pt</li>
+                </ul>
 
-            <p>Sem e-mail</p>
-            <ul>
-                <li>Que irá receber Formulários de Portabilidade móvel no momento da entrega dos cartões e fixa * por CTT (formulário em branco), deve preencher, assinar, anexar cópias BI e NIF + cabeçalho factura outro operador e devolver por RSF.</li>
-            </ul>
+                <p>Sem e-mail</p>
+                <ul>
+                    <li>Que irá receber Formulários de Portabilidade móvel no momento da entrega dos cartões e fixa * por CTT (formulário em branco), deve preencher, assinar, anexar cópias BI e NIF + cabeçalho factura outro operador e devolver por RSF.</li>
+                </ul>
 
-            <p>Informar sobre saldo após a portabilidade</p>
-            <ul>
-                <li>Optimus: O valor que tem no telemóvel irá ser descontado na factura NOS até um máximo de 50€ com IVA (logo €40.65 sem IVA)</li>
-                <li>Outros operadores: Deve gastar o saldo remanescente</li>
-            </ul>
+                <p>Informar sobre saldo após a portabilidade</p>
+                <ul>
+                    <li>Optimus: O valor que tem no telemóvel irá ser descontado na factura NOS até um máximo de 50€ com IVA (logo €40.65 sem IVA)</li>
+                    <li>Outros operadores: Deve gastar o saldo remanescente</li>
+                </ul>
 
-            <p class="help-block">*Em bases de clientes Home OPT, apenas deve ser solicitado o nº de telefone, NIF e titular do outro operador, não sendo necessário envio e devolução do documentos pelo cliente.</p>
+                <p class="help-block">*Em bases de clientes Home OPT, apenas deve ser solicitado o nº de telefone, NIF e titular do outro operador, não sendo necessário envio e devolução do documentos pelo cliente.</p>
 
+            </div>
         </div>
     </div>
 
 
     <div class="row">
-        <div class="well col-md-12">
-            <h3>Portabilidade</h3>
+
+        <div class="col-md-12">
+            <div class="well">
+                <h3>Portabilidade</h3>
 
 
-            <form class="form-inline" onsubmit="return false;">
+                <form class="form-inline" onsubmit="return false;">
 
-                <div class="radio-inline">
-                    <label class="radio-inline">
-                        <input type="radio" name="portabilidade" value="Sim"> Sim
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" checked name="portabilidade" value="Não"> Não
-                    </label>
+                    <div class="radio-inline">
+                        <label class="radio-inline">
+                            <input type="radio" name="portabilidade" value="Sim"> Sim
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" checked name="portabilidade" value="Não"> Não
+                        </label>
+                    </div>
+
+                </form>
+
+                <div id="container_portabilidade" class="col-md-12">
+                    <div>
+                        <form class="form-inline" onsubmit="return false;">
+
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="portabilidade_fixo"> Portabilidade Fixo
+                                </label>
+                            </div>
+
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" id="portabilidade_movel"> Portabilidade Móvel
+                                </label>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="portabilidade_quantos_cartoes">Quantos cartões</label>
+                                <select id="portabilidade_quantos_cartoes" class="form-control input-sm">
+
+                                    <option value='0'>0</option>
+                                    <option value='1'>1</option>
+                                    <option value='2'>2</option>
+                                    <option value='3'>3</option>
+                                    <option value='4'>4</option>
+
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="portabilidade_quantos_cartoes_novos">Quantos cartões novos</label>
+                                <select id="portabilidade_quantos_cartoes_novos" class="form-control input-sm">
+
+                                    <option value='0'>0</option>
+                                    <option value='1'>1</option>
+                                    <option value='2'>2</option>
+
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="portabilidade_a_operadora_actual">À operadora actual</label>
+                                <select id="portabilidade_a_operadora_actual" class="form-control input-sm">
+
+                                    <option value='MEO'>MEO</option>
+                                    <option value='VODAFONE'>VODAFONE</option>
+                                    <option value='CABOVISAO'>CABOVISAO</option>
+
+                                </select>
+                            </div>
+
+                        </form>
+                    </div>
+
+
+                    <div class="col-md-12">
+                        <h3>Dados do cliente na operadora actual</h3>
+                    </div>
+
+                    <div id="container_dados_cliente_operadora_actual" class="col-md-12">
+                        <form class="form-inline" onsubmit="return false;">
+
+                            <div class="form-group">
+                                <label for="portabilidade_nome_cliente">Nome ou denominação social</label>
+                                <input type="text" class="form-control input-sm" id="portabilidade_nome_cliente">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="portabilidade_sobrenome_cliente">Sobrenome</label>
+                                <input type="text" class="form-control input-sm" id="portabilidade_sobrenome_cliente">
+                            </div>
+
+                            Doc. Identificação
+                            <div class="radio-inline">
+                                <label class="radio-inline">
+                                    <input type="radio" name="doc_identificacao" value="BI/CC"> BI/CC
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="doc_identificacao" value="Passaporte"> Passaporte
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="doc_identificacao" value="Título de Residência"> Título de Residência
+                                </label>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="portabilidade_numero_doc_identificacao">Nº doc. identificação</label>
+                                <input type="text" class="form-control input-sm" id="portabilidade_numero_doc_identificacao">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="portabilidade_validade_doc_identificacao">Validade</label>
+                                <input type="text" class="form-control input-sm" id="portabilidade_validade_doc_identificacao">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="portabilidade_numero_contribuinte">NIF</label>
+                                <input type="text" maxlength="9" class="form-control input-sm" id="portabilidade_numero_contribuinte">
+                            </div>
+
+                        </form>
+                    </div>
+
+                    <div class="col-md-12">
+                        <h3>Alteração de titularidade</h3>
+
+                        <p class="help-block">(Preencher apenas se pretender transferir o nº para outro titular NOS)</p>
+                    </div>
+
+                    <div id="container_alteracao_dados_cliente_operadora_actual" class="col-md-12">
+                        <form class="form-inline" onsubmit="return false;">
+
+                            <div class="form-group">
+                                <label for="portabilidade_alteracao_nome_cliente">Nome ou denominação social</label>
+                                <input type="text" class="form-control input-sm" id="portabilidade_alteracao_nome_cliente">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="portabilidade_alteracao_sobrenome_cliente">Sobrenome</label>
+                                <input type="text" class="form-control input-sm" id="portabilidade_alteracao_sobrenome_cliente">
+                            </div>
+
+                            Doc. Identificação
+                            <div class="radio-inline">
+                                <label class="radio-inline">
+                                    <input type="radio" name="doc_identificacao_alteracao" value="BI/CC"> BI/CC
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="doc_identificacao_alteracao" value="Passaporte"> Passaporte
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="doc_identificacao_alteracao" value="Título de Residência"> Título de Residência
+                                </label>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="portabilidade_alteracao_numero_doc_identificacao">Nº doc. identificação</label>
+                                <input type="text" class="form-control input-sm" id="portabilidade_alteracao_numero_doc_identificacao">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="portabilidade_alteracao_validade_doc_identificacao">Validade</label>
+                                <input type="text" class="form-control input-sm" id="portabilidade_alteracao_validade_doc_identificacao">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="portabilidade_alteracao_numero_contribuinte">NIF</label>
+                                <input type="text" maxlength="9" class="form-control input-sm" id="portabilidade_alteracao_numero_contribuinte">
+                            </div>
+
+                        </form>
+                    </div>
+
+                    <div class="col-md-12">
+                        <h3>Dados para processamento</h3>
+                    </div>
+
+                    <div id="container_dados_processamento" class="col-md-12">
+                        <form class="form-inline" onsubmit="return false;">
+
+                            <div class="form-group">
+                                <label for="processamento_numero_telefone_fixo">Nº de telefone fixo</label>
+                                <input type="text" class="form-control input-sm" id="processamento_numero_telefone_fixo">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="processamento_numero_cliente">Nº de cliente</label>
+                                <input type="text" class="form-control input-sm" id="processamento_numero_cliente" value="C">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="processamento_local_servico">Local de serviço</label>
+                                <input type="text" class="form-control input-sm" id="processamento_local_servico" value="S">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="processamento_telefone_contacto">Telefone de contacto</label>
+                                <input type="text" class="form-control input-sm" id="processamento_telefone_contacto">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="processamento_email">E-mail</label>
+                                <input type="email" class="form-control input-sm" id="processamento_email">
+                            </div>
+
+                            <h4>Informação específica sobre o pedido de portabilidade</h4>
+
+                            Como prefere ser informado da data de transferência?
+                            <div class="radio">
+                                <label class="radio-inline">
+                                    <input type="radio" name="processamento_informacao_data_transferencia" value="E-mail"> E-mail
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="processamento_informacao_data_transferencia" value="SMS"> SMS
+                                </label>
+                            </div>
+
+                            <div class="radio">
+                                <label class="radio-inline">
+                                    <input type="radio" name="processamento_informacao_data_transferencia_dias"
+                                           value="Até 10 dias úteis"> Até 10 dias úteis
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" name="processamento_informacao_data_transferencia_dias"
+                                           value="Até 20 dias úteis"> Até 20 dias úteis
+                                </label>
+
+                                <label class="radio-inline">
+                                    <input type="radio" name="processamento_informacao_data_transferencia_dias" value="Na data"> Na data
+                                </label>
+                                <input type="text" class="form-control input-sm" id="processamento_informacao_data_transferencia_data">
+
+                            </div>
+
+                        </form>
+                    </div>
+
+                    <div class="col-md-12 info">
+                        <h3>Observações de venda</h3>
+                    </div>
+
+                    <div id="container_processamento_observacoes_venda" class="col-md-12">
+                        <form class="form-horizontal" onsubmit="return false;">
+
+                            <div class="form-group">
+                                <label for="processamento_observacoes_venda"></label>
+                                <textarea class="form-control input-md" id="processamento_observacoes_venda"></textarea>
+                            </div>
+
+                        </form>
+                    </div>
+
+
                 </div>
-
-            </form>
-
-            <div id="container_portabilidade" class="col-md-12">
-                <div>
-                    <form class="form-inline" onsubmit="return false;">
-
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" id="portabilidade_fixo"> Portabilidade Fixo
-                            </label>
-                        </div>
-
-                        <div class="checkbox">
-                            <label>
-                                <input type="checkbox" id="portabilidade_movel"> Portabilidade Móvel
-                            </label>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="portabilidade_quantos_cartoes">Quantos cartões</label>
-                            <select id="portabilidade_quantos_cartoes" class="form-control input-sm">
-
-                                <option value='0'>0</option>
-                                <option value='1'>1</option>
-                                <option value='2'>2</option>
-                                <option value='3'>3</option>
-                                <option value='4'>4</option>
-
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="portabilidade_quantos_cartoes_novos">Quantos cartões novos</label>
-                            <select id="portabilidade_quantos_cartoes_novos" class="form-control input-sm">
-
-                                <option value='0'>0</option>
-                                <option value='1'>1</option>
-                                <option value='2'>2</option>
-
-                            </select>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="portabilidade_a_operadora_actual">À operadora actual</label>
-                            <select id="portabilidade_a_operadora_actual" class="form-control input-sm">
-
-                                <option value='MEO'>MEO</option>
-                                <option value='VODAFONE'>VODAFONE</option>
-                                <option value='CABOVISAO'>CABOVISAO</option>
-
-                            </select>
-                        </div>
-
-                    </form>
-                </div>
-
-
-                <div class="col-md-12">
-                    <h3>Dados do cliente na operadora actual</h3>
-                </div>
-
-                <div id="container_dados_cliente_operadora_actual" class="col-md-12">
-                    <form class="form-inline" onsubmit="return false;">
-
-                        <div class="form-group">
-                            <label for="portabilidade_nome_cliente">Nome ou denominação social</label>
-                            <input type="text" class="form-control input-sm" id="portabilidade_nome_cliente">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="portabilidade_sobrenome_cliente">Sobrenome</label>
-                            <input type="text" class="form-control input-sm" id="portabilidade_sobrenome_cliente">
-                        </div>
-
-                        Doc. Identificação
-                        <div class="radio-inline">
-                            <label class="radio-inline">
-                                <input type="radio" name="doc_identificacao" value="BI/CC"> BI/CC
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="doc_identificacao" value="Passaporte"> Passaporte
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="doc_identificacao" value="Título de Residência"> Título de Residência
-                            </label>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="portabilidade_numero_doc_identificacao">Nº doc. identificação</label>
-                            <input type="text" class="form-control input-sm" id="portabilidade_numero_doc_identificacao">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="portabilidade_validade_doc_identificacao">Validade</label>
-                            <input type="text" class="form-control input-sm" id="portabilidade_validade_doc_identificacao">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="portabilidade_numero_contribuinte">NIF</label>
-                            <input type="text" maxlength="9" class="form-control input-sm" id="portabilidade_numero_contribuinte">
-                        </div>
-
-                    </form>
-                </div>
-
-                <div class="col-md-12">
-                    <h3>Alteração de titularidade</h3>
-
-                    <p class="help-block">(Preencher apenas se pretender transferir o nº para outro titular NOS)</p>
-                </div>
-
-                <div id="container_alteracao_dados_cliente_operadora_actual" class="col-md-12">
-                    <form class="form-inline" onsubmit="return false;">
-
-                        <div class="form-group">
-                            <label for="portabilidade_alteracao_nome_cliente">Nome ou denominação social</label>
-                            <input type="text" class="form-control input-sm" id="portabilidade_alteracao_nome_cliente">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="portabilidade_alteracao_sobrenome_cliente">Sobrenome</label>
-                            <input type="text" class="form-control input-sm" id="portabilidade_alteracao_sobrenome_cliente">
-                        </div>
-
-                        Doc. Identificação
-                        <div class="radio-inline">
-                            <label class="radio-inline">
-                                <input type="radio" name="doc_identificacao_alteracao" value="BI/CC"> BI/CC
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="doc_identificacao_alteracao" value="Passaporte"> Passaporte
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="doc_identificacao_alteracao" value="Título de Residência"> Título de Residência
-                            </label>
-                        </div>
-
-                        <div class="form-group">
-                            <label for="portabilidade_alteracao_numero_doc_identificacao">Nº doc. identificação</label>
-                            <input type="text" class="form-control input-sm" id="portabilidade_alteracao_numero_doc_identificacao">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="portabilidade_alteracao_validade_doc_identificacao">Validade</label>
-                            <input type="text" class="form-control input-sm" id="portabilidade_alteracao_validade_doc_identificacao">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="portabilidade_alteracao_numero_contribuinte">NIF</label>
-                            <input type="text" maxlength="9" class="form-control input-sm" id="portabilidade_alteracao_numero_contribuinte">
-                        </div>
-
-                    </form>
-                </div>
-
-                <div class="col-md-12">
-                    <h3>Dados para processamento</h3>
-                </div>
-
-                <div id="container_dados_processamento" class="col-md-12">
-                    <form class="form-inline" onsubmit="return false;">
-
-                        <div class="form-group">
-                            <label for="processamento_numero_telefone_fixo">Nº de telefone fixo</label>
-                            <input type="text" class="form-control input-sm" id="processamento_numero_telefone_fixo">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="processamento_numero_cliente">Nº de cliente</label>
-                            <input type="text" class="form-control input-sm" id="processamento_numero_cliente" value="C">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="processamento_local_servico">Local de serviço</label>
-                            <input type="text" class="form-control input-sm" id="processamento_local_servico" value="S">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="processamento_telefone_contacto">Telefone de contacto</label>
-                            <input type="text" class="form-control input-sm" id="processamento_telefone_contacto">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="processamento_email">E-mail</label>
-                            <input type="email" class="form-control input-sm" id="processamento_email">
-                        </div>
-
-                        <h4>Informação específica sobre o pedido de portabilidade</h4>
-
-                        Como prefere ser informado da data de transferência?
-                        <div class="radio">
-                            <label class="radio-inline">
-                                <input type="radio" name="processamento_informacao_data_transferencia" value="E-mail"> E-mail
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="processamento_informacao_data_transferencia" value="SMS"> SMS
-                            </label>
-                        </div>
-
-                        <div class="radio">
-                            <label class="radio-inline">
-                                <input type="radio" name="processamento_informacao_data_transferencia_dias"
-                                       value="Até 10 dias úteis"> Até 10 dias úteis
-                            </label>
-                            <label class="radio-inline">
-                                <input type="radio" name="processamento_informacao_data_transferencia_dias"
-                                       value="Até 20 dias úteis"> Até 20 dias úteis
-                            </label>
-
-                            <label class="radio-inline">
-                                <input type="radio" name="processamento_informacao_data_transferencia_dias" value="Na data"> Na data
-                            </label>
-                            <input type="text" class="form-control input-sm" id="processamento_informacao_data_transferencia_data">
-
-                        </div>
-
-                    </form>
-                </div>
-
-                <div class="col-md-12 info">
-                    <h3>Observações de venda</h3>
-                </div>
-
-                <div id="container_processamento_observacoes_venda" class="col-md-12">
-                    <form class="form-horizontal" onsubmit="return false;">
-
-                        <div class="form-group">
-                            <label for="processamento_observacoes_venda"></label>
-                            <textarea class="form-control input-md" id="processamento_observacoes_venda"></textarea>
-                        </div>
-
-                    </form>
-                </div>
-
+                <br>
+                <button type="button" class="btn btn-success" id="pag5_continuar">Continuar</button>
 
             </div>
-            <br>
-            <button type="button" class="btn btn-success" id="pag5_continuar">Continuar</button>
-
         </div>
     </div>
 </div>
