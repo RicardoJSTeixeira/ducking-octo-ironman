@@ -9,7 +9,9 @@
     </div>
 
     <div class="well">
-        <p>Muito bom dia, o meu nome é <strong> {{agent_id}} </strong> e sou gestor comercial da NOS.<p>
+        <p>Muito bom dia, o meu nome é <strong> {{agent_id}} </strong> e sou gestor comercial da NOS.
+
+        <p>
 
         <p>Tenho o gosto de estar a falar com o Sr.(a) {{nome}}? Como está passou bem?</p>
 
@@ -19,33 +21,32 @@
 
             <div class="form-group">
                 <label for="nome_cliente">Nome</label>
-                <input disabled type="text" class="form-control" id="nome_cliente" value="{{nome}}">
+                <input type="text" class="form-control" id="nome_cliente" value="{{nome}}">
             </div>
 
             <label class="radio-inline">
-                <input type="radio" name="contacto_cliente" id="contacto_cliente_sim" value="sim"> Sim
+                <input type="radio" name="contacto_cliente" id="contacto_cliente_sim" value="Sim"> Sim
             </label>
             <label class="radio-inline">
-                <input type="radio" name="contacto_cliente" id="contacto_cliente_nao" value="nao"> Não
+                <input type="radio" name="contacto_cliente" id="contacto_cliente_nao" value="Não"> Não
             </label>
 
         </form>
     </div>
 
     <div class="well" id="autoriza_gravacao" style="display:none">
-        <p>
-            A sua chamada será gravada para efeitos de prova de transacções comerciais, outras comunicações respeitantes à relação contratual e monitorização de qualidade de serviço.
-            <br>Autoriza a gravação da chamada?
-        </p>
 
+        <p>A sua chamada será gravada para efeitos de prova de transacções comerciais, outras comunicações respeitantes à relação contratual e monitorização de qualidade de serviço.</p>
+
+        <p>Autoriza a gravação da chamada?</p>
 
         <form class="form-inline" onsubmit="return false;">
 
             <label class="radio-inline">
-                <input type="radio" name="autoriza_gravacao" id="autoriza_gravacao_sim" value="sim"> Sim
+                <input type="radio" name="autoriza_gravacao" id="autoriza_gravacao_sim" value="Sim"> Sim
             </label>
             <label class="radio-inline">
-                <input type="radio" name="autoriza_gravacao" id="autoriza_gravacao_nao" value="nao"> Não
+                <input type="radio" name="autoriza_gravacao" id="autoriza_gravacao_nao" value="Não"> Não
             </label>
 
         </form>

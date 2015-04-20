@@ -35,14 +35,13 @@ var app1 = (function () {
     function fnSetEvents() {
         jsC.find("[name=contacto_cliente]").click(function () {
 
-            var bOk = this.value == 'sim'; // bOk é true quando o this.value for sim
+            var bOk = this.value == 'Sim'; // bOk é true quando o this.value for sim
             jsC.find("#ir_para_agendamento").toggle(!bOk);
             jsC.find("#autoriza_gravacao").toggle(bOk);
 
         });
 
         jsC.find("[name=autoriza_gravacao]").click(function () {
-
 
             jsC.find("#pag1_continuar").show();
 
