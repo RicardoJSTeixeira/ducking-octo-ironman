@@ -31,7 +31,11 @@ var controller = (function () {
             contact_id: oVars.contact_id,
             agent_id: oVars.agent_id,
             lista: oVars.databasename,
-            ip: oVars.ip
+            ip: oVars.ip,
+            localidade: oVars.localidade,
+            districto: oVars.districto,
+            morada: oVars.morada,
+            cp: oVars.cp
         });
 
     function fnInit() {

@@ -12,9 +12,13 @@ $oVars = (object)[
     "ip" => getRealIpAddr(),
     "nome" => filter_var($_GET["contact"]),
     "morada" => filter_var($_GET["address"]),
+    "localidade" => filter_var($_GET["localidade"]),
+    "districto" => filter_var($_GET["districto"]),
     "telefone" => filter_var($_GET["phone"]),
+    "cp" => filter_var($_GET["cp"]),
     "email" => filter_var($_GET["email"])
 ];
+
 
 ?>
 <!DOCTYPE html>
