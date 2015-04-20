@@ -95,7 +95,7 @@ Class Script
 
             $sKeys .= " $thisKey,";
             $sVals .= " :$thisKey,";
-            $aVars[":$thisKey"] = utf8_decode($val);
+            $aVars[":$thisKey"] = utf8_encode($val);
 
         }
     }
