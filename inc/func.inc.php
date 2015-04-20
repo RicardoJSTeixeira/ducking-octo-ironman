@@ -80,9 +80,9 @@ Class DB
         if (!file_exists($sPath))
             throw new Exception("File Config doesn't Exists!");
 
-        $sDB_config_row = file_get_contents($sPath);
+        $sDB_config_raw = file_get_contents($sPath);
 
-        $oDB = json_decode($sDB_config_row);
+        $oDB = json_decode($sDB_config_raw);
 
         if (json_last_error() !== JSON_ERROR_NONE)
             throw new Exception("File Config Bad Format!");
