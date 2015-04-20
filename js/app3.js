@@ -17,6 +17,43 @@ var app3 = (function () {
 
     var sTemplate;
 
+    var sInfoClienteTemplate = '<table>\
+                                    <thead>\
+                                        <tr>\
+                                            <th colspan="2"><h3>Dados Operador Actual</h3></th>\
+                                        </tr>\
+                                    </thead>\
+                                    <tbody>\
+                                        <tr>\
+                                            <th>Pacote actual:</th>\
+                                            <td>{{pacote.operadora}}_{{pacote.tipo_pacote}}</td>\
+                                        </tr>\
+                                        <tr>\
+                                            <th>Tecnologia:</th>\
+                                            <td>{{tecnologia}}</td>\
+                                        </tr>\
+                                        <tr>\
+                                            <th>Tem PC:</th>\
+                                            <td>{{net_fixa.tem_computador_portatil}}</td>\
+                                        </tr>\
+                                        <tr>\
+                                            <th>Tem Tablet:</th>\
+                                            <td>{{net_movel.utiliza_tablet_smartphone}}</td>\
+                                        </tr>\
+                                        <tr>\
+                                            <th>Mensalidade:</th>\
+                                            <td>{{mensalidade_total}} €</td>\
+                                        </tr>\
+                                    </tbody>\
+                                </table>';
+
+    function fnMakeDadosCliente() {
+
+        var sRendered = Mustache.render(sInfoClienteTemplate, oPerfil);
+
+        jqC.find("#info-cliente").html(sRendered);
+    }
+
     function fnInit(oDadosPagina2) {
 
         if (oDadosPagina2)
@@ -25,6 +62,7 @@ var app3 = (function () {
         jqC = $("#container").find("#pag3");
 
         if (jqC.length) {
+            fnMakeDadosCliente();
             jqC.show();
             return true
         }

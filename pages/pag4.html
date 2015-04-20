@@ -1,280 +1,284 @@
 <div id="pag4">
 
-    <br>
 
-    <button class="btn btn-primary btn-xs col-xs-offset-1" type="button" id="pag4_back">Voltar</button>
-    <hr>
+    <div class="row">
 
-    <div class="progress">
-        <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="60"
-             aria-valuemin="0" aria-valuemax="100"
-             style="width: 60%; min-width: 2em;">
-            60%
+        <button class="btn btn-primary btn-xs col-xs-offset-1" type="button" id="pag4_back">Voltar</button>
+        <hr>
+
+        <div class="progress">
+            <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="60"
+                 aria-valuemin="0" aria-valuemax="100"
+                 style="width: 60%; min-width: 2em;">
+                60%
+            </div>
         </div>
     </div>
 
 
-    <div class="well">
+    <div class="row">
+        <div class="well">
 
-        <p class="lead">Sr(a) {{pag1.nome}}, podemos então agendar a instalação do serviço para: </p>
+            <p class="lead">Sr(a) {{pag1.nome}}, podemos então agendar a instalação do serviço para: </p>
 
-        <div class="col-md-12 ">
-            <h3>Dados Clientes</h3>
-        </div>
+            <div class="col-md-12 ">
+                <h3>Dados Clientes</h3>
+            </div>
 
-        <div id="container_dados_cliente" class="col-md-12">
-            <form class="form-horizontal" onsubmit="return false;">
-
-
-                <div class="radio">
-                    <label>Sexo</label>
-                    <label class="radio-inline">
-                        <input type="radio" checked name="dados_cliente_sexo" value="Masculino"> Masculino
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="dados_cliente_sexo" value="Feminino"> Feminino
-                    </label>
-                </div>
+            <div id="container_dados_cliente" class="col-md-12">
+                <form class="form-horizontal" onsubmit="return false;">
 
 
-                <div class="form-group">
-                    <label for="dados_nome_cliente">Nome</label>
-                    <input type="text" class="form-control input-sm" id="dados_nome_cliente">
-                </div>
-
-                <div class="form-group">
-                    <label for="dados_sobrenome_cliente">Sobrenome</label>
-                    <input type="text" class="form-control input-sm" id="dados_sobrenome_cliente">
-                </div>
-
-
-                <div class="form-group">
-                    <label for="dados_morada_cliente">Morada</label>
-                    <input type="text" class="form-control input-sm" id="dados_morada_cliente">
-                </div>
-
-                <div class="form-group">
-                    <label for="dados_cp_cliente">Código Postal</label>
-                    <input type="text" data-mask="9999-999" class="form-control input-sm" id="dados_cp_cliente">
-                </div>
-
-                <div class="form-group">
-                    <label for="dados_concelho_cliente">Concelho</label>
-                    <input type="text" class="form-control input-sm" id="dados_concelho_cliente">
-                </div>
-
-                <div class="form-group">
-                    <label for="dados_localidade_cliente">Localidade</label>
-                    <input type="text" class="form-control input-sm" id="dados_localidade_cliente">
-                </div>
-
-            </form>
-        </div>
-
-
-        <div class="col-md-12">
-            <h3>Dados Expedição</h3>
-        </div>
-
-        <div id="container_dados_expedicao" class="col-md-12">
-            <form class="form-horizontal" onsubmit="return false;">
-
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" id="dados_cliente_manter_dados_anteriores">Manter dados anteriores
-                    </label>
-                </div>
-
-                <div class="form-group">
-                    <label for="dados_nome_cliente_expedicao">Nome</label>
-                    <input type="text" class="form-control input-sm" id="dados_nome_cliente_expedicao">
-                </div>
-
-                <br>
-
-                <div class="form-group">
-                    <label for="dados_sobrenome_cliente_expedicao">Sobrenome</label>
-                    <input type="text" class="form-control input-sm" id="dados_sobrenome_cliente_expedicao">
-                </div>
-
-                <div class="form-group">
-                    <label for="dados_morada_cliente_expedicao">Morada</label>
-                    <input type="text" class="form-control input-sm" id="dados_morada_cliente_expedicao">
-                </div>
-
-                <div class="form-group">
-                    <label for="dados_agregado_familiar_expedicao">Nº agregado familiar</label>
-                    <input type="text" class="form-control input-sm" id="dados_agregado_familiar_expedicao">
-                </div>
-
-                <div class="form-group">
-                    <label for="dados_telefone_preferencial_expedicao">Tel. Preferencial</label>
-                    <input type="text" class="form-control input-sm" id="dados_telefone_preferencial_expedicao">
-                </div>
-
-                <div class="form-group">
-                    <label for="dados_telefone_alternativo_expedicao">Tel. Alternativo</label>
-                    <input type="text" class="form-control input-sm" id="dados_telefone_alternativo_expedicao">
-                </div>
-
-                <div class="form-group">
-                    <label for="dados_cp_cliente_expedicao">Código Postal</label>
-                    <input type="text" data-mask="9999-999" class="form-control input-sm" id="dados_cp_cliente_expedicao">
-                </div>
-
-                <div class="form-group">
-                    <label for="dados_concelho_cliente_expedicao">Concelho</label>
-                    <input type="text" class="form-control input-sm" id="dados_concelho_cliente_expedicao">
-                </div>
-
-                <div class="form-group">
-                    <label for="dados_localidade_cliente_expedicao">Localidade</label>
-                    <input type="text" class="form-control input-sm" id="dados_localidade_cliente_expedicao">
-                </div>
-
-                <div class="form-group">
-                    <label for="dados_nif_expedicao">NIF</label>
-                    <input type="text" maxlength="9" class="form-control input-sm" id="dados_nif_expedicao">
-                </div>
-
-                <div class="form-group">
-                    <label for="dados_bicc_expedicao">BI/CC</label>
-                    <input type="text" class="form-control input-sm" id="dados_bicc_expedicao">
-                </div>
-
-                <div class="form-group">
-                    <label for="dados_validade_expedicao">Validade</label>
-                    <input type="text" class="form-control input-sm" id="dados_validade_expedicao">
-                </div>
-
-                <div class="form-group">
-                    <label for="dados_email_expedicao">E-mail</label>
-                    <input type="email" required class="form-control input-sm required" id="dados_email_expedicao">
-
-                    <p class="help-block">Obrigatório solicitar e-mail do cliente!</p>
-                </div>
-
-
-            </form>
-        </div>
-
-
-        <div class="col-md-12">
-            <h3>Instalação</h3>
-        </div>
-
-        <div id="container_dados_instalacao" class="col-md-12">
-            <form class="form-inline" onsubmit="return false;">
-
-
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" id="dados_agendar_instalacao" value="">Agendar instalação
-                    </label>
-                </div>
-
-                <div id="container_agendar_instalacao">
-
-                    <div class="form-group">
-                        <label for="dados_agendar_instalacao_dia">Dia</label>
-                        <input type="text" class="form-control input-sm" id="dados_agendar_instalacao_dia">
-
-                        <p class="help-block">Sábados apenas Lisboa e Porto</p>
-                    </div>
-
-                    <div class="radio-inline">
-                        <strong>No período</strong>
+                    <div class="radio">
+                        <label>Sexo</label>
                         <label class="radio-inline">
-                            <input type="radio" checked name="dados_agendar_instalacao_periodo" value="9H30-11H00"> 9H30-11H00
+                            <input type="radio" checked name="dados_cliente_sexo" value="Masculino"> Masculino
                         </label>
                         <label class="radio-inline">
-                            <input type="radio" name="dados_agendar_instalacao_periodo" value="11H00-12H30"> 11H00-12H30
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="dados_agendar_instalacao_periodo" value="14H00-15H30"> 14H00-15H30
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="dados_agendar_instalacao_periodo" value="15H30-17H00"> 15H30-17H00
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="dados_agendar_instalacao_periodo" value="17H00-18H30"> 17H00-18H30
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="dados_agendar_instalacao_periodo" value="18H30-20H30"> 18H30-20H30
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="dados_agendar_instalacao_periodo"
-                                   value="20H00-21H30"> 20H00-21H30 (Apenas Lisboa e Porto)
+                            <input type="radio" name="dados_cliente_sexo" value="Feminino"> Feminino
                         </label>
                     </div>
 
-                </div>
-
-            </form>
-        </div>
-
-
-        <div class="col-md-12">
-            <h3>Modalidade Pagamento</h3>
-        </div>
-
-        <div id="container_modalidade_pagamento" class="col-md-12">
-            <form class="form-inline" onsubmit="return false;">
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" id="dados_modalidade_pagamento_factura_electronica" value="">Factura Electrónica
-                    </label>
-                </div>
-
-                <div class="radio-inline">
-                    <label class="radio-inline">
-                        <input type="radio" checked name="dados_modalidade_pagamento" value="referencia_mb"> Referência MB
-                    </label>
-                    <label class="radio-inline">
-                        <input type="radio" name="dados_modalidade_pagamento" value="debito_directo"> Débito Directo (NIB)
-                    </label>
-                </div>
-            </form>
-
-            <br>
-
-            <div id="container_nib">
-                <form class="form-inline" onsubmit="return false;">
 
                     <div class="form-group">
-                        <label for="dados_modalidade_pagamento_nib">NIB</label>
-                        <input type="text" maxlength="21" data-mask="9999-9999-99999999999-99" class="form-control input-sm"
-                               id="dados_modalidade_pagamento_nib">
-                        <button class="btn btn-warning btn-xs" type="button" id="validar_nib">Validar NIB</button>
+                        <label for="dados_nome_cliente">Nome</label>
+                        <input type="text" class="form-control input-sm" id="dados_nome_cliente">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dados_sobrenome_cliente">Sobrenome</label>
+                        <input type="text" class="form-control input-sm" id="dados_sobrenome_cliente">
+                    </div>
+
+
+                    <div class="form-group">
+                        <label for="dados_morada_cliente">Morada</label>
+                        <input type="text" class="form-control input-sm" id="dados_morada_cliente">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dados_cp_cliente">Código Postal</label>
+                        <input type="text" data-mask="9999-999" class="form-control input-sm" id="dados_cp_cliente">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dados_concelho_cliente">Concelho</label>
+                        <input type="text" class="form-control input-sm" id="dados_concelho_cliente">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dados_localidade_cliente">Localidade</label>
+                        <input type="text" class="form-control input-sm" id="dados_localidade_cliente">
                     </div>
 
                 </form>
             </div>
 
-        </div>
 
-        <div class="col-md-12">
-            <ul>
-                <li>Apresentar vantagens de Factura Electrónica</li>
-                <li>Apresentar vantagens de Débito Directo</li>
-            </ul>
-        </div>
+            <div class="col-md-12">
+                <h3>Dados Expedição</h3>
+            </div>
 
-        <div class="col-md-12 info">
-            <h3>Observações de venda</h3>
-        </div>
+            <div id="container_dados_expedicao" class="col-md-12">
+                <form class="form-horizontal" onsubmit="return false;">
 
-        <div id="container_observacoes_venda" class="col-md-12">
-            <form class="form-horizontal" onsubmit="return false;">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="dados_cliente_manter_dados_anteriores">Manter dados anteriores
+                        </label>
+                    </div>
 
-                <div class="form-group">
-                    <label for="dados_observacoes_venda"></label>
-                    <textarea class="form-control input-md" id="dados_observacoes_venda"></textarea>
+                    <div class="form-group">
+                        <label for="dados_nome_cliente_expedicao">Nome</label>
+                        <input type="text" class="form-control input-sm" id="dados_nome_cliente_expedicao">
+                    </div>
+
+                    <br>
+
+                    <div class="form-group">
+                        <label for="dados_sobrenome_cliente_expedicao">Sobrenome</label>
+                        <input type="text" class="form-control input-sm" id="dados_sobrenome_cliente_expedicao">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dados_morada_cliente_expedicao">Morada</label>
+                        <input type="text" class="form-control input-sm" id="dados_morada_cliente_expedicao">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dados_agregado_familiar_expedicao">Nº agregado familiar</label>
+                        <input type="text" class="form-control input-sm" id="dados_agregado_familiar_expedicao">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dados_telefone_preferencial_expedicao">Tel. Preferencial</label>
+                        <input type="text" class="form-control input-sm" id="dados_telefone_preferencial_expedicao">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dados_telefone_alternativo_expedicao">Tel. Alternativo</label>
+                        <input type="text" class="form-control input-sm" id="dados_telefone_alternativo_expedicao">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dados_cp_cliente_expedicao">Código Postal</label>
+                        <input type="text" data-mask="9999-999" class="form-control input-sm" id="dados_cp_cliente_expedicao">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dados_concelho_cliente_expedicao">Concelho</label>
+                        <input type="text" class="form-control input-sm" id="dados_concelho_cliente_expedicao">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dados_localidade_cliente_expedicao">Localidade</label>
+                        <input type="text" class="form-control input-sm" id="dados_localidade_cliente_expedicao">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dados_nif_expedicao">NIF</label>
+                        <input type="text" maxlength="9" class="form-control input-sm" id="dados_nif_expedicao">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dados_bicc_expedicao">BI/CC</label>
+                        <input type="text" class="form-control input-sm" id="dados_bicc_expedicao">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dados_validade_expedicao">Validade</label>
+                        <input type="text" class="form-control input-sm" id="dados_validade_expedicao">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dados_email_expedicao">E-mail</label>
+                        <input type="email" required class="form-control input-sm required" id="dados_email_expedicao">
+
+                        <p class="help-block">Obrigatório solicitar e-mail do cliente!</p>
+                    </div>
+
+
+                </form>
+            </div>
+
+
+            <div class="col-md-12">
+                <h3>Instalação</h3>
+            </div>
+
+            <div id="container_dados_instalacao" class="col-md-12">
+                <form class="form-inline" onsubmit="return false;">
+
+
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="dados_agendar_instalacao" value="">Agendar instalação
+                        </label>
+                    </div>
+
+                    <div id="container_agendar_instalacao">
+
+                        <div class="form-group">
+                            <label for="dados_agendar_instalacao_dia">Dia</label>
+                            <input type="text" class="form-control input-sm" id="dados_agendar_instalacao_dia">
+
+                            <p class="help-block">Sábados apenas Lisboa e Porto</p>
+                        </div>
+
+                        <div class="radio-inline">
+                            <strong>No período</strong>
+                            <label class="radio-inline">
+                                <input type="radio" checked name="dados_agendar_instalacao_periodo" value="9H30-11H00"> 9H30-11H00
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="dados_agendar_instalacao_periodo" value="11H00-12H30"> 11H00-12H30
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="dados_agendar_instalacao_periodo" value="14H00-15H30"> 14H00-15H30
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="dados_agendar_instalacao_periodo" value="15H30-17H00"> 15H30-17H00
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="dados_agendar_instalacao_periodo" value="17H00-18H30"> 17H00-18H30
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="dados_agendar_instalacao_periodo" value="18H30-20H30"> 18H30-20H30
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="dados_agendar_instalacao_periodo"
+                                       value="20H00-21H30"> 20H00-21H30 (Apenas Lisboa e Porto)
+                            </label>
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+
+
+            <div class="col-md-12">
+                <h3>Modalidade Pagamento</h3>
+            </div>
+
+            <div id="container_modalidade_pagamento" class="col-md-12">
+                <form class="form-inline" onsubmit="return false;">
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox" id="dados_modalidade_pagamento_factura_electronica" value="">Factura Electrónica
+                        </label>
+                    </div>
+
+                    <div class="radio-inline">
+                        <label class="radio-inline">
+                            <input type="radio" checked name="dados_modalidade_pagamento" value="referencia_mb"> Referência MB
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="dados_modalidade_pagamento" value="debito_directo"> Débito Directo (NIB)
+                        </label>
+                    </div>
+                </form>
+
+                <br>
+
+                <div id="container_nib">
+                    <form class="form-inline" onsubmit="return false;">
+
+                        <div class="form-group">
+                            <label for="dados_modalidade_pagamento_nib">NIB</label>
+                            <input type="text" maxlength="21" data-mask="9999-9999-99999999999-99" class="form-control input-sm"
+                                   id="dados_modalidade_pagamento_nib">
+                            <button class="btn btn-warning btn-xs" type="button" id="validar_nib">Validar NIB</button>
+                        </div>
+
+                    </form>
                 </div>
 
-            </form>
-        </div>
-        <button type="button" class="btn btn-success" id="pag4_continuar">Continuar</button>
-    </div>
+            </div>
 
+            <div class="col-md-12">
+                <ul>
+                    <li>Apresentar vantagens de Factura Electrónica</li>
+                    <li>Apresentar vantagens de Débito Directo</li>
+                </ul>
+            </div>
+
+            <div class="col-md-12 info">
+                <h3>Observações de venda</h3>
+            </div>
+
+            <div id="container_observacoes_venda" class="col-md-12">
+                <form class="form-horizontal" onsubmit="return false;">
+
+                    <div class="form-group">
+                        <label for="dados_observacoes_venda"></label>
+                        <textarea class="form-control input-md" id="dados_observacoes_venda"></textarea>
+                    </div>
+
+                </form>
+            </div>
+            <button type="button" class="btn btn-success" id="pag4_continuar">Continuar</button>
+        </div>
+
+    </div>
 </div>

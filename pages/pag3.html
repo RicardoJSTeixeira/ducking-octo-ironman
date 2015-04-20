@@ -1,109 +1,79 @@
 <div id="pag3" style="display: none">
-    <br>
 
-    <button class="btn btn-primary btn-xs col-xs-offset-1" type="button" id="pag3_back">Voltar</button>
-    <hr>
+    <div class="row">
 
-    <div class="progress">
-        <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="40"
-             aria-valuemin="0" aria-valuemax="100"
-             style="width: 40%; min-width: 2em;">
-            40%
+        <button class="btn btn-primary btn-xs col-xs-offset-1" type="button" id="pag3_back">Voltar</button>
+        <hr>
+
+        <div class="progress">
+            <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="40"
+                 aria-valuemin="0" aria-valuemax="100"
+                 style="width: 40%; min-width: 2em;">
+                40%
+            </div>
         </div>
     </div>
 
-    <div class="well">
+    <div class="row">
+        <div class="well">
 
-        <div class="col-md-6">
+            <div class="col-md-6" id="info-cliente">
+            </div>
 
+            <div class="col-md-6">
 
-            <table>
-                <thead>
-                <tr>
-                    <th colspan="2"><h3>Dados Operador Actual</h3></th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                    <th>Pacote actual:</th>
-                    <td>{{pacote.operadora}}_{{pacote.tipo_pacote}}</td>
-                </tr>
-                <tr>
-                    <th>Tecnologia:</th>
-                    <td>{{tecnologia}}</td>
-                </tr>
-                <tr>
-                    <th>Tem PC:</th>
-                    <td>{{net_fixa.tem_computador_portatil}}</td>
-                </tr>
-                <tr>
-                    <th>Tem Tablet:</th>
-                    <td>{{net_movel.utiliza_tablet_smartphone}}</td>
-                </tr>
-                <tr>
-                    <th>Mensalidade:</th>
-                    <td>{{mensalidade_total}} €</td>
-                </tr>
-                </tbody>
+                <h3>Argumentário</h3>
 
-            </table>
-
-
-        </div>
-
-        <div class="col-md-6">
-
-            <h3>Argumentário</h3>
-
-            <h2><p><span id="descritivo_argumentario"></span></p></h2>
-
-        </div>
-
-
-        <div class="col-md-12">
-
-            <div class="btn-group" data-toggle="buttons" id="container_propostas">
+                <h2><p><span id="descritivo_argumentario"></span></p></h2>
 
             </div>
 
 
+            <div class="col-md-12">
+
+                <div class="btn-group" data-toggle="buttons" id="container_propostas">
+
+                </div>
+
+
+            </div>
+
+
+            <div class="col-md-12">
+                <table id="table_proposta" class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th colspan="2">
+                            <h5 style="margin:0">
+                                <span id="proposta_pacote"></span>
+                                <small id="proposta_pacote_comercial"></small>
+                            </h5>
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody></tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="2">
+                            <div class="btn-group btn-group-xs" data-toggle="buttons">
+                                <label class="btn btn-primary active">
+                                    <input type="radio" name="ver_proposta" value="0" autocomplete="off" checked> 1ª Proposta
+                                </label>
+                                <label class="btn btn-primary">
+                                    <input type="radio" name="ver_proposta" value="1" autocomplete="off"> 2ª Proposta
+                                </label>
+                                <label class="btn btn-primary">
+                                    <input type="radio" name="ver_proposta" value="2" autocomplete="off"> 3ª Proposta
+                                </label>
+                            </div>
+                            <button class="btn btn-xs btn-success" id="cliente_aceita_proposta" type="button" style="float: right">Aderir</button>
+                        </td>
+                    </tr>
+                    </tfoot>
+                </table>
+            </div>
+
+
         </div>
-
-
-        <div class="col-md-12">
-            <table id="table_proposta" class="table table-bordered">
-                <thead>
-                <tr>
-                    <th colspan="2">
-                        <h5 style="margin:0">
-                            <span id="proposta_pacote"></span>
-                            <small id="proposta_pacote_comercial"></small>
-                        </h5>
-                    </th>
-                </tr>
-                </thead>
-                <tbody></tbody>
-                <tfoot>
-                <tr>
-                    <td colspan="2">
-                        <div class="btn-group btn-group-xs" data-toggle="buttons">
-                            <label class="btn btn-primary active">
-                                <input type="radio" name="ver_proposta" value="0" autocomplete="off" checked> 1ª Proposta
-                            </label>
-                            <label class="btn btn-primary">
-                                <input type="radio" name="ver_proposta" value="1" autocomplete="off"> 2ª Proposta
-                            </label>
-                            <label class="btn btn-primary">
-                                <input type="radio" name="ver_proposta" value="2" autocomplete="off"> 3ª Proposta
-                            </label>
-                        </div>
-                        <button class="btn btn-xs btn-success" id="cliente_aceita_proposta" type="button" style="float: right" >Aderir</button>
-                    </td>
-                </tr>
-                </tfoot>
-            </table>
-        </div>
-
-
     </div>
 </div>
