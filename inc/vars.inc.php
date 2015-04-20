@@ -20,3 +20,4 @@ define('APP_DATETIME_NEXTWEEK', date('Y-m-d', time() + (7 * 24 * 60 * 60))); // 
 define('APP_DATETIME_TIMESTAMP', date('Y-m-d H:i:s'));
 define('APP_DATETIME_TIMESTAMP_FILE', date('YmdHis'));
 
+ini_set('mssql.charset', 'UTF-8');

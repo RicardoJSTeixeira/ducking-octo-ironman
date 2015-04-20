@@ -84,17 +84,17 @@ var app4 = (function () {
         //Mostrar recolha de NIB somente se a modalidade for débito directo
         jqC.find("[name='dados_modalidade_pagamento']").change(function () {
 
-            console.log(this.value)
-
             //caso sim show, caso não hide
             jqC.find("#container_nib").toggle(this.value == "debito_directo");
 
         });
 
         function fnPaginaValidada() {
-//todo so isto??? é o único required, os restantes dependem de circunstancias que ATM não estão claras
+            //todo
+            /*
             var bEmailClienteExpedicao = jqC.find("#dados_email_expedicao").valid();
-            return bEmailClienteExpedicao;
+            return bEmailClienteExpedicao;*/
+            return true
         }
 
 

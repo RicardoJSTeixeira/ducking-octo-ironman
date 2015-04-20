@@ -7,13 +7,13 @@ include 'inc/func.inc.php';
 // Ler variáveis vindas da GoContact
 $oVars = (object)[
     "uuid" => filter_var($_GET["uuid"]),
-    "id_client" => filter_var($_GET["contactid"]),
-    "top" => filter_var($_GET["userfullname"]),
+    "contact_id" => filter_var($_GET["contactid"]),
+    "agent_id" => filter_var($_GET["userfullname"]),
+    "ip" => filter_var($_GET["ip"]),
     "nome" => filter_var($_GET["contact"]),
     "morada" => filter_var($_GET["address"]),
     "telefone" => filter_var($_GET["phone"]),
-    "email" => filter_var($_GET["email"]),
-    "ip" => filter_var($_GET["ip"])
+    "email" => filter_var($_GET["email"])
 ];
 
 ?>
@@ -131,11 +131,9 @@ $oVars = (object)[
             </div>
 
             <div class="col-md-6 panel panel-default">
-                <b>Operador:</b> <?= $oVars->top ?>
-                <br>
-                <b>Número:</b> <?= $oVars->telefone ? $oVars->telefone : '[SEM DADOS]' ?>
-                <br>
-                <b>IP:</b> <?= $oVars->ip ?>
+                <p><b>Operador:</b> <?= $oVars->agent_id ?></p>
+                <p><b>Número:</b> <?= $oVars->telefone ? $oVars->telefone : '[SEM DADOS]' ?></p>
+                <p><b>IP:</b> <?= $oVars->ip ?></p>
             </div>
 
             <div class="col-md-12 panel panel-default" id="container" style="padding: 0"> <!-- Start main content -->

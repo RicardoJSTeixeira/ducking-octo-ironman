@@ -24,6 +24,15 @@ var controller = (function () {
         pag5: {}
     };
 
+    oPageData = $.extend(
+        oPageData,
+        {
+            uuid: oVars.uuid,
+            contact_id: oVars.contact_id,
+            agent_id: oVars.agent_id,
+            lista: oVars.databasename,
+            ip: oVars.ip
+        });
 
     function fnInit() {
 //configuraçao de paginas
