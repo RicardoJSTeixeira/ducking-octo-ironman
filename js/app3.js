@@ -258,11 +258,13 @@ var app3 = (function () {
 
                 if (!aPropostasRecebidas.length) {
                     console.warn("Consulta às propostas[" + (iNr + 1 ) + "] não retornou dados!");
+                    bootbox.alert("Consulta às propostas[" + (iNr + 1 ) + "] não retornou dados!");
 
                     if (iNr < 2)
                         jqC.find("[name=ver_proposta]").filter('[value=' + ++iNr + ']').parent().button('toggle');
                     else
                         bootbox.alert("Consulta às propostas não retornou dados!");
+                        console.warn("Consulta às propostas não retornou dados!");
                 }
 
                 fnMakePropostas(aPropostasRecebidas);
