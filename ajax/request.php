@@ -271,6 +271,8 @@ Class Script
 
         $stmt = $db->prepare($query);
 
+        echo $query;
+
         $stmt->execute($vars);
 
         $rs = $stmt->fetchAll(PDO::FETCH_OBJ);

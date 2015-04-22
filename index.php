@@ -134,8 +134,14 @@ $oVars = (object)[
 
         <div class="col-md-6 panel panel-default">
             <div class="row">
-                <div class="col-xs-3"><img src="img/cliente/cliente_logo.png"></div>
-                <div class="col-xs-6" id="header"></div>
+                <div class="col-xs-3"><img src="img/cliente/cliente_logo.png">
+
+                </div>
+                <div class="col-xs-6" id="header">
+                    <?php if (APP_TYPE == 'DEV')
+                        echo '<div role="alert" class="alert alert-danger">' . APP_TYPE . ' :: ' . APP_LASTUPDATE . '</div>';
+                    ?>
+                </div>
             </div>
         </div>
 
@@ -145,7 +151,6 @@ $oVars = (object)[
             <p><b>Número:</b> <?= $oVars->telefone ? $oVars->telefone : '[SEM DADOS]' ?></p>
 
             <p><b>IP:</b> <?= $oVars->ip ?></p>
-
 
 
         </div>
