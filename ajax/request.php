@@ -203,6 +203,7 @@ Class Script
     public static function getInfoMatriz(PDO $db, $oDados, $nr)
     {
 
+        // nr_proposta 0 -> primeira proposta, 1 -> segunda_proposta, 2 -> terceira proposta
         $propostas = ["primeira_proposta", "segunda_proposta", "terceira_proposta"];
 
         $where = "";
@@ -224,13 +225,13 @@ Class Script
         $where .= " AND a.perfil_de_entrada=:perfil_de_entrada ";
         $vars[":perfil_de_entrada"] = $oDados['pacote']['tipo_pacote'];
 
-        if ($oDados['net_fixa']['tem_computador_portatil'] !== 'Sim') {
+        if ($oDados['net_fixa']['tem_computador_portatil'] == 'Não') {
             $where .= " AND a.tem_pc=:tem_pc ";
-            $vars[":tem_pc"] = '1';
+            $vars[":tem_pc"] = '';
         }
 
         $where .= " AND a.fid_tv=:fid_tv ";
-        $vars["fid_tv"] = $oDados['televisao']['fidelizado'] ? '1' : '';
+        $vars[":fid_tv"] = $oDados['televisao']['fidelizado'] ? '1' : '';
 
         $where .= " AND a.fid_movel=:fid_movel ";
         $vars[":fid_movel"] = $oDados['telemovel']['fidelizado'] ? '1' : '';
@@ -269,6 +270,7 @@ Class Script
 
 
         $stmt = $db->prepare($query);
+
         $stmt->execute($vars);
 
         $rs = $stmt->fetchAll(PDO::FETCH_OBJ);
