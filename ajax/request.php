@@ -270,10 +270,9 @@ Class Script
 
 
         $stmt = $db->prepare($query);
-
         $stmt->execute($vars);
-
         $rs = $stmt->fetchAll(PDO::FETCH_OBJ);
+
         return $rs;
 
     }

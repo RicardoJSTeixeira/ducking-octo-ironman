@@ -2,6 +2,8 @@
  * Created by vitor.correia on 10-04-2015.
  */
 //todo mudar esta var para privada
+//todo Permitir a gravação de não-vendas
+    // todo para alem de gravar o nome do top, gravar o login tambem
 var banana2000xpto = false;
 function ok() {
     return banana2000xpto

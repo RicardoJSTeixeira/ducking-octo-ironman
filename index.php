@@ -5,6 +5,7 @@ include 'inc/func.inc.php';
 
 
 // Ler variáveis vindas da GoContact
+// Estes campos TÊM de existir na FIN
 $oVars = (object)[
     "uuid" => filter_var($_GET["uuid"]),
     "contact_id" => filter_var($_GET["contactid"]),
@@ -33,7 +34,11 @@ $oVars = (object)[
     <meta name="version" content="<?= APP_VERSION; ?>">
     <link rel="icon" href="favicon.ico">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title><?= APP_COMPANY . ' > ' . APP_NAME . ' v' . APP_VERSION; ?></title>
+    <title>
+        <?= APP_COMPANY . ' > ' . APP_NAME . ' v' . APP_VERSION; ?>
+        <?php if (APP_TYPE == 'DEV') echo ' ' . APP_TYPE . ' :: ' . APP_LASTUPDATE; ?>
+    </title>
+
 
     <!-- Icons -->
     <!-- 16x16 -->
@@ -62,7 +67,9 @@ $oVars = (object)[
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.paper.css" rel="stylesheet">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,800,700,400italic,600italic,700italic,800italic,300italic" rel="stylesheet" type="text/css">
+    <link
+        href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,800,700,400italic,600italic,700italic,800italic,300italic"
+        rel="stylesheet" type="text/css">
 
     <!-- DatePicker -->
     <link href="js/plugins/bootstrap-datetimepicker.min.css" rel="stylesheet">
@@ -126,10 +133,17 @@ $oVars = (object)[
 
     <div class="row">
 
+
         <div class="col-md-6 panel panel-default">
             <div class="row">
-                <div class="col-xs-3"><img src="img/cliente/cliente_logo.png"></div>
-                <div class="col-xs-6" id="header"></div>
+                <div class="col-xs-3"><img src="img/cliente/cliente_logo.png">
+
+                </div>
+                <div class="col-xs-6" id="header">
+                    <?php if (APP_TYPE == 'DEV')
+                        echo '<div role="alert" class="alert alert-danger">' . APP_TYPE . ' :: ' . APP_LASTUPDATE . '</div>';
+                    ?>
+                </div>
             </div>
         </div>
 
@@ -139,6 +153,8 @@ $oVars = (object)[
             <p><b>Número:</b> <?= $oVars->telefone ? $oVars->telefone : '[SEM DADOS]' ?></p>
 
             <p><b>IP:</b> <?= $oVars->ip ?></p>
+
+
         </div>
         <!-- End header -->
     </div>
