@@ -5,6 +5,7 @@ include 'inc/func.inc.php';
 
 
 // Ler variáveis vindas da GoContact
+// Estes campos TÊM de existir na FIN
 $oVars = (object)[
     "uuid" => filter_var($_GET["uuid"]),
     "contact_id" => filter_var($_GET["contactid"]),
@@ -16,7 +17,8 @@ $oVars = (object)[
     "districto" => filter_var($_GET["districto"]),
     "telefone" => filter_var($_GET["phone"]),
     "cp" => filter_var($_GET["cp"]),
-    "email" => filter_var($_GET["email"])
+    "email" => filter_var($_GET["email"]),
+    "databasename" => filter_var($_GET["databasename"])
 ];
 
 
