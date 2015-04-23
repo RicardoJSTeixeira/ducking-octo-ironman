@@ -3,8 +3,6 @@
  */
 //todo mudar esta var para privada
 //todo Permitir a gravação de não-vendas
-// todo Para alem de gravar o nome do top, gravar o login tambem
-// todo Não está a gravar o contact_id
 
 var banana2000xpto = false;
 function ok() {

@@ -219,8 +219,8 @@ Class Script
         $where .= " AND a.novo_cliente=:novo_cliente ";
         $vars[":novo_cliente"] = $bNovoClient ? '1' : '';
 
-        if (!$bNovoClient)
-            $where .= " AND b.novo_cliente='3' ";
+        /*if (!$bNovoClient)
+            $where .= " AND b.novo_cliente='3' ";*/
 
         $where .= " AND a.perfil_de_entrada=:perfil_de_entrada ";
         $vars[":perfil_de_entrada"] = $oDados['pacote']['tipo_pacote'];
@@ -264,7 +264,7 @@ Class Script
                         notas_net_movel,
                         notas_net,
                         notas_telefone
-                  FROM fsdatabases.nos_residencial_propostas b
+                  FROM fsdatabases.nos_residencial_propostas_ok b
                   INNER JOIN fsdatabases.nos_residencial_matriz_decisao a ON a." . $propostas[$nr] . " = b.grupo AND a.tecnologia=b.tecnologia
                   where $where ";
 

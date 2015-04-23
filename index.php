@@ -9,7 +9,7 @@ include 'inc/func.inc.php';
 $oVars = (object)[
     "uuid" => filter_var($_GET["uuid"]),
     "contact_id" => filter_var($_GET["contactid"]),
-    "agent_id" => filter_var($_GET["userfullname"]),
+    "agent_id" => filter_var($_GET["username"]),
     "ip" => getRealIpAddr(),
     "nome" => filter_var($_GET["contact"]),
     "morada" => filter_var($_GET["address"]),
@@ -189,6 +189,7 @@ $oVars = (object)[
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/plugins/jquery-1.11.2.min.js"></script>
+
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/plugins/bootstrap.js"></script>
     <script src="js/plugins/jasny-bootstrap.min.js"></script>
@@ -202,6 +203,7 @@ $oVars = (object)[
         //change moment local
         moment.locale("pt");
     </script>
+
     <script src="js/plugins/bootstrap-datetimepicker.min.js"></script>
     <script src="js/plugins/messages_pt_PT.js"></script>
     <script src="js/plugins/bootbox.min.js"></script>

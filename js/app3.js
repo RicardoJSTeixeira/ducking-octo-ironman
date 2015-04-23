@@ -263,7 +263,7 @@ var app3 = (function () {
                     if (iNr < 2)
                         jqC.find("[name=ver_proposta]").filter('[value=' + ++iNr + ']').parent().button('toggle');
                     else
-                        bootbox.alert("Consulta às propostas não retornou dados!");
+                        //bootbox.alert("Consulta às propostas não retornou dados!");
                         console.warn("Consulta às propostas não retornou dados!");
                 }
 
@@ -281,15 +281,16 @@ var app3 = (function () {
 
         aPropostas.forEach(function (aProposta, index) {
 
-            sRadiosPropostas += ' <label class="btn btn-primary col-xs-6 col-md-4 col-lg-3">\
-                                      <input type="radio" name="propostas" value="' + index + '"> ' + aProposta.pacote + '\
-                                  </label>';
+            //aProposta.pacote_comercial
 
+            sRadiosPropostas += ' <label title="'+ aProposta.pacote_comercial + '" data-placement="top" data-toggle="tooltip" class="btn btn-primary col-xs-6 col-md-4 col-lg-3">\
+                                      <input  type="radio" name="propostas" value="' + index + '"> ' + aProposta.pacote + '\
+                                  </label>';
 
         });
 
         jqC.find("#container_propostas").html(sRadiosPropostas);
-
+        $('[data-toggle="tooltip"]').tooltip();
     }
 
     function fnModalClienteAceita() {
