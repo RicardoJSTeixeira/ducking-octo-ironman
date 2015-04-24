@@ -29,7 +29,7 @@ if (APP_TYPE == 'DEV'){
         "contact_id" => "contact_id_TST",
         "agent_id" => "vitor-tst",
         "ip" => getRealIpAddr(),
-        "nome" => "João Jose",
+        "nome" => "João José",
         "morada" => "Rua da Campanhã",
         "localidade" => "Álqueva",
         "districto" => "Setúbal",

@@ -296,8 +296,8 @@ var app3 = (function () {
         var oProposta = fnGetSelectedProposta();
 
         if (!oProposta) {
-            bootbox.alert("Sem proposta seleccionada");
-            console.warn("Sem proposta seleccionada");
+            bootbox.alert("Sem proposta seleccionada!");
+            console.warn("Sem proposta seleccionada!");
             return false;
         }
 

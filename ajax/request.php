@@ -54,9 +54,9 @@ Class Script
 
         try {
             if (APP_TYPE == 'DEV'){
-                $sqlInsercao = 'INSERT INTO [dbo].[FIN_TST] (' . $oVars["keys"] . ') VALUES (' . utf8_encode($oVars["vals"]) . ')';
+                $sqlInsercao = 'INSERT INTO [dbo].[FIN_TST] (' . $oVars["keys"] . ') VALUES (' . $oVars["vals"] . ')';
             } else {
-                $sqlInsercao = 'INSERT INTO [dbo].[FIN] (' . $oVars["keys"] . ') VALUES (' . utf8_encode($oVars["vals"]) . ')';
+                $sqlInsercao = 'INSERT INTO [dbo].[FIN] (' . $oVars["keys"] . ') VALUES (' . $oVars["vals"] . ')';
             }
 
             $stmt = $db->prepare($sqlInsercao);
@@ -100,7 +100,7 @@ Class Script
 
             $sKeys .= " $thisKey,";
             $sVals .= " :$thisKey,";
-            $aVars[":$thisKey"] = utf8_encode($val);
+            $aVars[":$thisKey"] = utf8_decode($val);
 
         }
     }
@@ -220,12 +220,12 @@ Class Script
         $where .= " AND a.zona_concorrencia=:zona_concorrencia ";
         $vars[":zona_concorrencia"] = $oDados['zona_concorrencia'];
 
-        $bNovoClient = $oDados['cliente_actual'] == 'Sim';
+        /*$bNovoClient = $oDados['cliente_actual'] == 'Sim';
         $where .= " AND a.novo_cliente=:novo_cliente ";
         $vars[":novo_cliente"] = $bNovoClient ? '1' : '';
 
         if (!$bNovoClient)
-            $where .= " AND b.novo_cliente='3' ";
+            $where .= " AND b.novo_cliente='3' ";*/
 
         $where .= " AND a.perfil_de_entrada=:perfil_de_entrada ";
         $vars[":perfil_de_entrada"] = $oDados['pacote']['tipo_pacote'];
@@ -275,6 +275,7 @@ Class Script
 
 
         $stmt = $db->prepare($query);
+
         $stmt->execute($vars);
         $rs = $stmt->fetchAll(PDO::FETCH_OBJ);
 
