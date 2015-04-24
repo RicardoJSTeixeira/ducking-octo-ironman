@@ -53,7 +53,12 @@ Class Script
         $oVars = Script::fnMakeInsert($dados);
 
         try {
-            $sqlInsercao = 'INSERT INTO [dbo].[FIN] (' . $oVars["keys"] . ') VALUES (' . $oVars["vals"] . ')';
+            if (APP_TYPE == 'DEV'){
+                $sqlInsercao = 'INSERT INTO [dbo].[FIN_TST] (' . $oVars["keys"] . ') VALUES (' . utf8_encode($oVars["vals"]) . ')';
+            } else {
+                $sqlInsercao = 'INSERT INTO [dbo].[FIN] (' . $oVars["keys"] . ') VALUES (' . utf8_encode($oVars["vals"]) . ')';
+            }
+
             $stmt = $db->prepare($sqlInsercao);
             return $stmt->execute($oVars["vars"]);
 
@@ -219,8 +224,8 @@ Class Script
         $where .= " AND a.novo_cliente=:novo_cliente ";
         $vars[":novo_cliente"] = $bNovoClient ? '1' : '';
 
-        /*if (!$bNovoClient)
-            $where .= " AND b.novo_cliente='3' ";*/
+        if (!$bNovoClient)
+            $where .= " AND b.novo_cliente='3' ";
 
         $where .= " AND a.perfil_de_entrada=:perfil_de_entrada ";
         $vars[":perfil_de_entrada"] = $oDados['pacote']['tipo_pacote'];

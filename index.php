@@ -18,7 +18,8 @@ $oVars = (object)[
     "telefone" => filter_var($_GET["phone"]),
     "cp" => filter_var($_GET["cp"]),
     "email" => filter_var($_GET["email"]),
-    "databasename" => filter_var($_GET["databasename"])
+    "databasename" => filter_var($_GET["databasename"]),
+    "phone" => filter_var($_GET["first_phone"])
 ];
 
 
