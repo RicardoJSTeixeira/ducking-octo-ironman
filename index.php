@@ -23,6 +23,25 @@ $oVars = (object)[
 ];
 
 
+if (APP_TYPE == 'DEV'){
+    $oVars = (object)[
+        "uuid" => "fscontact_uuid",
+        "contact_id" => "contact_id_TST",
+        "agent_id" => "vitor-tst",
+        "ip" => getRealIpAddr(),
+        "nome" => "João Jose",
+        "morada" => "Rua da Campanhã",
+        "localidade" => "Álqueva",
+        "districto" => "Setúbal",
+        "telefone" => "936796196",
+        "cp" => "1234-567",
+        "email" => "si@connecta.cc",
+        "databasename" => "lista-tst",
+        "phone" => "936796196"
+    ];
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="pt">
