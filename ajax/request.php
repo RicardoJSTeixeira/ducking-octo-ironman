@@ -100,7 +100,18 @@ Class Script
 
             $sKeys .= " $thisKey,";
             $sVals .= " :$thisKey,";
-            $aVars[":$thisKey"] = utf8_decode($val);
+
+            /*
+            IMPORTANT: when converting UTF8 data that contains the EURO sign DON'T USE utf_decode function.
+
+                utf_decode converts the data into ISO-8859-1 charset. But ISO-8859-1 charset does not contain the EURO sign, therefor the EURO sign will be converted into a question mark character '?'
+                In order to convert properly UTF8 data with EURO sign you must use:
+
+                iconv("UTF-8", "CP1252", $data)
+             */
+
+            //$aVars[":$thisKey"] = utf8_decode($val);
+            $aVars[":$thisKey"] = iconv("UTF-8", "CP1252", $val);
 
         }
     }
