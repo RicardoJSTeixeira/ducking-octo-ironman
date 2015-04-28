@@ -53,7 +53,12 @@ Class Script
         $oVars = Script::fnMakeInsert($dados);
 
         try {
-            $sqlInsercao = 'INSERT INTO [dbo].[FIN] (' . $oVars["keys"] . ') VALUES (' . $oVars["vals"] . ')';
+            if (APP_TYPE == 'DEV'){
+                $sqlInsercao = 'INSERT INTO [dbo].[FIN_TST] (' . $oVars["keys"] . ') VALUES (' . $oVars["vals"] . ')';
+            } else {
+                $sqlInsercao = 'INSERT INTO [dbo].[FIN] (' . $oVars["keys"] . ') VALUES (' . $oVars["vals"] . ')';
+            }
+
             $stmt = $db->prepare($sqlInsercao);
             return $stmt->execute($oVars["vars"]);
 
@@ -95,7 +100,18 @@ Class Script
 
             $sKeys .= " $thisKey,";
             $sVals .= " :$thisKey,";
-            $aVars[":$thisKey"] = utf8_encode($val);
+
+            /*
+            IMPORTANT: when converting UTF8 data that contains the EURO sign DON'T USE utf_decode function.
+
+                utf_decode converts the data into ISO-8859-1 charset. But ISO-8859-1 charset does not contain the EURO sign, therefor the EURO sign will be converted into a question mark character '?'
+                In order to convert properly UTF8 data with EURO sign you must use:
+
+                iconv("UTF-8", "CP1252", $data)
+             */
+
+            //$aVars[":$thisKey"] = utf8_decode($val);
+            $aVars[":$thisKey"] = iconv("UTF-8", "CP1252", $val);
 
         }
     }
@@ -203,6 +219,7 @@ Class Script
     public static function getInfoMatriz(PDO $db, $oDados, $nr)
     {
 
+        // nr_proposta 0 -> primeira proposta, 1 -> segunda_proposta, 2 -> terceira proposta
         $propostas = ["primeira_proposta", "segunda_proposta", "terceira_proposta"];
 
         $where = "";
@@ -214,23 +231,23 @@ Class Script
         $where .= " AND a.zona_concorrencia=:zona_concorrencia ";
         $vars[":zona_concorrencia"] = $oDados['zona_concorrencia'];
 
-        $bNovoClient = $oDados['cliente_actual'] == 'Sim';
+        /*$bNovoClient = $oDados['cliente_actual'] == 'Sim';
         $where .= " AND a.novo_cliente=:novo_cliente ";
         $vars[":novo_cliente"] = $bNovoClient ? '1' : '';
 
         if (!$bNovoClient)
-            $where .= " AND b.novo_cliente='3' ";
+            $where .= " AND b.novo_cliente='3' ";*/
 
         $where .= " AND a.perfil_de_entrada=:perfil_de_entrada ";
         $vars[":perfil_de_entrada"] = $oDados['pacote']['tipo_pacote'];
 
-        if ($oDados['net_fixa']['tem_computador_portatil'] !== 'Sim') {
+        if ($oDados['net_fixa']['tem_computador_portatil'] == 'Não') {
             $where .= " AND a.tem_pc=:tem_pc ";
-            $vars[":tem_pc"] = '1';
+            $vars[":tem_pc"] = '';
         }
 
         $where .= " AND a.fid_tv=:fid_tv ";
-        $vars["fid_tv"] = $oDados['televisao']['fidelizado'] ? '1' : '';
+        $vars[":fid_tv"] = $oDados['televisao']['fidelizado'] ? '1' : '';
 
         $where .= " AND a.fid_movel=:fid_movel ";
         $vars[":fid_movel"] = $oDados['telemovel']['fidelizado'] ? '1' : '';
@@ -263,15 +280,16 @@ Class Script
                         notas_net_movel,
                         notas_net,
                         notas_telefone
-                  FROM fsdatabases.nos_residencial_propostas b
+                  FROM fsdatabases.nos_residencial_propostas_ok b
                   INNER JOIN fsdatabases.nos_residencial_matriz_decisao a ON a." . $propostas[$nr] . " = b.grupo AND a.tecnologia=b.tecnologia
                   where $where ";
 
 
         $stmt = $db->prepare($query);
-        $stmt->execute($vars);
 
+        $stmt->execute($vars);
         $rs = $stmt->fetchAll(PDO::FETCH_OBJ);
+
         return $rs;
 
     }

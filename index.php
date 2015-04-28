@@ -5,10 +5,11 @@ include 'inc/func.inc.php';
 
 
 // Ler variáveis vindas da GoContact
+// Estes campos TÊM de existir na FIN
 $oVars = (object)[
     "uuid" => filter_var($_GET["uuid"]),
     "contact_id" => filter_var($_GET["contactid"]),
-    "agent_id" => filter_var($_GET["userfullname"]),
+    "agent_id" => filter_var($_GET["username"]),
     "ip" => getRealIpAddr(),
     "nome" => filter_var($_GET["contact"]),
     "morada" => filter_var($_GET["address"]),
@@ -16,8 +17,29 @@ $oVars = (object)[
     "districto" => filter_var($_GET["districto"]),
     "telefone" => filter_var($_GET["phone"]),
     "cp" => filter_var($_GET["cp"]),
-    "email" => filter_var($_GET["email"])
+    "email" => filter_var($_GET["email"]),
+    "databasename" => filter_var($_GET["databasename"]),
+    "phone" => filter_var($_GET["first_phone"])
 ];
+
+
+if (APP_TYPE == 'DEV'){
+    $oVars = (object)[
+        "uuid" => "fscontact_uuid",
+        "contact_id" => "contact_id_TST",
+        "agent_id" => "vitor-tst",
+        "ip" => getRealIpAddr(),
+        "nome" => "João José",
+        "morada" => "Rua da Campanhã",
+        "localidade" => "Álqueva",
+        "districto" => "Setúbal",
+        "telefone" => "936796196",
+        "cp" => "1234-567",
+        "email" => "si@connecta.cc",
+        "databasename" => "lista-tst",
+        "phone" => "936796196"
+    ];
+}
 
 
 ?>
@@ -32,7 +54,11 @@ $oVars = (object)[
     <meta name="version" content="<?= APP_VERSION; ?>">
     <link rel="icon" href="favicon.ico">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title><?= APP_COMPANY . ' > ' . APP_NAME . ' v' . APP_VERSION; ?></title>
+    <title>
+        <?= APP_COMPANY . ' > ' . APP_NAME . ' v' . APP_VERSION; ?>
+        <?php if (APP_TYPE == 'DEV') echo ' ' . APP_TYPE . ' :: ' . APP_LASTUPDATE; ?>
+    </title>
+
 
     <!-- Icons -->
     <!-- 16x16 -->
@@ -61,7 +87,9 @@ $oVars = (object)[
 
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.paper.css" rel="stylesheet">
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,800,700,400italic,600italic,700italic,800italic,300italic" rel="stylesheet" type="text/css">
+    <link
+        href="http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,800,700,400italic,600italic,700italic,800italic,300italic"
+        rel="stylesheet" type="text/css">
 
     <!-- DatePicker -->
     <link href="js/plugins/bootstrap-datetimepicker.min.css" rel="stylesheet">
@@ -125,10 +153,17 @@ $oVars = (object)[
 
     <div class="row">
 
+
         <div class="col-md-6 panel panel-default">
             <div class="row">
-                <div class="col-xs-3"><img src="img/cliente/cliente_logo.png"></div>
-                <div class="col-xs-6" id="header"></div>
+                <div class="col-xs-3"><img src="img/cliente/cliente_logo.png">
+
+                </div>
+                <div class="col-xs-6" id="header">
+                    <?php if (APP_TYPE == 'DEV')
+                        echo '<div role="alert" class="alert alert-danger">' . APP_TYPE . ' :: ' . APP_LASTUPDATE . '</div>';
+                    ?>
+                </div>
             </div>
         </div>
 
@@ -138,6 +173,8 @@ $oVars = (object)[
             <p><b>Número:</b> <?= $oVars->telefone ? $oVars->telefone : '[SEM DADOS]' ?></p>
 
             <p><b>IP:</b> <?= $oVars->ip ?></p>
+
+
         </div>
         <!-- End header -->
     </div>
@@ -172,6 +209,7 @@ $oVars = (object)[
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/plugins/jquery-1.11.2.min.js"></script>
+
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/plugins/bootstrap.js"></script>
     <script src="js/plugins/jasny-bootstrap.min.js"></script>
@@ -185,6 +223,7 @@ $oVars = (object)[
         //change moment local
         moment.locale("pt");
     </script>
+
     <script src="js/plugins/bootstrap-datetimepicker.min.js"></script>
     <script src="js/plugins/messages_pt_PT.js"></script>
     <script src="js/plugins/bootbox.min.js"></script>
