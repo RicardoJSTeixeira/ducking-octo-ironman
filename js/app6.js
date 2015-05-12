@@ -47,7 +47,8 @@ var app6 = (function () {
                 function (bOk) { // recebendo ok / true do request::fnSave, fechar interaccao
                     console.log(bOk);
                     //global
-                    banana2000xpto = bOk; // dá indicação à FSCONTACT que a venda terminou
+                    if(bOk)
+                    controller.setOk(); // dá indicação à FSCONTACT que a venda terminou
                     resolve()
 
                 }, "json")

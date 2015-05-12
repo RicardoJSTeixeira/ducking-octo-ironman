@@ -1,23 +1,11 @@
 /**
  * Created by vitor.correia on 10-04-2015.
  */
-//todo mudar esta var para privada
-//todo Permitir a gravação de não-vendas
 
-var banana2000xpto = false;
-function ok() {
-    return banana2000xpto
-}
-
-function receiveMessage(event) {
-    if (event.data == "isValid")
-        parent.postMessage(ok(), "http://" + document.domain);
-
-}
-
-window.addEventListener("message", receiveMessage, false);
 
 var controller = (function () {
+    var bOkForFscontact = false;
+
     var oPageData = {
         pag1: {},
         pag2: {},
@@ -114,10 +102,24 @@ var controller = (function () {
         })
     }
 
+    function fnSetOk() {
+        bOkForFscontact = true;
+    }
 
     return {
-        init: fnInit
+        init: fnInit,
+        setOk: fnSetOk,
+        isOk: function () {
+            return bOkForFscontact;
+        }
     }
 })();
 
 controller.init();
+
+//Validaçao FSCONTACT
+window.addEventListener("message", function (event) {
+    if (event.data == "isValid")
+        parent.postMessage(controller.isOk(), event.origin);
+
+}, false);
