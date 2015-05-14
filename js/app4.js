@@ -129,7 +129,7 @@ var app4 = (function () {
         });
 
         jqC.find("#dados_validade_expedicao,#dados_agendar_instalacao_dia").datetimepicker({
-            format: "DD-MM-YYYY"
+            format: "YYYY-MM-DD"
         })
 
     }
