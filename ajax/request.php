@@ -38,6 +38,12 @@ switch ($action) {
         echo json_encode(Script::save($db, $dados));
         break;
 
+    case "SaveNegativo":
+        $db = $DBs->Get("NOS_Residencial");
+        $dados = filter_var_array($REQVARS["dados_chamada"]);
+        echo json_encode(Script::savesaveNegativo($db, $dados));
+        break;
+
     default:
         die("WTF!?");
 }
@@ -58,6 +64,30 @@ Class Script
                 $sqlInsercao = 'INSERT INTO [dbo].[FIN_TST] (' . $oVars["keys"] . ') VALUES (' . $oVars["vals"] . ')';
             } else {
                 $sqlInsercao = 'INSERT INTO [dbo].[FIN] (' . $oVars["keys"] . ') VALUES (' . $oVars["vals"] . ')';
+            }
+
+            $stmt = $db->prepare($sqlInsercao);
+            return $stmt->execute($oVars["vars"]);
+
+        } catch (PDOException $ex) {
+            echo $ex->getMessage();
+            return false;
+        }
+
+    }
+
+
+    public static function saveNegativo(PDO $db, $dados)
+    {
+        // se gravou com sucesso, return true; se não return false
+
+        $oVars = Script::fnMakeInsert($dados);
+
+        try {
+            if (APP_TYPE == 'DEV'){
+                $sqlInsercao = 'INSERT INTO [dbo].[FIN_NEGAS_TST] (' . $oVars["keys"] . ') VALUES (' . $oVars["vals"] . ')';
+            } else {
+                $sqlInsercao = 'INSERT INTO [dbo].[FIN_NEGAS] (' . $oVars["keys"] . ') VALUES (' . $oVars["vals"] . ')';
             }
 
             $stmt = $db->prepare($sqlInsercao);
