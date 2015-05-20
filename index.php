@@ -176,7 +176,6 @@ if (APP_TYPE == 'DEV') {
 
             <p><b>IP:</b> <?= $oVars->ip ?></p>
 
-
         </div>
 
         <div class="col-md-3 panel panel-default">
@@ -247,7 +246,11 @@ if (APP_TYPE == 'DEV') {
     <script src="js/app6.js"></script>
     <script src="js/controller.js"></script>
 
+
+
+
     <script>
+
 
         function fnSubmeterNegativo() {
             return new Promise(function (resolve, reject) {
@@ -255,7 +258,7 @@ if (APP_TYPE == 'DEV') {
                 $.post("ajax/request.php",
                     {
                         action: "SaveNegativo",
-                        dados_chamada: oDados
+                        dados_chamada: oVars
                     },
                     function (bOk) { // recebendo ok / true do request::fnSave, fechar interaccao
                         console.log(bOk);
@@ -273,9 +276,10 @@ if (APP_TYPE == 'DEV') {
             })
         }
 
-
         $("#fechar_negativo").click(function () {
-            fnSubmeterNegativo()
+           //fnSubmeterNegativo()
+            //bootbox.alert("ds");
+            window.open("http://fscontact:60001/gravarNegativos.php?id=<?= $oVars->telefone ?>");
         });
 
 
