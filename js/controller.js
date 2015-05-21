@@ -121,6 +121,13 @@ var controller = (function () {
                     if (bOk)
                     //controller.setOk(); // dá indicação à FSCONTACT que a venda terminou
                         bootbox.alert("Gravado como negativo");
+                    //bloqueamos o script
+                    $.msg({
+                        bgPath: '/img/',
+                        autoUnblock: false,
+                        clickUnblock: false,
+                        content: "Script Fechado!!!"
+                    });
                     resolve()
 
                 }, "json")
