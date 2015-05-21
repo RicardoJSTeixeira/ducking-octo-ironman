@@ -23,7 +23,7 @@ $oVars = (object)[
 ];
 
 
-if (APP_TYPE == 'DEV'){
+if (APP_TYPE == 'DEV') {
     $oVars = (object)[
         "uuid" => "fscontact_uuid",
         "contact_id" => "contact_id_TST",
@@ -163,18 +163,26 @@ if (APP_TYPE == 'DEV'){
                     <?php if (APP_TYPE == 'DEV')
                         echo '<div role="alert" class="alert alert-danger">' . APP_TYPE . ' :: ' . APP_LASTUPDATE . '</div>';
                     ?>
+
+
                 </div>
             </div>
         </div>
 
-        <div class="col-md-6 panel panel-default">
+        <div class="col-md-3 panel panel-default">
             <p><b>Operador:</b> <?= $oVars->agent_id ?></p>
 
             <p><b>Número:</b> <?= $oVars->telefone ? $oVars->telefone : '[SEM DADOS]' ?></p>
 
             <p><b>IP:</b> <?= $oVars->ip ?></p>
 
+        </div>
 
+        <div class="col-md-3 panel panel-default">
+
+            <!--<p class="lead">Acçoes</p>
+            <button type="button" class="btn btn-sm btn-danger" id="fechar_negativo">Fechar Negativo</button>
+            <br>-->
         </div>
         <!-- End header -->
     </div>
@@ -237,6 +245,45 @@ if (APP_TYPE == 'DEV'){
     <script src="js/app5.js"></script>
     <script src="js/app6.js"></script>
     <script src="js/controller.js"></script>
+
+
+
+
+    <script>
+
+
+        function fnSubmeterNegativo() {
+            return new Promise(function (resolve, reject) {
+
+                $.post("ajax/request.php",
+                    {
+                        action: "SaveNegativo",
+                        dados_chamada: oVars
+                    },
+                    function (bOk) { // recebendo ok / true do request::fnSave, fechar interaccao
+                        console.log(bOk);
+                        //global
+                        if(bOk)
+                            controller.setOk(); // dá indicação à FSCONTACT que a venda terminou
+                        resolve()
+
+                    }, "json")
+                    .fail(function (Ex) {
+                        //Erro no save
+                        reject(Ex)
+                    })
+
+            })
+        }
+
+        $("#fechar_negativo").click(function () {
+           //fnSubmeterNegativo()
+            //bootbox.alert("ds");
+            window.open("http://fscontact:60001/gravarNegativos.php?id=<?= $oVars->telefone ?>");
+        });
+
+
+        </script>
 
 </body>
 </html>
