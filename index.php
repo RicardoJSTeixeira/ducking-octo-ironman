@@ -169,20 +169,11 @@ if (APP_TYPE == 'DEV') {
             </div>
         </div>
 
-        <div class="col-md-3 panel panel-default">
+        <div class="col-md-6 panel panel-default">
             <p><b>Operador:</b> <?= $oVars->agent_id ?></p>
-
             <p><b>Número:</b> <?= $oVars->telefone ? $oVars->telefone : '[SEM DADOS]' ?></p>
-
             <p><b>IP:</b> <?= $oVars->ip ?></p>
-
-        </div>
-
-        <div class="col-md-3 panel panel-default">
-            <br>
-            <<p class="lead">Acçoes</p>
-            <button type="button" class="btn btn-sm btn-danger" id="fechar_negativo">Fechar Negativo</button>
-            <br>
+            <p><button type="button" class="btn btn-sm btn-danger" id="fechar_negativo">Fechar Negativo</button></p>
         </div>
         <!-- End header -->
     </div>

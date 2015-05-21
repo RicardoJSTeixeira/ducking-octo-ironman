@@ -41,7 +41,7 @@ switch ($action) {
     case "SaveNegativo":
         $db = $DBs->Get("NOS_Residencial");
         $dados = filter_var_array($REQVARS["dados_chamada_negativos"]);
-        echo json_encode(Script::savesaveNegativo($db, $dados));
+        echo json_encode(Script::saveNegativo($db, $dados));
         break;
 
     default:
