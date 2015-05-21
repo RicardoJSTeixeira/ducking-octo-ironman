@@ -180,9 +180,9 @@ if (APP_TYPE == 'DEV') {
 
         <div class="col-md-3 panel panel-default">
 
-            <p class="lead">Acçoes</p>
+            <!--<p class="lead">Acçoes</p>
             <button type="button" class="btn btn-sm btn-danger" id="fechar_negativo">Fechar Negativo</button>
-            <br>
+            <br>-->
         </div>
         <!-- End header -->
     </div>
