@@ -106,6 +106,39 @@ var controller = (function () {
         bOkForFscontact = true;
     }
 
+
+    function fnSubmeterNegativo() {
+        return new Promise(function (resolve, reject) {
+
+            $.post("ajax/request.php",
+                {
+                    action: "SaveNegativo",
+                    dados_chamada_negativos: oPageData
+                },
+                function (bOk) { // recebendo ok / true do request::fnSave, fechar interaccao
+                    console.log(bOk);
+                    //global
+                    if (bOk)
+                    //controller.setOk(); // dá indicação à FSCONTACT que a venda terminou
+                        bootbox.alert("Gravado como negativo");
+                    resolve()
+
+                }, "json")
+                .fail(function (Ex) {
+                    //Erro no save
+                    bootbox.alert("Não foi possível gravar como negativo!!!");
+                    reject(Ex)
+                })
+
+        })
+    }
+
+
+    $("#fechar_negativo").click(function () {
+        fnSubmeterNegativo()
+    });
+
+
     return {
         init: fnInit,
         setOk: fnSetOk,

@@ -179,10 +179,10 @@ if (APP_TYPE == 'DEV') {
         </div>
 
         <div class="col-md-3 panel panel-default">
-
-            <!--<p class="lead">Acçoes</p>
+            <br>
+            <<p class="lead">Acçoes</p>
             <button type="button" class="btn btn-sm btn-danger" id="fechar_negativo">Fechar Negativo</button>
-            <br>-->
+            <br>
         </div>
         <!-- End header -->
     </div>
@@ -246,30 +246,28 @@ if (APP_TYPE == 'DEV') {
     <script src="js/app6.js"></script>
     <script src="js/controller.js"></script>
 
-
-
-
     <script>
 
-
-        function fnSubmeterNegativo() {
+/*        function fnSubmeterNegativo() {
             return new Promise(function (resolve, reject) {
 
                 $.post("ajax/request.php",
                     {
                         action: "SaveNegativo",
-                        dados_chamada: oVars
+                        dados_chamada_negativos: oPageData
                     },
                     function (bOk) { // recebendo ok / true do request::fnSave, fechar interaccao
                         console.log(bOk);
                         //global
-                        if(bOk)
-                            controller.setOk(); // dá indicação à FSCONTACT que a venda terminou
+                        if (bOk)
+                        //controller.setOk(); // dá indicação à FSCONTACT que a venda terminou
+                            bootbox.alert("Gravado como negativo");
                         resolve()
 
                     }, "json")
                     .fail(function (Ex) {
                         //Erro no save
+                        bootbox.alert("Não foi possível gravar como negativo!!!");
                         reject(Ex)
                     })
 
@@ -277,13 +275,12 @@ if (APP_TYPE == 'DEV') {
         }
 
         $("#fechar_negativo").click(function () {
-           //fnSubmeterNegativo()
-            //bootbox.alert("ds");
-            window.open("http://fscontact:60001/gravarNegativos.php?id=<?= $oVars->telefone ?>");
-        });
+            fnSubmeterNegativo()
+
+        });*/
 
 
-        </script>
+    </script>
 
 </body>
 </html>

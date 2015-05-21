@@ -40,7 +40,7 @@ switch ($action) {
 
     case "SaveNegativo":
         $db = $DBs->Get("NOS_Residencial");
-        $dados = filter_var_array($REQVARS["dados_chamada"]);
+        $dados = filter_var_array($REQVARS["dados_chamada_negativos"]);
         echo json_encode(Script::savesaveNegativo($db, $dados));
         break;
 
@@ -85,9 +85,9 @@ Class Script
 
         try {
             if (APP_TYPE == 'DEV'){
-                $sqlInsercao = 'INSERT INTO [dbo].[FIN_NEGAS_TST] (' . $oVars["keys"] . ') VALUES (' . $oVars["vals"] . ')';
+                $sqlInsercao = 'INSERT INTO [dbo].[FIN_NEGATIVOS_TST] (' . $oVars["keys"] . ') VALUES (' . $oVars["vals"] . ')';
             } else {
-                $sqlInsercao = 'INSERT INTO [dbo].[FIN_NEGAS] (' . $oVars["keys"] . ') VALUES (' . $oVars["vals"] . ')';
+                $sqlInsercao = 'INSERT INTO [dbo].[FIN_NEGATIVOS] (' . $oVars["keys"] . ') VALUES (' . $oVars["vals"] . ')';
             }
 
             $stmt = $db->prepare($sqlInsercao);
