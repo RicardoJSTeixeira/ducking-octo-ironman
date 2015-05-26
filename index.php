@@ -179,7 +179,7 @@ if (APP_TYPE == 'DEV') {
 
             <div class="form-group">
                 <label
-                    for="negativo_datafidelizacao">Caso cliente esteja fidelizado, indicar data de fidelização:</label>
+                    for="negativo_datafidelizacao">Caso cliente esteja fidelizado, indicar data de fidelização do actual serviço:</label>
                 <input type="text" class="form-control input-sm" id="negativo_datafidelizacao">
             </div>
             <p>
