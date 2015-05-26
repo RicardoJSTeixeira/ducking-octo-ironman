@@ -153,7 +153,6 @@ if (APP_TYPE == 'DEV') {
 
     <div class="row">
 
-
         <div class="col-md-6 panel panel-default">
             <div class="row">
                 <div class="col-xs-3"><img src="img/cliente/cliente_logo.png">
@@ -163,17 +162,31 @@ if (APP_TYPE == 'DEV') {
                     <?php if (APP_TYPE == 'DEV')
                         echo '<div role="alert" class="alert alert-danger">' . APP_TYPE . ' :: ' . APP_LASTUPDATE . '</div>';
                     ?>
-
-
                 </div>
             </div>
         </div>
 
-        <div class="col-md-6 panel panel-default">
+        <div class="col-md-3 panel panel-default">
             <p><b>Operador:</b> <?= $oVars->agent_id ?></p>
+
             <p><b>Número:</b> <?= $oVars->telefone ? $oVars->telefone : '[SEM DADOS]' ?></p>
+
             <p><b>IP:</b> <?= $oVars->ip ?></p>
-            <p><button type="button" class="btn btn-sm btn-danger" id="fechar_negativo">Fechar Negativo</button></p>
+
+        </div>
+
+        <div class="col-md-3 panel panel-default">
+
+            <div class="form-group">
+                <label
+                    for="negativo_datafidelizacao">Caso cliente esteja fidelizado, indicar data de fidelização:</label>
+                <input type="text" class="form-control input-sm" id="negativo_datafidelizacao">
+            </div>
+            <p>
+                <button type="button" class="btn btn-sm btn-danger" id="fechar_negativo">Fechar Negativo</button>
+                <!--<button type="button" class="btn btn-sm btn-info" id="testes">testes</button>-->
+            </p>
+
         </div>
         <!-- End header -->
     </div>
@@ -191,7 +204,6 @@ if (APP_TYPE == 'DEV') {
                 <?php
 
                 #echo getFooter();
-
                 if (APP_TYPE == 'DEV')
                     echo ' > ' . APP_TYPE . ' :: ' . APP_LASTUPDATE;
 
@@ -239,37 +251,9 @@ if (APP_TYPE == 'DEV') {
 
     <script>
 
-/*        function fnSubmeterNegativo() {
-            return new Promise(function (resolve, reject) {
-
-                $.post("ajax/request.php",
-                    {
-                        action: "SaveNegativo",
-                        dados_chamada_negativos: oPageData
-                    },
-                    function (bOk) { // recebendo ok / true do request::fnSave, fechar interaccao
-                        console.log(bOk);
-                        //global
-                        if (bOk)
-                        //controller.setOk(); // dá indicação à FSCONTACT que a venda terminou
-                            bootbox.alert("Gravado como negativo");
-                        resolve()
-
-                    }, "json")
-                    .fail(function (Ex) {
-                        //Erro no save
-                        bootbox.alert("Não foi possível gravar como negativo!!!");
-                        reject(Ex)
-                    })
-
-            })
-        }
-
-        $("#fechar_negativo").click(function () {
-            fnSubmeterNegativo()
-
-        });*/
-
+        $("#negativo_datafidelizacao").datetimepicker({
+            format: "YYYY-MM-DD"
+        })
 
     </script>
 

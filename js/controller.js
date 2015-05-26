@@ -110,6 +110,15 @@ var controller = (function () {
     function fnSubmeterNegativo() {
         return new Promise(function (resolve, reject) {
 
+            datafidelizacao_negativo = $("#negativo_datafidelizacao").val(); // atribuição directa no $.extend não está a funcionar!!
+
+            oPageData = $.extend(
+                oPageData,
+                {
+                    negativo_datafidelizacao: datafidelizacao_negativo
+                });
+
+
             $.post("ajax/request.php",
                 {
                     action: "SaveNegativo",
@@ -144,6 +153,14 @@ var controller = (function () {
     $("#fechar_negativo").click(function () {
         fnSubmeterNegativo()
     });
+
+    /*$("#testes").click(function () {
+        //alert($("#negativo_datafidelizacao").val());
+
+        jqC = $("#negativo_datafidelizacao").val();
+        alert(jqC);
+
+    });*/
 
 
     return {
