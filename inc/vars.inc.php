@@ -12,7 +12,7 @@
 
 define('APP_NAME', 'NOS Residencial');
 define('APP_COMPANY', 'Connecta Portugal');
-define('APP_VERSION', '1.2.0.4');
+define('APP_VERSION', '1.2.0.5');
 define('APP_TYPE', 'DEV'); // DEV || PROD
 define('APP_LASTUPDATE', '201505261741');
 define('APP_DATETIME_YMD', date('Y-m-d'));
