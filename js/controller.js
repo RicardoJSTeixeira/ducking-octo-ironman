@@ -106,6 +106,63 @@ var controller = (function () {
         bOkForFscontact = true;
     }
 
+
+    function fnSubmeterNegativo() {
+        return new Promise(function (resolve, reject) {
+
+            datafidelizacao_negativo = $("#negativo_datafidelizacao").val(); // atribuição directa no $.extend não está a funcionar!!
+
+            oPageData = $.extend(
+                oPageData,
+                {
+                    negativo_datafidelizacao: datafidelizacao_negativo
+                });
+
+
+            $.post("ajax/request.php",
+                {
+                    action: "SaveNegativo",
+                    dados_chamada_negativos: oPageData
+                },
+                function (bOk) { // recebendo ok / true do request::fnSave, fechar interaccao
+                    console.log(bOk);
+                    //global
+                    if (bOk)
+                    //controller.setOk(); // dá indicação à FSCONTACT que a venda terminou
+                        bootbox.alert("Gravado como negativo");
+                    //bloqueamos o script
+                    $.msg({
+                        bgPath: '/img/',
+                        autoUnblock: false,
+                        clickUnblock: false,
+                        content: "Script Fechado!!!"
+                    });
+                    resolve()
+
+                }, "json")
+                .fail(function (Ex) {
+                    //Erro no save
+                    bootbox.alert("Não foi possível gravar como negativo!!!");
+                    reject(Ex)
+                })
+
+        })
+    }
+
+
+    $("#fechar_negativo").click(function () {
+        fnSubmeterNegativo()
+    });
+
+    /*$("#testes").click(function () {
+        //alert($("#negativo_datafidelizacao").val());
+
+        jqC = $("#negativo_datafidelizacao").val();
+        alert(jqC);
+
+    });*/
+
+
     return {
         init: fnInit,
         setOk: fnSetOk,
