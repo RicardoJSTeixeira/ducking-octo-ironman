@@ -311,8 +311,8 @@ Class Script
                         notas_net_movel,
                         notas_net,
                         notas_telefone
-                  FROM fsdatabases.nos_residencial_propostas_maio b
-                  INNER JOIN fsdatabases.nos_residencial_matriz_decisao_maio a ON a." . $propostas[$nr] . " = b.grupo AND a.tecnologia=b.tecnologia
+                  FROM fsdatabases.nos_residencial_propostas_maio_segunda b
+                  INNER JOIN fsdatabases.nos_residencial_matriz_maio_segunda_ok a ON a." . $propostas[$nr] . " = b.grupo AND a.tecnologia=b.tecnologia
                   where $where ";
 
 
