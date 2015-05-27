@@ -40,8 +40,8 @@ switch ($action) {
 
     case "SaveNegativo":
         $db = $DBs->Get("NOS_Residencial");
-        $dados = filter_var_array($REQVARS["dados_chamada"]);
-        echo json_encode(Script::savesaveNegativo($db, $dados));
+        $dados = filter_var_array($REQVARS["dados_chamada_negativos"]);
+        echo json_encode(Script::saveNegativo($db, $dados));
         break;
 
     default:
@@ -85,9 +85,9 @@ Class Script
 
         try {
             if (APP_TYPE == 'DEV'){
-                $sqlInsercao = 'INSERT INTO [dbo].[FIN_NEGAS_TST] (' . $oVars["keys"] . ') VALUES (' . $oVars["vals"] . ')';
+                $sqlInsercao = 'INSERT INTO [dbo].[FIN_NEGATIVOS_TST] (' . $oVars["keys"] . ') VALUES (' . $oVars["vals"] . ')';
             } else {
-                $sqlInsercao = 'INSERT INTO [dbo].[FIN_NEGAS] (' . $oVars["keys"] . ') VALUES (' . $oVars["vals"] . ')';
+                $sqlInsercao = 'INSERT INTO [dbo].[FIN_NEGATIVOS] (' . $oVars["keys"] . ') VALUES (' . $oVars["vals"] . ')';
             }
 
             $stmt = $db->prepare($sqlInsercao);
@@ -311,8 +311,8 @@ Class Script
                         notas_net_movel,
                         notas_net,
                         notas_telefone
-                  FROM fsdatabases.nos_residencial_propostas_maio b
-                  INNER JOIN fsdatabases.nos_residencial_matriz_decisao_maio a ON a." . $propostas[$nr] . " = b.grupo AND a.tecnologia=b.tecnologia
+                  FROM fsdatabases.nos_residencial_propostas_maio_segunda b
+                  INNER JOIN fsdatabases.nos_residencial_matriz_maio_segunda_ok a ON a." . $propostas[$nr] . " = b.grupo AND a.tecnologia=b.tecnologia
                   where $where ";
 
 

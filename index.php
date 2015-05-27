@@ -153,7 +153,6 @@ if (APP_TYPE == 'DEV') {
 
     <div class="row">
 
-
         <div class="col-md-6 panel panel-default">
             <div class="row">
                 <div class="col-xs-3"><img src="img/cliente/cliente_logo.png">
@@ -163,8 +162,6 @@ if (APP_TYPE == 'DEV') {
                     <?php if (APP_TYPE == 'DEV')
                         echo '<div role="alert" class="alert alert-danger">' . APP_TYPE . ' :: ' . APP_LASTUPDATE . '</div>';
                     ?>
-
-
                 </div>
             </div>
         </div>
@@ -180,9 +177,16 @@ if (APP_TYPE == 'DEV') {
 
         <div class="col-md-3 panel panel-default">
 
-            <!--<p class="lead">Acçoes</p>
-            <button type="button" class="btn btn-sm btn-danger" id="fechar_negativo">Fechar Negativo</button>
-            <br>-->
+            <div class="form-group">
+                <label
+                    for="negativo_datafidelizacao">Caso cliente esteja fidelizado, indicar data de fidelização do actual serviço:</label>
+                <input type="text" class="form-control input-sm" id="negativo_datafidelizacao">
+            </div>
+            <p>
+                <button type="button" class="btn btn-sm btn-danger" id="fechar_negativo">Fechar Negativo</button>
+                <!--<button type="button" class="btn btn-sm btn-info" id="testes">testes</button>-->
+            </p>
+
         </div>
         <!-- End header -->
     </div>
@@ -200,7 +204,6 @@ if (APP_TYPE == 'DEV') {
                 <?php
 
                 #echo getFooter();
-
                 if (APP_TYPE == 'DEV')
                     echo ' > ' . APP_TYPE . ' :: ' . APP_LASTUPDATE;
 
@@ -246,44 +249,13 @@ if (APP_TYPE == 'DEV') {
     <script src="js/app6.js"></script>
     <script src="js/controller.js"></script>
 
-
-
-
     <script>
 
+        $("#negativo_datafidelizacao").datetimepicker({
+            format: "YYYY-MM-DD"
+        })
 
-        function fnSubmeterNegativo() {
-            return new Promise(function (resolve, reject) {
-
-                $.post("ajax/request.php",
-                    {
-                        action: "SaveNegativo",
-                        dados_chamada: oVars
-                    },
-                    function (bOk) { // recebendo ok / true do request::fnSave, fechar interaccao
-                        console.log(bOk);
-                        //global
-                        if(bOk)
-                            controller.setOk(); // dá indicação à FSCONTACT que a venda terminou
-                        resolve()
-
-                    }, "json")
-                    .fail(function (Ex) {
-                        //Erro no save
-                        reject(Ex)
-                    })
-
-            })
-        }
-
-        $("#fechar_negativo").click(function () {
-           //fnSubmeterNegativo()
-            //bootbox.alert("ds");
-            window.open("http://fscontact:60001/gravarNegativos.php?id=<?= $oVars->telefone ?>");
-        });
-
-
-        </script>
+    </script>
 
 </body>
 </html>
