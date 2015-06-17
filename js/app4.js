@@ -1,6 +1,7 @@
 /**
  * Created by vitor.correia on 16-04-2015.
  * TODO Arranjar tabelas auxiliares para concelhos e localidades
+ * TODO numero_cartoes_agregados_servico_actual não grava quando é negativo??
  *
  */
 
@@ -149,6 +150,7 @@ var app4 = (function () {
             nome_cliente_expedicao: jqC.find("#dados_nome_cliente_expedicao").val(),
             sobrenome_cliente_expedicao: jqC.find("#dados_sobrenome_cliente_expedicao").val(),
             agregado_familiar_expedicao: jqC.find("#dados_agregado_familiar_expedicao").val(),
+            numero_cartoes_agregados_servico_actual: jqC.find("#dados_numero_cartoes_agregados_servico_actual").val(),
             telefone_preferencial_expedicao: jqC.find("#dados_telefone_preferencial_expedicao").val(),
             telefone_alternativo_expedicao: jqC.find("#dados_telefone_alternativo_expedicao").val(),
             cp_cliente_expedicao: jqC.find("#dados_cp_cliente_expedicao").val(),
