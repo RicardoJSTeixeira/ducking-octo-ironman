@@ -311,9 +311,9 @@ var app3 = (function () {
                 <label for='quantas_boxes'>Quantas box?</label>\
                 <select id='quantas_boxes' required class='form-control input-sm required'>\
                     <option value=''>[Seleccione uma opção]</option>\
+                    <option value='0'>1</option>\
                     <option value='1'>1</option>\
                     <option value='2'>2</option>\
-                    <option value='3'>3</option>\
                 </select>\
             </div>\
             <ul>\
