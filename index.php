@@ -24,6 +24,7 @@ $oVars = (object)[
 
 
 if (APP_TYPE == 'DEV') {
+
     $oVars = (object)[
         "uuid" => "fscontact_uuid",
         "contact_id" => "contact_id_TST",
@@ -39,6 +40,12 @@ if (APP_TYPE == 'DEV') {
         "databasename" => "lista-tst",
         "phone" => "936796196"
     ];
+
+
+    // Tracy Debugger
+    /*include 'inc/tracy-2.3.3/src/tracy.php';
+    use Tracy\Debugger;
+    Debugger::enable();*/
 }
 
 
