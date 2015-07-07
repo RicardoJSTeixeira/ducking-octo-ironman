@@ -3,6 +3,13 @@
 include 'inc/vars.inc.php';
 include 'inc/func.inc.php';
 
+// Tracy Debugger
+require 'inc/tracy/src/tracy.php';
+use Tracy\Debugger;
+Debugger::enable(Debugger::DEVELOPMENT);
+
+Debugger::$email = 'vcorreiaconnecta@gmail.com';
+
 
 // Ler variáveis vindas da GoContact
 // Estes campos TÊM de existir na FIN
@@ -41,11 +48,6 @@ if (APP_TYPE == 'DEV') {
         "phone" => "936796196"
     ];
 
-
-    // Tracy Debugger
-    include 'inc/tracy/src/tracy.php';
-    //use Tracy\Debugger;
-    //Debugger::enable();
 }
 
 
