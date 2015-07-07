@@ -43,9 +43,9 @@ if (APP_TYPE == 'DEV') {
 
 
     // Tracy Debugger
-    /*include 'inc/tracy-2.3.3/src/tracy.php';
-    use Tracy\Debugger;
-    Debugger::enable();*/
+    include 'inc/tracy/src/tracy.php';
+    //use Tracy\Debugger;
+    //Debugger::enable();
 }
 
 
