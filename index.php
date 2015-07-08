@@ -4,11 +4,11 @@ include 'inc/vars.inc.php';
 include 'inc/func.inc.php';
 
 // Tracy Debugger
-require 'inc/tracy/src/tracy.php';
+/*require 'inc/tracy/src/tracy.php';
 use Tracy\Debugger;
 Debugger::enable(Debugger::DEVELOPMENT);
 
-Debugger::$email = 'vcorreiaconnecta@gmail.com';
+Debugger::$email = 'vcorreiaconnecta@gmail.com';*/
 
 
 // Ler variáveis vindas da GoContact
