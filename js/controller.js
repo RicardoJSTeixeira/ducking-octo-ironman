@@ -111,11 +111,14 @@ var controller = (function () {
         return new Promise(function (resolve, reject) {
 
             datafidelizacao_negativo = $("#negativo_datafidelizacao").val(); // atribuição directa no $.extend não está a funcionar!!
+            autoriza_gravacao_paragravar = $("[name=autoriza_gravacao]:checked").val();
 
             oPageData = $.extend(
                 oPageData,
                 {
-                    negativo_datafidelizacao: datafidelizacao_negativo
+                    negativo_datafidelizacao: datafidelizacao_negativo,
+                    autoriza_gravacao: autoriza_gravacao_paragravar
+
                 });
 
 
