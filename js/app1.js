@@ -43,13 +43,20 @@ var app1 = (function () {
 
         jsC.find("[name=autoriza_gravacao]").click(function () {
 
-            jsC.find("#pag1_continuar").show();
-
+                jsC.find("#pag1_continuar").show();
         });
 
 //next pag
         jsC.find("#pag1_continuar").click(function () {
-            fnNextPag();
+
+            autoriza = $("[name=autoriza_gravacao]:checked").val();
+
+            if (typeof autoriza == 'undefined'){ // testar se não seleccionaram nenhuma opção
+                bootbox.alert("INDIQUE SE AUTORIZA A CHAMADA!");
+                return;
+            } else {
+                fnNextPag();
+            }
         });
 
     }

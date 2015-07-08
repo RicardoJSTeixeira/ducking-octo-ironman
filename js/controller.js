@@ -111,13 +111,18 @@ var controller = (function () {
         return new Promise(function (resolve, reject) {
 
             datafidelizacao_negativo = $("#negativo_datafidelizacao").val(); // atribuição directa no $.extend não está a funcionar!!
-            autoriza_gravacao_paragravar = $("[name=autoriza_gravacao]:checked").val();
+
+            nome_novarecolha = $("#nome_cliente").val();
+            contacto_cliente_novarecolha = $("[name=contacto_cliente]:checked").val();
+            autoriza_gravacao_novarecolha = $("[name=autoriza_gravacao]:checked").val();
 
             oPageData = $.extend(
                 oPageData,
                 {
                     negativo_datafidelizacao: datafidelizacao_negativo,
-                    autoriza_gravacao: autoriza_gravacao_paragravar
+                    pag1_nome: nome_novarecolha,
+                    pag1_contacto_cliente : contacto_cliente_novarecolha,
+                    pag1_autoriza_gravacao: autoriza_gravacao_novarecolha
 
                 });
 
@@ -154,7 +159,17 @@ var controller = (function () {
 
 
     $("#fechar_negativo").click(function () {
-        fnSubmeterNegativo()
+
+        autoriza = $("[name=autoriza_gravacao]:checked").val();
+
+        if (typeof autoriza == 'undefined'){ // testar se não seleccionaram nenhuma opção
+            bootbox.alert("INDIQUE SE AUTORIZA A CHAMADA!");
+            return;
+        } else {
+            fnSubmeterNegativo();
+        }
+
+
     });
 
     /*$("#testes").click(function () {
