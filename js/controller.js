@@ -110,19 +110,26 @@ var controller = (function () {
     function fnSubmeterNegativo() {
         return new Promise(function (resolve, reject) {
 
+
+            /*
+                Se o top passar da primeira página, o oPageData já vai conter
+                estas variaveis. Ao clicar em gravar vai dar erro, por haver
+                colunas duplicadas.
+             */
+
             datafidelizacao_negativo = $("#negativo_datafidelizacao").val(); // atribuição directa no $.extend não está a funcionar!!
 
-            nome_novarecolha = $("#nome_cliente").val();
-            contacto_cliente_novarecolha = $("[name=contacto_cliente]:checked").val();
-            autoriza_gravacao_novarecolha = $("[name=autoriza_gravacao]:checked").val();
+            //nome_novarecolha = $("#nome_cliente").val();
+            //contacto_cliente_novarecolha = $("[name=contacto_cliente]:checked").val();
+            //autoriza_gravacao_novarecolha = $("[name=autoriza_gravacao]:checked").val();
 
             oPageData = $.extend(
                 oPageData,
                 {
-                    negativo_datafidelizacao: datafidelizacao_negativo,
-                    pag1_nome: nome_novarecolha,
-                    pag1_contacto_cliente : contacto_cliente_novarecolha,
-                    pag1_autoriza_gravacao: autoriza_gravacao_novarecolha
+                    negativo_datafidelizacao: datafidelizacao_negativo
+                    //pag1_nome: nome_novarecolha,
+                    //pag1_contacto_cliente : contacto_cliente_novarecolha,
+                    //pag1_autoriza_gravacao: autoriza_gravacao_novarecolha
 
                 });
 
