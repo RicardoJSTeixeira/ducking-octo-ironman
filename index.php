@@ -167,9 +167,12 @@ if (APP_TYPE == 'DEV') {
                 <div class="col-xs-3"><img src="img/cliente/cliente_logo.png">
 
                 </div>
-                <div class="col-xs-6" id="header">
-                    <?php if (APP_TYPE == 'DEV')
-                        echo '<div role="alert" class="alert alert-danger">' . APP_TYPE . ' :: ' . APP_LASTUPDATE . '</div>';
+                <div class="col-xs-3" id="header">
+                    <?php if (APP_TYPE == 'DEV'){
+                        echo '<div role="alert" class="alert alert-danger">' . APP_VERSION . ' ' . APP_LASTUPDATE . '</div>';
+                    } else {
+                        echo '<div role="alert" class="alert alert-success text-center">' . APP_VERSION . '</div>';
+                    }
                     ?>
                 </div>
             </div>
@@ -193,7 +196,10 @@ if (APP_TYPE == 'DEV') {
             </div>
             <p>
                 <button type="button" class="btn btn-sm btn-danger" id="fechar_negativo">Fechar Negativo</button>
-                <!--<button type="button" class="btn btn-sm btn-info" id="testes">testes</button>-->
+
+                <?php if (APP_TYPE == 'DEV'){ ?>
+                    <button type="button" class="btn btn-sm btn-info" id="testes">testes</button>
+                <?php } ?>
             </p>
 
         </div>

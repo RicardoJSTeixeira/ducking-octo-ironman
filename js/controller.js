@@ -112,28 +112,46 @@ var controller = (function () {
 
 
             /*
-                Se o top passar da primeira página, o oPageData já vai conter
-                estas variaveis. Ao clicar em gravar vai dar erro, por haver
-                colunas duplicadas.
+
+             TODO testar em que página estou; se já passei da primeira não adicionar os campos da _novarecolha
+
+             Se o top passar da primeira página, o oPageData já vai conter
+             estas variaveis. Ao clicar em gravar vai dar erro, por haver
+             colunas duplicadas.
+
              */
 
-            // TODO testar em que página estou; se já passei da primeira não adicionar os campos da _novarecolha
 
-            datafidelizacao_negativo = $("#negativo_datafidelizacao").val(); // atribuição directa no $.extend não está a funcionar!!
+            if ($('#perfil_entrada').length > 0) {
 
-            //nome_novarecolha = $("#nome_cliente").val();
-            //contacto_cliente_novarecolha = $("[name=contacto_cliente]:checked").val();
-            //autoriza_gravacao_novarecolha = $("[name=autoriza_gravacao]:checked").val();
+                datafidelizacao_negativo = $("#negativo_datafidelizacao").val(); // atribuição directa no $.extend não está a funcionar!!
 
-            oPageData = $.extend(
-                oPageData,
-                {
-                    negativo_datafidelizacao: datafidelizacao_negativo
-                    //pag1_nome: nome_novarecolha,
-                    //pag1_contacto_cliente : contacto_cliente_novarecolha,
-                    //pag1_autoriza_gravacao: autoriza_gravacao_novarecolha
+                oPageData = $.extend(
+                    oPageData,
+                    {
+                        negativo_datafidelizacao: datafidelizacao_negativo
 
-                });
+                    });
+
+            } else {
+
+                datafidelizacao_negativo = $("#negativo_datafidelizacao").val(); // atribuição directa no $.extend não está a funcionar!!
+
+                nome_novarecolha = $("#nome_cliente").val();
+                contacto_cliente_novarecolha = $("[name=contacto_cliente]:checked").val();
+                autoriza_gravacao_novarecolha = $("[name=autoriza_gravacao]:checked").val();
+
+                oPageData = $.extend(
+                    oPageData,
+                    {
+                        negativo_datafidelizacao: datafidelizacao_negativo,
+                        pag1_nome: nome_novarecolha,
+                        pag1_contacto_cliente : contacto_cliente_novarecolha,
+                        pag1_autoriza_gravacao: autoriza_gravacao_novarecolha
+
+                    });
+
+            }
 
 
             $.post("ajax/request.php",
@@ -171,7 +189,7 @@ var controller = (function () {
 
         autoriza = $("[name=autoriza_gravacao]:checked").val();
 
-        if (typeof autoriza == 'undefined'){ // testar se não seleccionaram nenhuma opção
+        if (typeof autoriza == 'undefined') { // testar se não seleccionaram nenhuma opção
             bootbox.alert("INDIQUE SE AUTORIZA A CHAMADA!");
             return;
         } else {
@@ -181,13 +199,25 @@ var controller = (function () {
 
     });
 
-    /*$("#testes").click(function () {
-        //alert($("#negativo_datafidelizacao").val());
+    $("#testes").click(function () {
 
-        jqC = $("#negativo_datafidelizacao").val();
-        alert(jqC);
+        /*
+        * Testar se element existe:
+        *
+        * if ($('#estou_na_primeira_pagina').length > 0) {
+        *    // existe
+        * }
+        *
+        * */
 
-    });*/
+
+        if ($('#perfil_entrada').length > 0) {
+            bootbox.alert("Já passámos da primeira página");
+        } else {
+            bootbox.alert("Não sei onde estou!");
+        }
+
+    });
 
 
     return {
