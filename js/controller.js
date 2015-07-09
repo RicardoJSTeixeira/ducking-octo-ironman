@@ -117,6 +117,8 @@ var controller = (function () {
                 colunas duplicadas.
              */
 
+            // TODO testar em que página estou; se já passei da primeira não adicionar os campos da _novarecolha
+
             datafidelizacao_negativo = $("#negativo_datafidelizacao").val(); // atribuição directa no $.extend não está a funcionar!!
 
             //nome_novarecolha = $("#nome_cliente").val();
