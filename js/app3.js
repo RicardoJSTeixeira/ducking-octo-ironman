@@ -118,6 +118,9 @@ var app3 = (function () {
 
         });
 
+
+
+
     }
 
     function fnGetSelectedProposta() {
@@ -307,22 +310,81 @@ var app3 = (function () {
             <p>{{pacote}}</p>\
             <p>Preço 13-24 meses: {{mens_13a24}}</p>\
             <p>Preço > 24 meses: {{mens_24}}</p>\
-            <div class=form-group'>\
+            <div class='form-group'>\
                 <label for='quantas_boxes'>Quantas box?</label>\
                 <select id='quantas_boxes' required class='form-control input-sm required'>\
                     <option value=''>[Seleccione uma opção]</option>\
-                    <option value='0'>1</option>\
+                    <option value='0'>0</option>\
                     <option value='1'>1</option>\
                     <option value='2'>2</option>\
                 </select>\
             </div>\
+            <!--umabox_inicio-->\
+            <div id='uma_box' style='display:none'>\
+                <h4>Uma box</h4>\
+                <div class='form-group'>\
+                    <label for='uma_box_tipo_de_box'>Tipo de box?</label>\
+                    <select id='uma_box_tipo_de_box' required class='form-control input-sm required'>\
+                        <option value=''>[Seleccione uma opção]</option>\
+                        <option value='HD'>HD</option>\
+                        <option value='HD+DVR'>HD+DVR</option>\
+                    </select>\
+                </div>\
+                    <div class='form-group'>\
+                    <label for='uma_box_regime'>Regime?</label>\
+                    <select id='uma_box_regime' required class='form-control input-sm required'>\
+                        <option value=''>[Seleccione uma opção]</option>\
+                        <option value='Aluguer'>Aluguer</option>\
+                        <option value='Compra'>Compra</option>\
+                    </select>\
+                </div>\
+            </div>\
+            <!--umabox_fim-->\
+            <!--duasboxes_inicio-->\
+            <div id='duas_boxes' style='display:none'>\
+                <h4>Duas boxes</h4>\
+                <h5>Normal</h5>\
+                <div class='form-group'>\
+                    <label for='duas_boxes_normal_tipo_de_box'>Tipo de box?</label>\
+                    <select id='duas_boxes_normal_tipo_de_box' required class='form-control input-sm required'>\
+                        <option value=''>[Seleccione uma opção]</option>\
+                        <option value='HD'>HD</option>\
+                        <option value='HD+DVR'>HD+DVR</option>\
+                    </select>\
+                </div>\
+                    <div class='form-group'>\
+                    <label for='duas_boxes_normal_regime'>Regime?</label>\
+                    <select id='duas_boxes_normal_regime' required class='form-control input-sm required'>\
+                        <option value=''>[Seleccione uma opção]</option>\
+                        <option value='Aluguer'>Aluguer</option>\
+                        <option value='Compra'>Compra</option>\
+                    </select>\
+                </div>\
+                <h5>Extra</h5>\
+                <div class='form-group'>\
+                    <label for='duas_boxes_extra_tipo_de_box'>Tipo de box?</label>\
+                    <select id='duas_boxes_extra_tipo_de_box' required class='form-control input-sm required'>\
+                        <option value=''>[Seleccione uma opção]</option>\
+                        <option value='HD'>HD</option>\
+                        <option value='HD+DVR'>HD+DVR</option>\
+                    </select>\
+                </div>\
+                    <div class='form-group'>\
+                    <label for='duas_boxes_extra_regime'>Regime?</label>\
+                    <select id='duas_boxes_extra_regime' required class='form-control input-sm required'>\
+                        <option value=''>[Seleccione uma opção]</option>\
+                        <option value='Aluguer'>Aluguer</option>\
+                        <option value='Compra'>Compra</option>\
+                    </select>\
+                </div>\
+            </div>\
+            <!--duasboxes_fim-->\
             <ul>\
                 <li>Informar o cliente sobre o direito de exercer a livre resolução do contrato no prazo de 14 dias.</li>\
                 <li>Sobre o período de fidelização</li>\
                 <li>Sobre a data de instalação N+3</li>\
                 <li>Sobre a data de entrega dos cartões via CTT</li>\
                 <li>Sobre a necessidade de telemóvel desbloqueado à rede OPT</li>\
-                <li>Se tem altera tarifário móvel NOS: O valor do saldo que tem no cartão mantêm-se, para gastar em aditivos.</li>\
             </ul>\
             <strong>Em continuação deve inserir as informações pessoais do cliente.</strong> \
             <hr>\
@@ -368,6 +430,32 @@ var app3 = (function () {
         jqB.on("shown.bs.modal", function () {
             jqB.clearQueue().stop().animate({scrollTop: 0}, 100)
         })
+
+        $("#uma_box").hide();
+        $("#duas_boxes").hide();
+
+
+        $("#quantas_boxes" ).change(function() {
+
+            var sSeleccaoBoxes = $('#quantas_boxes').find(":selected").text();
+
+            if ('0' === sSeleccaoBoxes){
+                $("#uma_box").hide();
+                $("#duas_boxes").hide();
+            }
+
+            if ('1' === sSeleccaoBoxes){
+                $("#uma_box").show();
+                $("#duas_boxes").hide();
+            }
+
+            if ('2' === sSeleccaoBoxes){
+                $("#duas_boxes").show();
+                $("#uma_box").hide();
+            }
+
+        });
+
     }
 
     function fnGetValues() {
@@ -402,6 +490,11 @@ var app3 = (function () {
         else
             fnGetDados(0, true)
     }
+
+
+
+
+
 
     return {
         init: fnInit,

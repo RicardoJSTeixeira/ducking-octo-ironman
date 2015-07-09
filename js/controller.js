@@ -113,7 +113,7 @@ var controller = (function () {
 
             /*
 
-             TODO testar em que página estou; se já passei da primeira não adicionar os campos da _novarecolha
+             Testar em que página estou; se já passei da primeira não adicionar os campos da _novarecolha.
 
              Se o top passar da primeira página, o oPageData já vai conter
              estas variaveis. Ao clicar em gravar vai dar erro, por haver
