@@ -148,7 +148,6 @@ var controller = (function () {
                         pag1_nome: nome_novarecolha,
                         pag1_contacto_cliente : contacto_cliente_novarecolha,
                         pag1_autoriza_gravacao: autoriza_gravacao_novarecolha
-
                     });
 
             }

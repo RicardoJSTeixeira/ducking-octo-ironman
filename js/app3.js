@@ -379,7 +379,7 @@ var app3 = (function () {
                 </div>\
             </div>\
             <!--duasboxes_fim-->\
-            <ul>\
+            <hr><ul>\
                 <li>Informar o cliente sobre o direito de exercer a livre resolução do contrato no prazo de 14 dias.</li>\
                 <li>Sobre o período de fidelização</li>\
                 <li>Sobre a data de instalação N+3</li>\
