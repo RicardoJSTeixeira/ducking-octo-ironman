@@ -15,6 +15,14 @@ var app3 = (function () {
     var cliente_aceita_observacoes;
     var quantas_boxes;
 
+    // Adicionado a 2015-07-13
+    var uma_box_tipo_de_box;
+    var uma_box_regime;
+    var duas_boxes_normal_tipo_de_box;
+    var duas_boxes_normal_regime;
+    var duas_boxes_extra_tipo_de_box;
+    var duas_boxes_extra_regime;
+
     var sTemplate;
 
     var sInfoClienteTemplate = '<table>\
@@ -413,6 +421,12 @@ var app3 = (function () {
                         //globais ao app3
                         cliente_aceita_observacoes = jqCAO.val();
                         quantas_boxes = jqQB.val();
+                        uma_box_tipo_de_box = $("#uma_box_tipo_de_box").val();
+                        uma_box_regime = $("#uma_box_regime").val();
+                        duas_boxes_normal_tipo_de_box = $("#duas_boxes_normal_tipo_de_box").val();
+                        duas_boxes_normal_regime = $("#duas_boxes_normal_regime").val();
+                        duas_boxes_extra_tipo_de_box = $("#duas_boxes_extra_tipo_de_box").val();
+                        duas_boxes_extra_regime = $("#duas_boxes_extra_regime").val();
 
                         fnNextPag();
                     }
@@ -462,7 +476,13 @@ var app3 = (function () {
         return {
             proposta: fnGetSelectedProposta(),
             cliente_aceita_observacoes: cliente_aceita_observacoes,
-            quantas_boxes: quantas_boxes
+            quantas_boxes: quantas_boxes,
+            uma_box_tipo_de_box: uma_box_tipo_de_box,
+            uma_box_regime: uma_box_regime,
+            duas_boxes_normal_tipo_de_box: duas_boxes_normal_tipo_de_box,
+            duas_boxes_normal_regime: duas_boxes_normal_regime,
+            duas_boxes_extra_tipo_de_box: duas_boxes_extra_tipo_de_box,
+            duas_boxes_extra_regime: duas_boxes_extra_regime
         }
     }
 
