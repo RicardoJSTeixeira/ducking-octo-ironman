@@ -113,7 +113,7 @@ var controller = (function () {
 
             /*
 
-             TODO testar em que página estou; se já passei da primeira não adicionar os campos da _novarecolha
+             Testar em que página estou; se já passei da primeira não adicionar os campos da _novarecolha.
 
              Se o top passar da primeira página, o oPageData já vai conter
              estas variaveis. Ao clicar em gravar vai dar erro, por haver
@@ -148,7 +148,6 @@ var controller = (function () {
                         pag1_nome: nome_novarecolha,
                         pag1_contacto_cliente : contacto_cliente_novarecolha,
                         pag1_autoriza_gravacao: autoriza_gravacao_novarecolha
-
                     });
 
             }
