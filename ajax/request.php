@@ -1,8 +1,11 @@
 <?php
 
-/*
-* @author Vitor Correia
-*/
+/**
+ * @package NOS_Residencial
+ * @author  Vitor Correia
+ * @copyright Copyright (c)2015 Connecta Group
+ * @license GNU General Public License version 2 or later
+ */
 
 //error_reporting(E_ALL);
 error_reporting(E_ALL ^ E_NOTICE);
@@ -315,8 +318,8 @@ Class Script
                         notas_net_movel,
                         notas_net,
                         notas_telefone
-                  FROM fsdatabases.nos_residencial_propostas_maio_segunda b
-                  INNER JOIN fsdatabases.nos_residencial_matriz_maio_segunda_ok a ON a." . $propostas[$nr] . " = b.grupo AND a.tecnologia=b.tecnologia
+                  FROM fsdatabases.nos_residencial_propostas_julho_vintequatro b
+                  INNER JOIN fsdatabases.nos_residencial_matriz_julho_vintequatro a ON a." . $propostas[$nr] . " = b.grupo AND a.tecnologia=b.tecnologia
                   where $where ";
 
 

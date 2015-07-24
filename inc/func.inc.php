@@ -1,12 +1,11 @@
 <?php
 
-/*
-
-@author Vitor Correia
-@lastupdate 201504190039
-
-*/
-
+/**
+ * @package NOS_Residencial
+ * @author  Vitor Correia
+ * @copyright Copyright (c)2015 Connecta Group
+ * @license GNU General Public License version 2 or later
+ */
 
 function getFooter()
 {
